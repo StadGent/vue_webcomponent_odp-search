@@ -1,29 +1,26 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <div id="app" class="cs--cyan">
+    <odp-master-detail source=""
+                       dataset="/mockdata/ods.json?"
+                       :form-fields="[
+                         { label: 'veld 1', column: 'kolom_1', options: [{value: 'optie1', name: 'optie één'}, {value: 'optie2', name: 'optie twee'}]},
+                         { label: 'veld 2', column: 'kolom_2', options: [{value: 'optie1', name: 'optie één'}, {value: 'optie2', name: 'optie twee'}]}
+                       ]"
+                       style="max-width: 1280px; margin: auto"></odp-master-detail>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import HelloWorld from './components/HelloWorld.vue'
+import OdpMasterDetail from './components/OdpMasterDetail.vue'
 
 export default Vue.extend({
   name: 'App',
   components: {
-    HelloWorld
+    OdpMasterDetail
   }
 })
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>

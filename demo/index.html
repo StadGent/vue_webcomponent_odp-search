@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DG ODS display demo</title>
+    <script src="../dist/odp-search.min.js"></script>
+    <style>
+        @font-face {
+            font-family: "gent-icons-v4";
+            src: url('../dist/fonts/gent-icons.woff2') format('woff2'),
+            url('../dist/fonts/gent-icons.woff') format('woff');;
+        }
+    </style>
+</head>
+<body>
+<div style="margin-bottom: 4rem;">
+    <p>Kies een andere dataset als voorbeeld. Klik daarna op 'Zoeken'.</p>
+
+    <button id="ods">Dataset met alle velden</button>
+    <button id="ods-no-img">Dataset zonder afbeeldingen</button>
+</div>
+
+
+<div style="max-width: 1290px; margin: auto">
+    <odp-search id="odp-search"
+                source=""
+                dataset="../public/mockdata/ods.json?">
+        Your browser is not supported.
+    </odp-search>
+</div>
+
+<script>
+  customElements.whenDefined('odp-search').then(() => {
+    const odpSearch = document.getElementById('odp-search');
+    const ods = document.getElementById('ods');
+    const odsNoImg = document.getElementById('ods-no-img');
+
+    odpSearch.formFields = [
+      { label: 'veld 1', column: 'kolom_1', options: [{value: 'optie1', name: 'optie één'}, {value: 'optie2', name: 'optie twee'}]},
+      { label: 'veld 2', column: 'kolom_2', options: [{value: 'optie1', name: 'optie één'}, {value: 'optie2', name: 'optie twee'}]}
+    ];
+    ods.addEventListener('click', function () {odpSearch.dataset='../public/mockdata/ods.json?'})
+    odsNoImg.addEventListener('click', function () {odpSearch.dataset='../public/mockdata/ods-no-img.json?'})
+  });
+</script>
+
+</body>
+</html>

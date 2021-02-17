@@ -24,8 +24,9 @@
         <button type="submit" class="button button-secondary icon-search icon-left">Zoeken</button>
       </form>
 
-      <ul v-if="items.length" class="grid-3" tabindex="-1" ref="grid">
+      <ul v-if="items.length" :style="horizontal ? 'margin-left: 0' : null" :class="horizontal ? null : 'grid-3'" tabindex="-1" ref="grid">
         <teaser v-for="(i, index) in items" @selected="setTrigger($event)" :teaser="i"
+                :horizontal="horizontal"
                 :key="'teaser'+index"></teaser>
       </ul>
 
@@ -70,6 +71,10 @@ export default Vue.extend({
     query: {
       type: String,
       default: 'Inhoud'
+    },
+    horizontal: {
+      type: Boolean,
+      default: false
     },
     formFields: {
       type: Array as PropType<FormField[]>,

@@ -24,6 +24,8 @@
         <button type="submit" class="button button-secondary icon-search icon-left">Zoeken</button>
       </form>
 
+      <odp-map class="mb-20"></odp-map>
+
       <ul v-if="items.length" :style="horizontal ? 'margin-left: 0' : null" :class="horizontal ? null : 'grid-3'" tabindex="-1" ref="grid">
         <teaser v-for="(i, index) in items" @selected="setTrigger($event)" :teaser="i"
                 :horizontal="horizontal"
@@ -50,12 +52,13 @@ import Teaser from '@/components/Teaser.vue'
 import { Dataset } from '@/types/dataset'
 import { FormField } from '@/types/formField'
 import { Row } from '@/types/row'
-import Detail from '@/components/Detail.vue'
+import('@/components/Detail.vue')
 
 export default Vue.extend({
   name: 'OdpMasterDetail',
   components: {
-    Detail,
+    Detail: () => import('@/components/Detail.vue'),
+    OdpMap: () => import('@/components/Map.vue'),
     Teaser,
     Pagination
   },

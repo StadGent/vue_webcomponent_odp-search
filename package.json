@@ -9,9 +9,11 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "ol": "^6.5.0",
     "vue": "^2.6.11"
   },
   "devDependencies": {
+    "@types/ol": "^6.4.2",
     "@fullhuman/postcss-purgecss": "^3.0.0",
     "@fullhuman/vue-cli-plugin-purgecss": "~4.0.0",
     "@typescript-eslint/eslint-plugin": "^2.33.0",

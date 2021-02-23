@@ -24,7 +24,7 @@
         <button type="submit" class="button button-secondary icon-search icon-left">Zoeken</button>
       </form>
 
-      <odp-map class="mb-20"></odp-map>
+      <odp-map class="mb-20" :items="items"></odp-map>
 
       <ul v-if="items.length" :style="horizontal ? 'margin-left: 0' : null" :class="horizontal ? null : 'grid-3'" tabindex="-1" ref="grid">
         <teaser v-for="(i, index) in items" @selected="setTrigger($event)" :teaser="i"
@@ -52,6 +52,7 @@ import Teaser from '@/components/Teaser.vue'
 import { Dataset } from '@/types/dataset'
 import { FormField } from '@/types/formField'
 import { Row } from '@/types/row'
+
 import('@/components/Detail.vue')
 
 export default Vue.extend({
@@ -112,6 +113,10 @@ export default Vue.extend({
   computed: {
     page (): number {
       return Math.floor(this.offset / 12) + 1
+    },
+    hasMap (): boolean {
+      const first = (this.items[0]) as Row
+      return first && !!first.geolocatie
     }
   },
   methods: {
@@ -206,7 +211,7 @@ export default Vue.extend({
       }
 
       const docFontSizeAdjust = 20 / docFontSize
-      const { shadowRoot } = this.$parent.$options as { shadowRoot: ShadowRoot}
+      const { shadowRoot } = this.$parent.$options as { shadowRoot: ShadowRoot }
       const sheets = shadowRoot.styleSheets
 
       const changeRule = (rule: CSSRule) => {

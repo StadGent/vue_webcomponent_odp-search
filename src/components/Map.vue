@@ -1,12 +1,16 @@
 <template>
-  <div ref="map" tabindex="0"
-       style="width: 100%; height: 600px">
+  <div>
+    <div ref="map" tabindex="0"
+         style="width: 100%; height: 600px">
+    </div>
+    <div ref="overlay">test</div>
   </div>
+
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import { fromLonLat, get as getProjection } from 'ol/proj'
+import Vue, { PropType } from 'vue'
+import { fromLonLat, get as getProjection, transform } from 'ol/proj'
 import WMTSTileGrid from 'ol/tilegrid/WMTS'
 import { getTopLeft, getWidth } from 'ol/extent'
 import WMTS from 'ol/source/WMTS'
@@ -14,17 +18,27 @@ import BaseLayer from 'ol/layer/Base'
 import View from 'ol/View'
 import Map from 'ol/Map'
 import TileLayer from 'ol/layer/Tile'
+import { Row } from '@/types/row'
 
 // importing the OpenLayers stylesheet is required for having
 // good looking buttons!
 import 'ol/ol.css'
+import { Overlay } from 'ol'
 
 export default Vue.extend({
   name: 'OdpMap',
+  props: {
+    items: {
+      type: Array as PropType<Row[]>,
+      default: () => []
+    }
+  },
   data () {
     return {
       olMap: null as unknown as Map
     }
+  },
+  computed: {
   },
   methods: {
     createStadsplanLayer: function (): BaseLayer {
@@ -55,6 +69,22 @@ export default Vue.extend({
           layer: 'SG-E-Stadsplan:Stadsplan'
         })
       })
+    },
+    addMarkers: function (): void {
+      this.items.forEach((item: Row) => {
+        const marker = this.$refs.overlay as HTMLElement
+        const overlay = new Overlay({
+          id: 'home',
+          position: item.coordinates?.split(',') as unknown as number[],
+          element: marker
+        })
+        this.olMap.addOverlay(overlay)
+        console.log(overlay)
+      })
+    }
+  },
+  watch: {
+    items: function (val): void {
     }
   },
   mounted () {
@@ -69,6 +99,7 @@ export default Vue.extend({
         maxZoom: 21
       })
     })
+    this.addMarkers()
   }
 })
 </script>

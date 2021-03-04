@@ -24,7 +24,25 @@
         <button type="submit" class="button button-secondary icon-search icon-left">Zoeken</button>
       </form>
 
-      <ul v-if="items.length" :style="horizontal ? 'margin-left: 0' : null" :class="horizontal ? null : 'grid-3'" tabindex="-1" ref="grid">
+      <div class="display-switcher">
+        <span>Bekijk de resultaten</span>
+        <ul class="icon-list inline">
+          <li>
+            <i class="icon-document" aria-hidden="true"></i>
+            <a v-show="showMap" href="#" @click="showMap = false">Als lijst</a>
+            <strong v-show="!showMap">Als lijst</strong>
+          </li>
+          <li>
+            <i class="icon-marker" aria-hidden="true"></i>
+            <a v-show="!showMap" href="#" @click="showMap = true">Op kaart</a>
+            <strong v-show="showMap">Op kaart</strong>
+          </li>
+        </ul>
+      </div>
+
+      <odp-map v-if="hasMap" v-show="showMap" class="mb-20" :items="items"></odp-map>
+
+      <ul v-if="items.length" v-show="!showMap"  :style="horizontal ? 'margin-left: 0' : null" :class="horizontal ? null : 'grid-3'" tabindex="-1" ref="grid">
         <teaser v-for="(i, index) in items" @selected="setTrigger($event)" :teaser="i"
                 :horizontal="horizontal"
                 :key="'teaser'+index"></teaser>
@@ -50,12 +68,14 @@ import Teaser from '@/components/Teaser.vue'
 import { Dataset } from '@/types/dataset'
 import { FormField } from '@/types/formField'
 import { Row } from '@/types/row'
-import Detail from '@/components/Detail.vue'
+
+import('@/components/Detail.vue')
 
 export default Vue.extend({
   name: 'OdpMasterDetail',
   components: {
-    Detail,
+    Detail: () => import('@/components/Detail.vue'),
+    OdpMap: () => import('@/components/Map.vue'),
     Teaser,
     Pagination
   },
@@ -98,7 +118,8 @@ export default Vue.extend({
       q: null,
       myFormFields: [] as FormField[],
       selectedRecord: null as (Row | null),
-      trigger: null as (HTMLElement | null)
+      trigger: null as (HTMLElement | null),
+      showMap: false
     }
   },
   watch: {
@@ -109,6 +130,10 @@ export default Vue.extend({
   computed: {
     page (): number {
       return Math.floor(this.offset / 12) + 1
+    },
+    hasMap (): boolean {
+      const first = (this.items[0]) as Row
+      return first && !!first.coordinates
     }
   },
   methods: {
@@ -203,7 +228,7 @@ export default Vue.extend({
       }
 
       const docFontSizeAdjust = 20 / docFontSize
-      const { shadowRoot } = this.$parent.$options as { shadowRoot: ShadowRoot}
+      const { shadowRoot } = this.$parent.$options as { shadowRoot: ShadowRoot }
       const sheets = shadowRoot.styleSheets
 
       const changeRule = (rule: CSSRule) => {
@@ -298,6 +323,10 @@ $styleguide-dir: '../../node_modules/gent_styleguide/build/styleguide';
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
+}
+
+.display-switcher {
+  align-items: center;
 }
 
 </style>

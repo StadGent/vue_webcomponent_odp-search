@@ -4,7 +4,7 @@ export interface Row extends Teaser {
   beschrijving?: string;
   postcode?: string;
   gemeente?: string;
-  geolocatie?: string;
+  coordinates?: string;
   website?: string;
   image_url?: string;
 }

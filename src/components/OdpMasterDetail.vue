@@ -26,18 +26,18 @@
 
       <div class="display-switcher">
         <span>Bekijk de resultaten</span>
-
         <ul class="icon-list inline">
           <li>
             <i class="icon-document" aria-hidden="true"></i>
-            <a href="#" @click="showMap = false">Als lijst</a>
+            <a v-show="showMap" href="#" @click="showMap = false">Als lijst</a>
+            <strong v-show="!showMap">Als lijst</strong>
           </li>
           <li>
             <i class="icon-marker" aria-hidden="true"></i>
-            <a href="#" @click="showMap = true">Op kaart</a>
+            <a v-show="!showMap" href="#" @click="showMap = true">Op kaart</a>
+            <strong v-show="showMap">Op kaart</strong>
           </li>
         </ul>
-
       </div>
 
       <odp-map v-if="hasMap" v-show="showMap" class="mb-20" :items="items"></odp-map>

@@ -24,9 +24,25 @@
         <button type="submit" class="button button-secondary icon-search icon-left">Zoeken</button>
       </form>
 
-      <odp-map class="mb-20" :items="items"></odp-map>
+      <div class="display-switcher">
+        <span>Bekijk de resultaten</span>
 
-      <ul v-if="items.length" :style="horizontal ? 'margin-left: 0' : null" :class="horizontal ? null : 'grid-3'" tabindex="-1" ref="grid">
+        <ul class="icon-list inline">
+          <li>
+            <i class="icon-document" aria-hidden="true"></i>
+            <a href="#" @click="showMap = false">Als lijst</a>
+          </li>
+          <li>
+            <i class="icon-marker" aria-hidden="true"></i>
+            <a href="#" @click="showMap = true">Op kaart</a>
+          </li>
+        </ul>
+
+      </div>
+
+      <odp-map v-if="hasMap" v-show="showMap" class="mb-20" :items="items"></odp-map>
+
+      <ul v-if="items.length" v-show="!showMap"  :style="horizontal ? 'margin-left: 0' : null" :class="horizontal ? null : 'grid-3'" tabindex="-1" ref="grid">
         <teaser v-for="(i, index) in items" @selected="setTrigger($event)" :teaser="i"
                 :horizontal="horizontal"
                 :key="'teaser'+index"></teaser>
@@ -102,7 +118,8 @@ export default Vue.extend({
       q: null,
       myFormFields: [] as FormField[],
       selectedRecord: null as (Row | null),
-      trigger: null as (HTMLElement | null)
+      trigger: null as (HTMLElement | null),
+      showMap: false
     }
   },
   watch: {
@@ -116,7 +133,7 @@ export default Vue.extend({
     },
     hasMap (): boolean {
       const first = (this.items[0]) as Row
-      return first && !!first.geolocatie
+      return first && !!first.coordinates
     }
   },
   methods: {
@@ -306,6 +323,10 @@ $styleguide-dir: '../../node_modules/gent_styleguide/build/styleguide';
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
+}
+
+.display-switcher {
+  align-items: center;
 }
 
 </style>

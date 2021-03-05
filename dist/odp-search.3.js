@@ -7,12 +7,12 @@
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"efe80db6-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Map.vue?vue&type=template&id=75a46a0c&
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('div',{ref:"map",staticClass:"map-container",attrs:{"tabindex":"0"}},[_c('div',{staticClass:"content-container"},[_c('div',{staticClass:"geolocate"},[_c('div',{staticClass:"tools"},[_c('button',{attrs:{"type":"button","aria-label":"Zoom in","title":"Zoom in"},on:{"click":_vm.zoomIn}},[_c('i',{staticClass:"icon-plus",attrs:{"aria-hidden":"true"}})]),_c('button',{attrs:{"type":"button","aria-label":"Zoom uit","title":"Zoom uit"},on:{"click":_vm.zoomOut}},[_c('i',{staticClass:"icon-minus",attrs:{"aria-hidden":"true"}})])])])])])])}
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"efe80db6-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Map.vue?vue&type=template&id=376fd5de&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('div',{ref:"map",staticClass:"map-container"},[_c('div',{staticClass:"content-container"},[_c('div',{staticClass:"geolocate"},[_c('div',{staticClass:"tools"},[_c('button',{attrs:{"type":"button","aria-label":"Zoom in","title":"Zoom in"},on:{"click":_vm.zoomIn}},[_c('i',{staticClass:"icon-plus",attrs:{"aria-hidden":"true"}})]),_c('button',{attrs:{"type":"button","aria-label":"Zoom uit","title":"Zoom uit"},on:{"click":_vm.zoomOut}},[_c('i',{staticClass:"icon-minus",attrs:{"aria-hidden":"true"}})])])])])])])}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/Map.vue?vue&type=template&id=75a46a0c&
+// CONCATENATED MODULE: ./src/components/Map.vue?vue&type=template&id=376fd5de&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom-collections.iterator.js
 var web_dom_collections_iterator = __webpack_require__("ddb0");
@@ -226,6 +226,7 @@ const activeVectorLayer = new Vector["a" /* default */]({
           tagName: 'div'
         }
       });
+      const position = (_teaser$coordinates = teaser.coordinates) === null || _teaser$coordinates === void 0 ? void 0 : _teaser$coordinates.split(',').map(v => v.trim());
       accolade.className = 'accolade-inverse bottom-center';
       innerFlyOut.className = 'map-teaser';
       flyOut.$mount();
@@ -233,7 +234,7 @@ const activeVectorLayer = new Vector["a" /* default */]({
       innerFlyOut.appendChild(accolade);
       flyOutWrapper.appendChild(innerFlyOut);
       return new Overlay["a" /* default */]({
-        position: (_teaser$coordinates = teaser.coordinates) === null || _teaser$coordinates === void 0 ? void 0 : _teaser$coordinates.split(','),
+        position,
         offset: [0, -45],
         positioning: OverlayPositioning["a" /* default */].BOTTOM_CENTER,
         autoPan: true,

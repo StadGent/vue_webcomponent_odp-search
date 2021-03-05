@@ -168,12 +168,11 @@ export default Vue.extend({
       const flyOutWrapper = document.createElement('div')
       const innerFlyOut = document.createElement('div')
       const accolade = document.createElement('div')
-      const flyOut = new TeaserClass({ propsData: { teaser } })
+      const flyOut = new TeaserClass({ propsData: { teaser, tagName: 'div' } })
 
       accolade.className = 'accolade-inverse bottom-center'
       innerFlyOut.className = 'map-teaser'
 
-      flyOut.tagName = 'div'
       flyOut.$mount()
       innerFlyOut.appendChild(flyOut.$el)
       innerFlyOut.appendChild(accolade)

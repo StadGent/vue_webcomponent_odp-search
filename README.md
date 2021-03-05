@@ -36,25 +36,30 @@ yarn lint
 * *required: true*
 
 ### query
+
 * type: String
 * default: 'Inhoud'
 
 Defines the label of the text input field.
 
 ### horizontal
+
 * type: Boolean
 * default: false
 
 Determines if the teasers are rendered in a grid or as a stacked column.
 
 ### formFields
+
 * type: Array as PropType<FormField[]>
 * default: () => []
 
 ### sort
+
 * type: String
 
 ### theme
+
 type: String
 default: 'cs--cyan'
 

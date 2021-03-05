@@ -1,5 +1,5 @@
 <template>
-  <li class="teaser" :class="[teaser.teaser_img_url ? '': 'teaser--underlined', horizontal ? 'teaser--wide' : '']">
+  <component :is="tagName || 'li'" class="teaser" :class="[teaser.teaser_img_url ? '': 'teaser--underlined', horizontal ? 'teaser--wide' : '']">
     <article class="teaser-content">
       <div class="content__second">
         <h3>{{ teaser.titel }}</h3>
@@ -50,7 +50,7 @@
        class="teaser-overlay-link"
        tabindex="-1"
        aria-hidden="true">{{ teaser.titel }}</a>
-  </li>
+  </component>
 </template>
 
 <script lang="ts">
@@ -59,7 +59,7 @@ import { Teaser } from '@/types/teaser'
 
 export default Vue.extend({
   name: 'Teaser',
-  props: { teaser: Object as PropType<Teaser>, horizontal: Boolean },
+  props: { teaser: Object as PropType<Teaser>, horizontal: Boolean, tagName: String },
   methods: {},
   computed: {
     label (): string {
@@ -74,9 +74,3 @@ export default Vue.extend({
   }
 })
 </script>
-
-<style scoped>
-.icon-list {
-  margin-bottom: .8rem;
-}
-</style>

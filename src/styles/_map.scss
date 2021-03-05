@@ -1,0 +1,50 @@
+.map-teaser {
+  max-width: 300px;
+  background-color: white;
+  padding: 1rem;
+  filter: drop-shadow(0 0 .2rem rgba(0,0,0,.1)) drop-shadow(0 0 1rem  rgba(0,0,0,.2));
+  border-radius: .2rem;
+
+  .content__first {
+    display: none;
+  }
+
+  .accolade-inverse {
+    bottom: -1rem;
+    transform: rotate(180deg);
+  }
+}
+
+.map-container {
+  position: relative;
+  height: 30rem;
+
+  .content-container {
+    position: relative;
+  }
+
+  .tools {
+    position: absolute;
+    z-index: 2;
+    top: .8rem;
+    right: .8rem;
+
+    & > button {
+      display: block;
+      width: 2.2rem;
+      padding: 0;
+      margin: 0 0 .4rem;
+      border: 0;
+      border-radius: .2rem;
+      background-color: #fff;
+      color: #23333a;
+      font-size: 1.2rem;
+      box-shadow: 0 8px 12px 0 rgba(0, 125, 179, .06);
+      cursor: pointer;
+
+      i {
+        line-height: 2.2rem;
+      }
+    }
+  }
+}

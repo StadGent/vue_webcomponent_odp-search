@@ -1,8 +1,6 @@
 <template>
   <div>
-    <div ref="map" tabindex="0" class="map-container"
-         style="width: 100%; height: 600px">
-
+    <div ref="map" tabindex="0" class="map-container">
       <div class="content-container">
         <div class="geolocate">
           <div class="tools">
@@ -38,7 +36,7 @@ import Teaser from '@/components/Teaser.vue'
 import 'ol/ol.css'
 import { Feature, Overlay } from 'ol'
 import VectorLayer from 'ol/layer/Vector'
-import { Source, Vector } from 'ol/source'
+import { Vector } from 'ol/source'
 import { Geometry, Point } from 'ol/geom'
 import { Icon, Style } from 'ol/style'
 import IconAnchorUnits from 'ol/style/IconAnchorUnits'
@@ -115,7 +113,8 @@ export default Vue.extend({
     items: {
       type: Array as PropType<Row[]>,
       default: () => []
-    }
+    },
+    show: Boolean
   },
   data () {
     return {
@@ -124,6 +123,38 @@ export default Vue.extend({
     }
   },
   methods: {
+    initMap: function () {
+      this.olMap = new Map({
+        layers: [
+          stadsPlanLayer,
+          vectorLayer,
+          activeVectorLayer
+        ],
+        controls: [],
+        target: this.$refs.map as HTMLElement,
+        view: new View({
+          center: fromLonLat([3.7236731510340757, 51.05478835923585]),
+          zoom: 13,
+          maxZoom: 21
+        })
+      })
+      this.olMap.on('click', e => {
+        vectorLayer.getFeatures(e.pixel).then(
+          ([f]) => {
+            this.olMap.removeOverlay(this.flyOut)
+            activeVectorLayer.getSource().clear()
+            if (!f || !f.get('teaser')) {
+              return
+            }
+            activeVectorLayer.getSource().addFeature(f)
+            this.flyOut = this.createFlyOut(f.get('teaser'))
+            setTimeout(() => {
+              this.olMap.addOverlay(this.flyOut)
+            })
+          })
+      })
+      this.setFeatures()
+    },
     setFeatures: function (): void {
       vectorLayer.getSource().clear()
       vectorLayer.getSource().addFeatures(this.items.map(
@@ -137,7 +168,7 @@ export default Vue.extend({
       const flyOutWrapper = document.createElement('div')
       const innerFlyOut = document.createElement('div')
       const accolade = document.createElement('div')
-      const flyOut = new TeaserClass({ propsData: { teaser } })
+      const flyOut = new TeaserClass({ propsData: { teaser, tagName: 'div' } })
 
       accolade.className = 'accolade-inverse bottom-center'
       innerFlyOut.className = 'map-teaser'
@@ -169,92 +200,15 @@ export default Vue.extend({
   watch: {
     items: function (): void {
       this.setFeatures()
-    }
-  },
-  mounted () {
-    this.olMap = new Map({
-      layers: [
-        stadsPlanLayer,
-        vectorLayer,
-        activeVectorLayer
-      ],
-      controls: [],
-      target: this.$refs.map as HTMLElement,
-      view: new View({
-        center: fromLonLat([3.7236731510340757, 51.05478835923585]),
-        zoom: 13,
-        maxZoom: 21
+    },
+    show: function (show): void {
+      // Map container must be visible before initialization
+      this.$nextTick(() => {
+        if (show && !this.olMap) {
+          this.initMap()
+        }
       })
-    })
-    this.olMap.on('click', e => {
-      vectorLayer.getFeatures(e.pixel).then(
-        ([f]) => {
-          this.olMap.removeOverlay(this.flyOut)
-          activeVectorLayer.getSource().clear()
-          if (!f || !f.get('teaser')) {
-            return
-          }
-          activeVectorLayer.getSource().addFeature(f)
-          this.flyOut = this.createFlyOut(f.get('teaser'))
-          setTimeout(() => {
-            this.olMap.addOverlay(this.flyOut)
-          })
-        })
-    })
-    this.setFeatures()
+    }
   }
 })
 </script>
-
-<style lang="scss">
-.map-teaser {
-  max-width: 300px;
-  background-color: white;
-  padding: 1rem;
-  filter: drop-shadow(0 0 .2rem rgba(0,0,0,.1)) drop-shadow(0 0 1rem  rgba(0,0,0,.2));
-  border-radius: .2rem;
-
-  .content__first {
-    display: none;
-  }
-
-  .accolade-inverse {
-    bottom: -1rem;
-    transform: rotate(180deg);
-  }
-}
-
-.map-container {
-  position: relative;
-  height: 30rem;
-
-  .content-container {
-    position: relative;
-  }
-
-  .tools {
-    position: absolute;
-    z-index: 2;
-    top: .8rem;
-    right: .8rem;
-
-    & > button {
-      display: block;
-      width: 2.2rem;
-      padding: 0;
-      margin: 0 0 .4rem;
-      border: 0;
-      border-radius: .2rem;
-      background-color: #fff;
-      color: #23333a;
-      font-size: 1.2rem;
-      box-shadow: 0 8px 12px 0 rgba(0, 125, 179, .06);
-      cursor: pointer;
-
-      i {
-        line-height: 2.2rem;
-      }
-    }
-  }
-}
-</style>

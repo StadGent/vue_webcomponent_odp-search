@@ -24,29 +24,29 @@
         <button type="submit" class="button button-secondary icon-search icon-left">Zoeken</button>
       </form>
 
-      <div class="display-switcher">
-        <span>Bekijk de resultaten</span>
-        <ul class="icon-list inline">
-          <li>
-            <i class="icon-document" aria-hidden="true"></i>
-            <a v-show="showMap" href="#" @click="showMap = false">Als lijst</a>
-            <strong v-show="!showMap">Als lijst</strong>
-          </li>
-          <li>
-            <i class="icon-marker" aria-hidden="true"></i>
-            <a v-show="!showMap" href="#" @click="showMap = true">Op kaart</a>
-            <strong v-show="showMap">Op kaart</strong>
-          </li>
+      <div style="position: relative">
+        <div class="map-toggle--top">
+          <button v-show="!showMap" class="button button-primary button-small icon-marker" @click="showMap = true"
+                  style="margin-left: auto">Toon op kaart</button>
+          <button v-show="showMap" class="button button-primary button-small icon-document" @click="showMap = false"
+                  style="margin-left: auto">Toon als lijst</button>
+        </div>
+
+        <odp-map v-if="hasMap" v-show="showMap" :show="showMap" class="mb-20" :items="items"></odp-map>
+
+        <ul v-if="items.length" v-show="!showMap"  :style="horizontal ? 'margin-left: 0' : null" :class="horizontal ? null : 'grid-3'" tabindex="-1" ref="grid">
+          <teaser v-for="(i, index) in items" @selected="setTrigger($event)" :teaser="i"
+                  :horizontal="horizontal"
+                  :key="'teaser'+index"></teaser>
         </ul>
+
+        <div class="map-toggle--bottom">
+          <button v-show="!showMap" class="button button-primary button-small icon-marker" @click="showMap = true"
+                  style="margin-left: auto">Toon op kaart</button>
+          <button v-show="showMap" class="button button-primary button-small icon-document" @click="showMap = false"
+                  style="margin-left: auto">Toon als lijst</button>
+        </div>
       </div>
-
-      <odp-map v-if="hasMap" v-show="showMap" class="mb-20" :items="items"></odp-map>
-
-      <ul v-if="items.length" v-show="!showMap"  :style="horizontal ? 'margin-left: 0' : null" :class="horizontal ? null : 'grid-3'" tabindex="-1" ref="grid">
-        <teaser v-for="(i, index) in items" @selected="setTrigger($event)" :teaser="i"
-                :horizontal="horizontal"
-                :key="'teaser'+index"></teaser>
-      </ul>
 
       <pagination class="mt-20" :total="total" :active="page" @navigate="navigate"></pagination>
 
@@ -68,8 +68,6 @@ import Teaser from '@/components/Teaser.vue'
 import { Dataset } from '@/types/dataset'
 import { FormField } from '@/types/formField'
 import { Row } from '@/types/row'
-
-import('@/components/Detail.vue')
 
 export default Vue.extend({
   name: 'OdpMasterDetail',
@@ -119,7 +117,8 @@ export default Vue.extend({
       myFormFields: [] as FormField[],
       selectedRecord: null as (Row | null),
       trigger: null as (HTMLElement | null),
-      showMap: false
+      showMap: false,
+      hasMap: false
     }
   },
   watch: {
@@ -130,10 +129,6 @@ export default Vue.extend({
   computed: {
     page (): number {
       return Math.floor(this.offset / 12) + 1
-    },
-    hasMap (): boolean {
-      const first = (this.items[0]) as Row
-      return first && !!first.coordinates
     }
   },
   methods: {
@@ -159,8 +154,10 @@ export default Vue.extend({
         nhits,
         records
       }: Dataset = await response.json()
+
       this.total = Math.ceil(nhits / 12)
       this.items = records.map(({ fields }) => fields)
+      this.hasMap = !!this.items[0]?.coordinates
 
       /**
        * reset pagination if needed
@@ -293,6 +290,37 @@ $styleguide-dir: '../../node_modules/gent_styleguide/build/styleguide';
 @import "~gent_styleguide/build/styleguide/sass/molecules";
 @import "~gent_styleguide/build/styleguide/sass/organisms";
 @import "~gent_styleguide/build/styleguide/sass/layouts";
+
+@import "../styles/map";
+
+.teaser-content .icon-list {
+  margin-bottom: .8rem;
+}
+
+.map-toggle--bottom,
+.map-toggle--top {
+  position: sticky;
+  left: 50%;
+  z-index: 5;
+  transform: translateX(-50%);
+}
+
+.map-toggle--top {
+  display: none;
+  top: 2rem;
+  margin-bottom: 2rem;
+  @include tablet {
+    display: inline-block;
+  }
+}
+
+.map-toggle--bottom {
+  display: inline-block;
+  bottom: 2rem;
+  @include tablet {
+    display: none;
+  }
+}
 
 .odp-master-detail {
   font: 400 .8rem "Fira Sans", "sans-serif";

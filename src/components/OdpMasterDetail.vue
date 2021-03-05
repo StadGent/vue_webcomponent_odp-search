@@ -27,14 +27,17 @@
       <div style="position: relative">
         <div class="map-toggle--top">
           <button v-show="!showMap" class="button button-primary button-small icon-marker" @click="showMap = true"
-                  style="margin-left: auto">Toon op kaart</button>
+                  style="margin-left: auto">Toon op kaart
+          </button>
           <button v-show="showMap" class="button button-primary button-small icon-document" @click="showMap = false"
-                  style="margin-left: auto">Toon als lijst</button>
+                  style="margin-left: auto">Toon als lijst
+          </button>
         </div>
 
-        <odp-map v-if="hasMap" v-show="showMap" :show="showMap" class="mb-20" :items="items"></odp-map>
+        <odp-map v-if="hasMap" v-show="showMap" :show="showMap" class="odp-map" :items="items"></odp-map>
 
-        <ul v-if="items.length" v-show="!showMap"  :style="horizontal ? 'margin-left: 0' : null" :class="horizontal ? null : 'grid-3'" tabindex="-1" ref="grid">
+        <ul v-if="items.length" v-show="!showMap" :style="horizontal ? 'margin-left: 0' : null"
+            :class="horizontal ? null : 'grid-3'" tabindex="-1" ref="grid">
           <teaser v-for="(i, index) in items" @selected="setTrigger($event)" :teaser="i"
                   :horizontal="horizontal"
                   :key="'teaser'+index"></teaser>
@@ -42,9 +45,11 @@
 
         <div class="map-toggle--bottom">
           <button v-show="!showMap" class="button button-primary button-small icon-marker" @click="showMap = true"
-                  style="margin-left: auto">Toon op kaart</button>
+                  style="margin-left: auto">Toon op kaart
+          </button>
           <button v-show="showMap" class="button button-primary button-small icon-document" @click="showMap = false"
-                  style="margin-left: auto">Toon als lijst</button>
+                  style="margin-left: auto">Toon als lijst
+          </button>
         </div>
       </div>
 
@@ -297,28 +302,48 @@ $styleguide-dir: '../../node_modules/gent_styleguide/build/styleguide';
   margin-bottom: .8rem;
 }
 
+.map-toggle--top {
+  position: relative;
+  text-align: center;
+  background-color: #ffffff;
+  border-bottom: 2px solid;
+}
+
 .map-toggle--bottom,
 .map-toggle--top {
   position: sticky;
-  left: 50%;
   z-index: 5;
-  transform: translateX(-50%);
+  text-align: center;
+  background-color: #ffffff;
 }
 
 .map-toggle--top {
+  @include theme('border-color', 'color-primary--lighten-4', 'contact-details-border-color');
   display: none;
-  top: 2rem;
-  margin-bottom: 2rem;
+  top: 0;
+  border-bottom: 2px solid;
+  padding: 1rem;
+  margin-bottom: 1rem;
   @include tablet {
-    display: inline-block;
+    display: block;
   }
 }
 
 .map-toggle--bottom {
-  display: inline-block;
-  bottom: 2rem;
+  @include theme('border-color', 'color-primary--lighten-4', 'contact-details-border-color');
+  display: block;
+  bottom: 0;
+  border-top: 2px solid;
+  padding: 1rem;
+  margin-bottom: 1rem;
   @include tablet {
     display: none;
+  }
+}
+
+.odp-map {
+  @include tablet {
+    margin-top: -1rem;
   }
 }
 

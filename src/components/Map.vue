@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div ref="map" tabindex="0" class="map-container">
+    <div ref="map" class="map-container">
       <div class="content-container">
         <div class="geolocate">
           <div class="tools">
@@ -14,7 +14,6 @@
         </div>
       </div>
     </div>
-
   </div>
 
 </template>
@@ -169,6 +168,7 @@ export default Vue.extend({
       const innerFlyOut = document.createElement('div')
       const accolade = document.createElement('div')
       const flyOut = new TeaserClass({ propsData: { teaser, tagName: 'div' } })
+      const position = teaser.coordinates?.split(',').map(v => v.trim()) as unknown as number[]
 
       accolade.className = 'accolade-inverse bottom-center'
       innerFlyOut.className = 'map-teaser'
@@ -179,7 +179,7 @@ export default Vue.extend({
       flyOutWrapper.appendChild(innerFlyOut)
 
       return new Overlay({
-        position: teaser.coordinates?.split(',') as unknown as number[],
+        position,
         offset: [0, -45],
         positioning: OverlayPositioning.BOTTOM_CENTER,
         autoPan: true,

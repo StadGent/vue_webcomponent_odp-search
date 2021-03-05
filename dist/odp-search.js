@@ -299,13 +299,6 @@ module.exports = __webpack_require__.p + "img/spinner--teal.svg";
 
 /***/ }),
 
-/***/ "122c":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "fonts/gent-icons.ttf";
-
-/***/ }),
-
 /***/ "146d":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8703,11 +8696,11 @@ function addStyle (obj /* StyleObjectPart */, shadowRoot) {
 // Imports
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__("24fb");
 var ___CSS_LOADER_GET_URL_IMPORT___ = __webpack_require__("1de5");
-var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__("cae9");
+var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__("81a8");
 var ___CSS_LOADER_URL_IMPORT_1___ = __webpack_require__("f4d5");
-var ___CSS_LOADER_URL_IMPORT_2___ = __webpack_require__("b1f7");
-var ___CSS_LOADER_URL_IMPORT_3___ = __webpack_require__("f79d");
-var ___CSS_LOADER_URL_IMPORT_4___ = __webpack_require__("122c");
+var ___CSS_LOADER_URL_IMPORT_2___ = __webpack_require__("8eb2");
+var ___CSS_LOADER_URL_IMPORT_3___ = __webpack_require__("4732");
+var ___CSS_LOADER_URL_IMPORT_4___ = __webpack_require__("4ac4");
 var ___CSS_LOADER_URL_IMPORT_5___ = __webpack_require__("b338");
 var ___CSS_LOADER_URL_IMPORT_6___ = __webpack_require__("8376");
 var ___CSS_LOADER_URL_IMPORT_7___ = __webpack_require__("2499");
@@ -8751,11 +8744,11 @@ var ___CSS_LOADER_URL_IMPORT_44___ = __webpack_require__("146d");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Fira+Sans:400,600,700);"]);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
-var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___, { hash: "?#iefix?v=13" });
+var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___, { hash: "?#iefix?v=690" });
 var ___CSS_LOADER_URL_REPLACEMENT_2___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_2___);
 var ___CSS_LOADER_URL_REPLACEMENT_3___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_3___);
 var ___CSS_LOADER_URL_REPLACEMENT_4___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_4___);
-var ___CSS_LOADER_URL_REPLACEMENT_5___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_5___, { hash: "#gent-icons?v=13" });
+var ___CSS_LOADER_URL_REPLACEMENT_5___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_5___, { hash: "#gent-icons?v=690" });
 var ___CSS_LOADER_URL_REPLACEMENT_6___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_6___);
 var ___CSS_LOADER_URL_REPLACEMENT_7___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_7___);
 var ___CSS_LOADER_URL_REPLACEMENT_8___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_8___);
@@ -8840,6 +8833,13 @@ module.exports = fails(function () {
 
 /***/ }),
 
+/***/ "4732":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "fonts/gent-icons.woff";
+
+/***/ }),
+
 /***/ "4930":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8851,6 +8851,13 @@ module.exports = !!Object.getOwnPropertySymbols && !fails(function () {
   return !String(Symbol());
 });
 
+
+/***/ }),
+
+/***/ "4ac4":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "fonts/gent-icons.ttf";
 
 /***/ }),
 
@@ -9402,15 +9409,15 @@ var addStylesShadow = __webpack_require__("35d6");
 // EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
 var componentNormalizer = __webpack_require__("2877");
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"efe80db6-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/OdpMasterDetail.vue?vue&type=template&id=4f8df881&shadow
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"efe80db6-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/OdpMasterDetail.vue?vue&type=template&id=7671fea8&shadow
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:"root",staticClass:"odp-master-detail",class:_vm.theme},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(!_vm.selectedRecord),expression:"!selectedRecord"}]},[_c('form',{staticClass:"mb-20",on:{"submit":function($event){$event.preventDefault();return _vm.search($event)}}},[_c('div',{staticClass:"flex mb-10"},[(_vm.query)?_c('div',[_c('label',{attrs:{"for":"query"}},[_vm._v(_vm._s(_vm.query))]),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.q),expression:"q"}],attrs:{"type":"text","id":"query"},domProps:{"value":(_vm.q)},on:{"input":function($event){if($event.target.composing){ return; }_vm.q=$event.target.value}}})]):_vm._e(),_vm._l((_vm.myFormFields),function(f,index){return _c('div',{key:f.column + '-' + index},[_c('label',{attrs:{"for":f.column}},[_vm._v(_vm._s(f.label))]),(!f.type || f.type === 'select')?_c('select',{directives:[{name:"model",rawName:"v-model",value:(f.value),expression:"f.value"}],attrs:{"id":f.column},on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.$set(f, "value", $event.target.multiple ? $$selectedVal : $$selectedVal[0])}}},[_c('option',{domProps:{"value":null}},[_vm._v("Geen keuze")]),_vm._l((f.options),function(ref,i){
 var name = ref.name;
 var value = ref.value;
-return _c('option',{key:f.column + '-' + index + '-' + value + '-' + i,domProps:{"value":value}},[_vm._v(_vm._s(name)+" ")])})],2):_vm._e()])})],2),_c('button',{staticClass:"button button-secondary icon-search icon-left",attrs:{"type":"submit"}},[_vm._v("Zoeken")])]),_c('div',{staticStyle:{"position":"relative"}},[_c('div',{staticClass:"map-toggle--top"},[_c('button',{directives:[{name:"show",rawName:"v-show",value:(!_vm.showMap),expression:"!showMap"}],staticClass:"button button-primary button-small icon-marker",staticStyle:{"margin-left":"auto"},on:{"click":function($event){_vm.showMap = true}}},[_vm._v("Toon op kaart ")]),_c('button',{directives:[{name:"show",rawName:"v-show",value:(_vm.showMap),expression:"showMap"}],staticClass:"button button-primary button-small icon-document",staticStyle:{"margin-left":"auto"},on:{"click":function($event){_vm.showMap = false}}},[_vm._v("Toon als lijst ")])]),(_vm.hasMap)?_c('odp-map',{directives:[{name:"show",rawName:"v-show",value:(_vm.showMap),expression:"showMap"}],staticClass:"odp-map",attrs:{"show":_vm.showMap,"items":_vm.items}}):_vm._e(),(_vm.items.length)?_c('ul',{directives:[{name:"show",rawName:"v-show",value:(!_vm.showMap),expression:"!showMap"}],ref:"grid",class:_vm.horizontal ? null : 'grid-3',style:(_vm.horizontal ? 'margin-left: 0' : null),attrs:{"tabindex":"-1"}},_vm._l((_vm.items),function(i,index){return _c('teaser',{key:'teaser'+index,attrs:{"teaser":i,"horizontal":_vm.horizontal},on:{"selected":function($event){return _vm.setTrigger($event)}}})}),1):_vm._e(),_c('div',{staticClass:"map-toggle--bottom"},[_c('button',{directives:[{name:"show",rawName:"v-show",value:(!_vm.showMap),expression:"!showMap"}],staticClass:"button button-primary button-small icon-marker",staticStyle:{"margin-left":"auto"},on:{"click":function($event){_vm.showMap = true}}},[_vm._v("Toon op kaart ")]),_c('button',{directives:[{name:"show",rawName:"v-show",value:(_vm.showMap),expression:"showMap"}],staticClass:"button button-primary button-small icon-document",staticStyle:{"margin-left":"auto"},on:{"click":function($event){_vm.showMap = false}}},[_vm._v("Toon als lijst ")])])],1),_c('pagination',{staticClass:"mt-20",attrs:{"total":_vm.total,"active":_vm.page},on:{"navigate":_vm.navigate}}),(_vm.loading)?_c('div',{staticClass:"spinner-wrapper"},[_vm._m(0)]):_vm._e()],1),(_vm.selectedRecord)?_c('detail',{attrs:{"row":_vm.selectedRecord},on:{"back":function($event){return _vm.back()}}}):_vm._e()],1)}
+return _c('option',{key:f.column + '-' + index + '-' + value + '-' + i,domProps:{"value":value}},[_vm._v(_vm._s(name)+" ")])})],2):_vm._e()])})],2),_c('button',{staticClass:"button button-secondary icon-search icon-left",attrs:{"type":"submit"}},[_vm._v("Zoeken")])]),_c('div',{staticStyle:{"position":"relative"}},[(_vm.hasMap)?_c('div',{staticClass:"map-toggle--top"},[_c('button',{directives:[{name:"show",rawName:"v-show",value:(!_vm.showMap),expression:"!showMap"}],staticClass:"button button-primary button-small icon-marker",staticStyle:{"margin-left":"auto"},on:{"click":function($event){_vm.showMap = true}}},[_vm._v("Toon op kaart ")]),_c('button',{directives:[{name:"show",rawName:"v-show",value:(_vm.showMap),expression:"showMap"}],staticClass:"button button-primary button-small icon-document",staticStyle:{"margin-left":"auto"},on:{"click":function($event){_vm.showMap = false}}},[_vm._v("Toon als lijst ")])]):_vm._e(),(_vm.hasMap)?_c('odp-map',{directives:[{name:"show",rawName:"v-show",value:(_vm.showMap),expression:"showMap"}],staticClass:"odp-map",attrs:{"show":_vm.showMap,"items":_vm.items}}):_vm._e(),(_vm.items.length)?_c('ul',{directives:[{name:"show",rawName:"v-show",value:(!_vm.showMap),expression:"!showMap"}],ref:"grid",class:_vm.horizontal ? null : 'grid-3',style:(_vm.horizontal ? 'margin-left: 0' : null),attrs:{"tabindex":"-1"}},_vm._l((_vm.items),function(i,index){return _c('teaser',{key:'teaser'+index,attrs:{"teaser":i,"horizontal":_vm.horizontal},on:{"selected":function($event){return _vm.setTrigger($event)}}})}),1):_vm._e(),_c('div',{staticClass:"map-toggle--bottom"},[_c('button',{directives:[{name:"show",rawName:"v-show",value:(!_vm.showMap),expression:"!showMap"}],staticClass:"button button-primary button-small icon-marker",staticStyle:{"margin-left":"auto"},on:{"click":function($event){_vm.showMap = true}}},[_vm._v("Toon op kaart ")]),_c('button',{directives:[{name:"show",rawName:"v-show",value:(_vm.showMap),expression:"showMap"}],staticClass:"button button-primary button-small icon-document",staticStyle:{"margin-left":"auto"},on:{"click":function($event){_vm.showMap = false}}},[_vm._v("Toon als lijst ")])])],1),_c('pagination',{staticClass:"mt-20",attrs:{"total":_vm.total,"active":_vm.page},on:{"navigate":_vm.navigate}}),(_vm.loading)?_c('div',{staticClass:"spinner-wrapper"},[_vm._m(0)]):_vm._e()],1),(_vm.selectedRecord)?_c('detail',{attrs:{"row":_vm.selectedRecord},on:{"back":function($event){return _vm.back()}}}):_vm._e()],1)}
 var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"spinner"},[_c('div',[_vm._v("…loading")])])}]
 
 
-// CONCATENATED MODULE: ./src/components/OdpMasterDetail.vue?vue&type=template&id=4f8df881&shadow
+// CONCATENATED MODULE: ./src/components/OdpMasterDetail.vue?vue&type=template&id=7671fea8&shadow
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.replace.js
 var es_string_replace = __webpack_require__("5319");
@@ -9999,6 +10006,13 @@ module.exports = typeof WeakMap === 'function' && /native code/.test(inspectSour
 
 /***/ }),
 
+/***/ "81a8":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "fonts/gent-icons.eot";
+
+/***/ }),
+
 /***/ "825a":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10181,6 +10195,13 @@ module.exports = function (S, index, unicode) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/lightbulb-light--cyan.svg";
+
+/***/ }),
+
+/***/ "8eb2":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "fonts/gent-icons.woff2";
 
 /***/ }),
 
@@ -10479,13 +10500,6 @@ module.exports = function () {
 
 /***/ }),
 
-/***/ "b1f7":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "fonts/gent-icons.woff2";
-
-/***/ }),
-
 /***/ "b338":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10702,13 +10716,6 @@ module.exports = function (object, names) {
   return result;
 };
 
-
-/***/ }),
-
-/***/ "cae9":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "fonts/gent-icons.eot";
 
 /***/ }),
 
@@ -11074,13 +11081,6 @@ module.exports = function (key) {
   return keys[key] || (keys[key] = uid(key));
 };
 
-
-/***/ }),
-
-/***/ "f79d":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "fonts/gent-icons.woff";
 
 /***/ }),
 

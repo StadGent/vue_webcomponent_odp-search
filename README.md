@@ -1,7 +1,10 @@
 # vue_webcomponent_ods-search
 
 A generic search component.
-[Please have a look at our demo.](./demo/index.html)
+*please have a look at our demo's*
+
+* [Full featured](./demo/full.html)
+* [No images, no map](./demo/no-image.html)
 
 ## Project setup
 ```

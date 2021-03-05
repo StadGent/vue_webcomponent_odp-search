@@ -16,21 +16,6 @@
     </style>
 </head>
 <body>
-<div style="margin-bottom: 4rem;">
-    <p>Kies een andere dataset als voorbeeld. Klik daarna op 'Zoeken'.</p>
-
-    <button id="ods">Dataset met alle velden</button>
-    <button id="ods-no-img">Dataset zonder afbeeldingen</button>
-</div>
-
-
-<div style="max-width: 1290px; margin: auto">
-    <odp-search id="odp-search"
-                source=""
-                dataset="../public/mockdata/ods.json?">
-        Your browser is not supported.
-    </odp-search>
-</div>
 
 <div style="max-width: 1290px; margin: auto">
     <odp-search id="odp-search-no-img"
@@ -42,21 +27,12 @@
 
 <script>
   customElements.whenDefined('odp-search').then(() => {
-    const odpSearch = document.getElementById('odp-search');
-
-    odpSearch.formFields = [
-      { label: 'veld 1', column: 'kolom_1', options: [{value: 'optie1', name: 'optie één'}, {value: 'optie2', name: 'optie twee'}]},
-      { label: 'veld 2', column: 'kolom_2', options: [{value: 'optie1', name: 'optie één'}, {value: 'optie2', name: 'optie twee'}]}
-    ];
-
     const odpSearchNoImg = document.getElementById('odp-search-no-img');
 
     odpSearchNoImg.formFields = [
       { label: 'veld 1', column: 'kolom_1', options: [{value: 'optie1', name: 'optie één'}, {value: 'optie2', name: 'optie twee'}]},
       { label: 'veld 2', column: 'kolom_2', options: [{value: 'optie1', name: 'optie één'}, {value: 'optie2', name: 'optie twee'}]}
     ];
-
-
   });
 </script>
 

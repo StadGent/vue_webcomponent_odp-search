@@ -25,7 +25,7 @@
       </form>
 
       <div style="position: relative">
-        <div class="map-toggle--top">
+        <div v-if="hasMap" class="map-toggle--top">
           <button v-show="!showMap" class="button button-primary button-small icon-marker" @click="showMap = true"
                   style="margin-left: auto">Toon op kaart
           </button>

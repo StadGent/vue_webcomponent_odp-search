@@ -1,31 +1,5 @@
 (window["odpSearch_jsonp"] = window["odpSearch_jsonp"] || []).push([[3],{
 
-/***/ "894b":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Map_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("f983");
-/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Map_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Map_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Map_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Map_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-
-
-/***/ }),
-
-/***/ "8d00":
-/***/ (function(module, exports, __webpack_require__) {
-
-// Imports
-var ___CSS_LOADER_API_IMPORT___ = __webpack_require__("24fb");
-exports = ___CSS_LOADER_API_IMPORT___(false);
-// Module
-exports.push([module.i, ".map-teaser{max-width:300px;background-color:#fff;padding:1rem;filter:drop-shadow(0 0 .2rem rgba(0,0,0,.1)) drop-shadow(0 0 1rem rgba(0,0,0,.2));border-radius:.2rem}.map-teaser .content__first{display:none}.map-teaser .accolade-inverse{bottom:-1rem;transform:rotate(180deg)}.map-container{height:30rem}.map-container,.map-container .content-container{position:relative}.map-container .tools{position:absolute;z-index:2;top:.8rem;right:.8rem}.map-container .tools>button{display:block;width:2.2rem;padding:0;margin:0 0 .4rem;border:0;border-radius:.2rem;background-color:#fff;color:#23333a;font-size:1.2rem;box-shadow:0 8px 12px 0 rgba(0,125,179,.06);cursor:pointer}.map-container .tools>button i{line-height:2.2rem}", ""]);
-// Exports
-module.exports = exports;
-
-
-/***/ }),
-
 /***/ "a0be":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -33,12 +7,12 @@ module.exports = exports;
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"efe80db6-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Map.vue?vue&type=template&id=ea2ba3c4&
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('div',{ref:"map",staticClass:"map-container",staticStyle:{"width":"100%","height":"600px"},attrs:{"tabindex":"0"}},[_c('div',{staticClass:"content-container"},[_c('div',{staticClass:"geolocate"},[_c('div',{staticClass:"tools"},[_c('button',{attrs:{"type":"button","aria-label":"Zoom in","title":"Zoom in"},on:{"click":_vm.zoomIn}},[_c('i',{staticClass:"icon-plus",attrs:{"aria-hidden":"true"}})]),_c('button',{attrs:{"type":"button","aria-label":"Zoom uit","title":"Zoom uit"},on:{"click":_vm.zoomOut}},[_c('i',{staticClass:"icon-minus",attrs:{"aria-hidden":"true"}})])])])])])])}
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"efe80db6-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Map.vue?vue&type=template&id=75a46a0c&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('div',{ref:"map",staticClass:"map-container",attrs:{"tabindex":"0"}},[_c('div',{staticClass:"content-container"},[_c('div',{staticClass:"geolocate"},[_c('div',{staticClass:"tools"},[_c('button',{attrs:{"type":"button","aria-label":"Zoom in","title":"Zoom in"},on:{"click":_vm.zoomIn}},[_c('i',{staticClass:"icon-plus",attrs:{"aria-hidden":"true"}})]),_c('button',{attrs:{"type":"button","aria-label":"Zoom uit","title":"Zoom uit"},on:{"click":_vm.zoomOut}},[_c('i',{staticClass:"icon-minus",attrs:{"aria-hidden":"true"}})])])])])])])}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/Map.vue?vue&type=template&id=ea2ba3c4&
+// CONCATENATED MODULE: ./src/components/Map.vue?vue&type=template&id=75a46a0c&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom-collections.iterator.js
 var web_dom_collections_iterator = __webpack_require__("ddb0");
@@ -188,7 +162,8 @@ const activeVectorLayer = new Vector["a" /* default */]({
     items: {
       type: Array,
       default: () => []
-    }
+    },
+    show: Boolean
   },
 
   data() {
@@ -199,6 +174,35 @@ const activeVectorLayer = new Vector["a" /* default */]({
   },
 
   methods: {
+    initMap: function () {
+      this.olMap = new Map["a" /* default */]({
+        layers: [stadsPlanLayer, vectorLayer, activeVectorLayer],
+        controls: [],
+        target: this.$refs.map,
+        view: new View["a" /* default */]({
+          center: Object(proj["d" /* fromLonLat */])([3.7236731510340757, 51.05478835923585]),
+          zoom: 13,
+          maxZoom: 21
+        })
+      });
+      this.olMap.on('click', e => {
+        vectorLayer.getFeatures(e.pixel).then(([f]) => {
+          this.olMap.removeOverlay(this.flyOut);
+          activeVectorLayer.getSource().clear();
+
+          if (!f || !f.get('teaser')) {
+            return;
+          }
+
+          activeVectorLayer.getSource().addFeature(f);
+          this.flyOut = this.createFlyOut(f.get('teaser'));
+          setTimeout(() => {
+            this.olMap.addOverlay(this.flyOut);
+          });
+        });
+      });
+      this.setFeatures();
+    },
     setFeatures: function () {
       vectorLayer.getSource().clear();
       vectorLayer.getSource().addFeatures(this.items.map(item => {
@@ -218,7 +222,8 @@ const activeVectorLayer = new Vector["a" /* default */]({
       const accolade = document.createElement('div');
       const flyOut = new TeaserClass({
         propsData: {
-          teaser
+          teaser,
+          tagName: 'div'
         }
       });
       accolade.className = 'accolade-inverse bottom-center';
@@ -253,39 +258,16 @@ const activeVectorLayer = new Vector["a" /* default */]({
   watch: {
     items: function () {
       this.setFeatures();
-    }
-  },
-
-  mounted() {
-    this.olMap = new Map["a" /* default */]({
-      layers: [stadsPlanLayer, vectorLayer, activeVectorLayer],
-      controls: [],
-      target: this.$refs.map,
-      view: new View["a" /* default */]({
-        center: Object(proj["d" /* fromLonLat */])([3.7236731510340757, 51.05478835923585]),
-        zoom: 13,
-        maxZoom: 21
-      })
-    });
-    this.olMap.on('click', e => {
-      vectorLayer.getFeatures(e.pixel).then(([f]) => {
-        this.olMap.removeOverlay(this.flyOut);
-        activeVectorLayer.getSource().clear();
-
-        if (!f || !f.get('teaser')) {
-          return;
+    },
+    show: function (show) {
+      // Map container must be visible before initialization
+      this.$nextTick(() => {
+        if (show && !this.olMap) {
+          this.initMap();
         }
-
-        activeVectorLayer.getSource().addFeature(f);
-        this.flyOut = this.createFlyOut(f.get('teaser'));
-        setTimeout(() => {
-          this.olMap.addOverlay(this.flyOut);
-        });
       });
-    });
-    this.setFeatures();
+    }
   }
-
 }));
 // CONCATENATED MODULE: ./src/components/Map.vue?vue&type=script&lang=ts&
  /* harmony default export */ var components_Mapvue_type_script_lang_ts_ = (Mapvue_type_script_lang_ts_); 
@@ -296,12 +278,7 @@ var componentNormalizer = __webpack_require__("2877");
 
 
 
-function injectStyles (context) {
-  
-  var style0 = __webpack_require__("894b")
-if (style0.__inject__) style0.__inject__(context)
 
-}
 
 /* normalize component */
 
@@ -310,30 +287,13 @@ var component = Object(componentNormalizer["a" /* default */])(
   render,
   staticRenderFns,
   false,
-  injectStyles,
+  null,
   null,
   null
   ,true
 )
 
 /* harmony default export */ var components_Map = __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "f983":
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__("8d00");
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add CSS to Shadow Root
-var add = __webpack_require__("35d6").default
-module.exports.__inject__ = function (shadowRoot) {
-  add("3ac084be", content, shadowRoot)
-};
 
 /***/ })
 

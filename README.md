@@ -1,5 +1,3 @@
-# vue_webcomponent_ods-search
-
 A generic search component.
 *please have a look at our demo's*
 

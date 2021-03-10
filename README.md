@@ -4,6 +4,7 @@ A generic search component.
 * [Full featured](./demo/full.html)
 * [No images, no map](./demo/no-image.html)
 * [Minimal](./demo/minimal.html)
+* [Try it out with a real dataset](./demo/index.html)
 
 ## Project setup
 ```

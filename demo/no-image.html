@@ -33,6 +33,21 @@
       { label: 'veld 1', column: 'kolom_1', options: [{value: 'optie1', name: 'optie één'}, {value: 'optie2', name: 'optie twee'}]},
       { label: 'veld 2', column: 'kolom_2', options: [{value: 'optie1', name: 'optie één'}, {value: 'optie2', name: 'optie twee'}]}
     ];
+
+    odpSearchNoImg.addEventListener('filter', sendToGTM)
+    odpSearchNoImg.addEventListener('detail', sendToGTM)
+
+    function sendToGTM(e) {
+      if (window.dataLayers) {
+        window.dataLayers.push({
+          event: 'custom_event_' + e.type,
+          custom_event: {
+            detail: e.detail[0]
+          }
+        })
+      }
+    }
+  });
   });
 </script>
 

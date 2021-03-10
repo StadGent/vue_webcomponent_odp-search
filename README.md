@@ -64,6 +64,31 @@ Determines if the teasers are rendered in a grid or as a stacked column.
 type: String
 default: 'cs--cyan'
 
+## Events
+
+This component throws events on filter and on opening a detail.  
+These can be catched and passed on the Google Tag Manager.
+
+[More information on passing custom events to GTM](https://www.simoahava.com/analytics/track-interactions-in-shadow-dom-google-tag-manager/)
+
+For example:
+
+```js
+odpSearch.addEventListener('filter', sendToGTM)
+odpSearch.addEventListener('detail', sendToGTM)
+
+function sendToGTM(e) {
+    if (window.dataLayers) {
+      window.dataLayers.push({
+        event: 'custom_event_' + e.type,
+        custom_event: {
+          detail: e.detail[0]
+        }
+      })
+    }
+}
+```
+
 ## Types
 
 ### Return value of the source

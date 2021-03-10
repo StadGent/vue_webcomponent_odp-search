@@ -3,6 +3,7 @@ A generic search component.
 
 * [Full featured](./demo/full.html)
 * [No images, no map](./demo/no-image.html)
+* [Minimal](./demo/minimal.html)
 
 ## Project setup
 ```

@@ -18,24 +18,24 @@
 <body>
 
 <div style="max-width: 1290px; margin: auto">
-    <odp-search id="odp-search-no-img"
+    <odp-search id="odp-search"
                 source=""
-                dataset="../public/mockdata/ods-no-img.json?">
+                dataset="../public/mockdata/ods-minimal.json?">
         Your browser is not supported.
     </odp-search>
 </div>
 
 <script>
   customElements.whenDefined('odp-search').then(() => {
-    const odpSearchNoImg = document.getElementById('odp-search-no-img');
+    const odpSearch = document.getElementById('odp-search');
 
-    odpSearchNoImg.formFields = [
+    odpSearch.formFields = [
       { label: 'veld 1', column: 'kolom_1', options: [{value: 'optie1', name: 'optie één'}, {value: 'optie2', name: 'optie twee'}]},
       { label: 'veld 2', column: 'kolom_2', options: [{value: 'optie1', name: 'optie één'}, {value: 'optie2', name: 'optie twee'}]}
     ];
 
-    odpSearchNoImg.addEventListener('filter', sendToGTM)
-    odpSearchNoImg.addEventListener('detail', sendToGTM)
+    odpSearch.addEventListener('filter', sendToGTM)
+    odpSearch.addEventListener('detail', sendToGTM)
 
     function sendToGTM(e) {
       if (window.dataLayers) {
@@ -47,7 +47,6 @@
         })
       }
     }
-  });
   });
 </script>
 

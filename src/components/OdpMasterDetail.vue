@@ -176,8 +176,18 @@ export default Vue.extend({
     },
     async search (): Promise<void> {
       this.offset = 0
+      this.emitFilter()
       await this.fetch();
       (this.$refs.grid as HTMLElement).focus()
+    },
+    emitFilter (): void {
+      const formValue: { [key: string]: any } = {
+        q: this.q
+      }
+      this.myFormFields.forEach((f: FormField) => {
+        formValue[f.column] = f.value
+      })
+      this.$emit('filter', formValue)
     },
     setTrigger ({ currentTarget }: Event): void {
       this.trigger = currentTarget as HTMLElement
@@ -199,6 +209,7 @@ export default Vue.extend({
       const row = this.items.find(i => encodeURIComponent(i.titel) === hash)
       if (row) {
         this.selectedRecord = row
+        this.$emit('detail', JSON.parse(JSON.stringify(row)))
       }
     },
     async navigate (page: number): Promise<void> {
@@ -299,7 +310,7 @@ $styleguide-dir: '../../node_modules/gent_styleguide/build/styleguide';
 @import "../styles/map";
 
 .teaser-content .icon-list {
-  margin-bottom: .8rem;
+  margin-bottom: 0;
 }
 
 .map-toggle--top {

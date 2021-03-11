@@ -16,47 +16,90 @@
     </style>
 </head>
 <body>
-<div style="margin-bottom: 4rem;">
-    <p>Kies een andere dataset als voorbeeld. Klik daarna op 'Zoeken'.</p>
-
-    <button id="ods">Dataset met alle velden</button>
-    <button id="ods-no-img">Dataset zonder afbeeldingen</button>
-</div>
 
 
-<div style="max-width: 1290px; margin: auto">
-    <odp-search id="odp-search"
-                source=""
-                dataset="../public/mockdata/ods.json?">
-        Your browser is not supported.
-    </odp-search>
-</div>
+<form style="max-width: 1290px; margin: auto; margin-bottom: 4rem" id="form">
+    <div><label for="dataset">Dataset</label></div>
+    <div style="margin-bottom: 1rem"><input type="text" value="stadgent-zoeker-test-data" id="dataset"></div>
 
-<div style="max-width: 1290px; margin: auto">
-    <odp-search id="odp-search-no-img"
-                source=""
-                dataset="../public/mockdata/ods-no-img.json?">
-        Your browser is not supported.
-    </odp-search>
+    <div><label for="key">API Key</label></div>
+    <div style="margin-bottom: 1rem"><input type="text" id="key"></div>
+
+    <div><label for="fields">FormFields</label></div>
+    <div style="margin-bottom: 1rem">
+        <textarea id="fields" style="width: 40rem; max-width: 100%" rows="20">
+[
+   {
+      "label": "veld 1",
+      "column": "kolom_1",
+      "options": [
+         {
+            "value": "optie1",
+            "name": "optie één"
+         },
+         {
+            "value": "optie2",
+            "name": "optie twee"
+         }
+      ]
+   },
+   {
+      "label": "veld 2",
+      "column": "kolom_2",
+      "options": [
+         {
+            "value": "optie1",
+            "name": "optie één"
+         },
+         {
+            "value": "optie2",
+            "name": "optie twee"
+         }
+      ]
+   }
+]
+        </textarea>
+    </div>
+
+
+    <div>
+        <button style="margin-top: 2rem" type="submit">Start</button>
+    </div>
+</form>
+
+<div style="max-width: 1290px; margin: auto" id="wrapper">
+
 </div>
 
 <script>
+
+  (function() {
+    const wrapper = document.getElementById('wrapper');
+    const form = document.getElementById('form');
+    const dataset = document.getElementById('dataset');
+    const key = document.getElementById('key');
+    const fields = document.getElementById('fields');
+
+    form.addEventListener('submit', (e) => {
+
+      e.preventDefault();
+
+      wrapper.innerHTML = '';
+
+      const apiKey = key.value;
+      const set = dataset.value;
+
+      const search = document.createElement('odp-search');
+
+      search.setAttribute('dataset', set + (apiKey ? '&apikey=' + apiKey : ''));
+      wrapper.appendChild(search);
+
+      search.formFields = JSON.parse(fields.value);
+
+    })
+
+  })()
   customElements.whenDefined('odp-search').then(() => {
-    const odpSearch = document.getElementById('odp-search');
-
-    odpSearch.formFields = [
-      { label: 'veld 1', column: 'kolom_1', options: [{value: 'optie1', name: 'optie één'}, {value: 'optie2', name: 'optie twee'}]},
-      { label: 'veld 2', column: 'kolom_2', options: [{value: 'optie1', name: 'optie één'}, {value: 'optie2', name: 'optie twee'}]}
-    ];
-
-    const odpSearchNoImg = document.getElementById('odp-search-no-img');
-
-    odpSearchNoImg.formFields = [
-      { label: 'veld 1', column: 'kolom_1', options: [{value: 'optie1', name: 'optie één'}, {value: 'optie2', name: 'optie twee'}]},
-      { label: 'veld 2', column: 'kolom_2', options: [{value: 'optie1', name: 'optie één'}, {value: 'optie2', name: 'optie twee'}]}
-    ];
-
-
   });
 </script>
 

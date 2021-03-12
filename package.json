@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build --inline-vue --target wc --name odp-search ./src/components/OdpMasterDetail.vue",
+    "build": "vue-cli-service build --inline-vue --target wc --name odp-search ./src/components/OdpMasterDetail.vue && cp src/assets/fonts.min.css dist",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {

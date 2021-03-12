@@ -18,6 +18,11 @@
     <div><label for="key">API Key</label></div>
     <div style="margin-bottom: 1rem"><input type="text" id="key"></div>
 
+    <div><label for="query">Query</label></div>
+    <div style="margin-bottom: 1rem"><input type="text" id="query"></div>
+
+    <div style="margin-bottom: 1rem"><label for="horizontal"><input id="horizontal" type="checkbox"> Horizontal</label></div>
+
     <div><label for="fields">FormFields</label></div>
     <div style="margin-bottom: 1rem">
         <textarea id="fields" style="width: 40rem; max-width: 100%" rows="20">
@@ -72,6 +77,8 @@
     const dataset = document.getElementById('dataset');
     const key = document.getElementById('key');
     const fields = document.getElementById('fields');
+    const query = document.getElementById('query');
+    const horizontal = document.getElementById('horizontal');
 
     form.addEventListener('submit', (e) => {
 
@@ -85,6 +92,12 @@
       const search = document.createElement('odp-search');
 
       search.setAttribute('dataset', set + (apiKey ? '&apikey=' + apiKey : ''));
+      search.setAttribute('horizontal', horizontal.checked);
+
+      if (query.value) {
+        search.setAttribute('query', query.value);
+      }
+
       wrapper.appendChild(search);
 
       search.formFields = JSON.parse(fields.value);

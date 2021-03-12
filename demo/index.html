@@ -7,16 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>DG ODS display demo</title>
     <script src="../dist/odp-search.min.js"></script>
-    <style>
-        @font-face {
-            font-family: "gent-icons-v4";
-            src: url('../dist/fonts/gent-icons.woff2') format('woff2'),
-            url('../dist/fonts/gent-icons.woff') format('woff');;
-        }
-    </style>
+    <link rel="stylesheet" href="../dist/fonts.min.css">
 </head>
 <body>
-
 
 <form style="max-width: 1290px; margin: auto; margin-bottom: 4rem" id="form">
     <div><label for="dataset">Dataset</label></div>
@@ -24,6 +17,11 @@
 
     <div><label for="key">API Key</label></div>
     <div style="margin-bottom: 1rem"><input type="text" id="key"></div>
+
+    <div><label for="query">Query</label></div>
+    <div style="margin-bottom: 1rem"><input type="text" id="query"></div>
+
+    <div style="margin-bottom: 1rem"><label for="horizontal"><input id="horizontal" type="checkbox"> Horizontal</label></div>
 
     <div><label for="fields">FormFields</label></div>
     <div style="margin-bottom: 1rem">
@@ -79,6 +77,8 @@
     const dataset = document.getElementById('dataset');
     const key = document.getElementById('key');
     const fields = document.getElementById('fields');
+    const query = document.getElementById('query');
+    const horizontal = document.getElementById('horizontal');
 
     form.addEventListener('submit', (e) => {
 
@@ -92,6 +92,12 @@
       const search = document.createElement('odp-search');
 
       search.setAttribute('dataset', set + (apiKey ? '&apikey=' + apiKey : ''));
+      search.setAttribute('horizontal', horizontal.checked);
+
+      if (query.value) {
+        search.setAttribute('query', query.value);
+      }
+
       wrapper.appendChild(search);
 
       search.formFields = JSON.parse(fields.value);

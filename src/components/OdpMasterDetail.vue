@@ -34,6 +34,8 @@
           </button>
         </div>
 
+        <p v-if="noResult" class="mb-20 mt-20"><strong>Deze zoekopdracht leverde geen resultaten op.</strong></p>
+
         <odp-map v-if="hasMap" v-show="showMap" :show="showMap" class="odp-map" :items="items"></odp-map>
 
         <ul v-if="items.length" v-show="!showMap" :style="horizontal ? 'margin-left: 0' : null"
@@ -118,6 +120,7 @@ export default Vue.extend({
       total: 0,
       offset: 0,
       loading: true,
+      noResult: false,
       q: null,
       myFormFields: [] as FormField[],
       selectedRecord: null as (Row | null),
@@ -139,6 +142,7 @@ export default Vue.extend({
   methods: {
     async fetch (): Promise<void> {
       this.loading = true
+      this.noResult = false
       this.items = []
 
       const fields = this.myFormFields.filter(f => !!f.value)
@@ -152,6 +156,9 @@ export default Vue.extend({
 
       const response = await fetch(url)
       if (!response.ok) {
+        this.noResult = true
+        this.loading = false
+        this.total = 0
         return
       }
 
@@ -177,8 +184,11 @@ export default Vue.extend({
     async search (): Promise<void> {
       this.offset = 0
       this.emitFilter()
-      await this.fetch();
-      (this.$refs.grid as HTMLElement).focus()
+      await this.fetch()
+      const grid = this.$refs.grid as HTMLElement
+      if (grid) {
+        grid.focus()
+      }
     },
     emitFilter (): void {
       const formValue: { [key: string]: any } = {
@@ -214,8 +224,11 @@ export default Vue.extend({
     },
     async navigate (page: number): Promise<void> {
       this.offset = (page - 1) * 12
-      await this.fetch();
-      (this.$refs.grid as HTMLElement).focus()
+      await this.fetch()
+      const grid = this.$refs.grid as HTMLElement
+      if (grid) {
+        grid.focus()
+      }
     }
   },
   async mounted (): Promise<void> {
@@ -311,6 +324,10 @@ $styleguide-dir: '../../node_modules/gent_styleguide/build/styleguide';
 
 .teaser-content .icon-list {
   margin-bottom: 0;
+}
+
+.teaser.teaser--wide:first-of-type {
+  border-top: 0;
 }
 
 .map-toggle--top {

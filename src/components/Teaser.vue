@@ -1,5 +1,9 @@
 <template>
-  <component :is="tagName || 'li'" class="teaser" :class="[teaser.teaser_img_url ? '': 'teaser--underlined', horizontal ? 'teaser--wide' : '']">
+  <component :is="tagName || 'li'" class="teaser"
+             :class="[
+               !horizontal && !teaser.teaser_img_url ? 'teaser--underlined' : null,
+               horizontal ? 'teaser--wide' : null
+             ]">
     <article class="teaser-content">
       <div class="content__second">
         <h3>{{ teaser.titel }}</h3>

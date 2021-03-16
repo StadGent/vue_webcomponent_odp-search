@@ -29,8 +29,11 @@
         <div class="contact-details-column">
           <ul class="icon-list contact-details-inverted">
             <li>
-              <i class="icon-marker" aria-hidden="true"></i>
-              {{ row.adres }}, {{ row.postcode }} {{ row.gemeente }}
+              <i class='icon-marker' aria-hidden="true"></i>
+              <template> {{ row.adres }}</template>
+              <template v-if="row.postcode || row.gemeente">,</template>
+              <template v-if="row.postcode"> {{ row.postcode }}</template>
+              <template v-if="row.gemeente"> {{ row.gemeente }}</template>
             </li>
             <li v-if="row.telefoon">
               <i class="icon-phone" aria-hidden="true"></i>

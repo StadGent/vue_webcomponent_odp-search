@@ -93,6 +93,18 @@ function sendToGTM(e) {
 
 ## Types
 
+### FormField 
+
+```ts
+export interface FormField {
+  type?: string;
+  label: string;
+  column: string;
+  value?: string;
+  options: { name: string; value: string }[];
+}
+```
+
 ### Return value of the source
 
 ```ts

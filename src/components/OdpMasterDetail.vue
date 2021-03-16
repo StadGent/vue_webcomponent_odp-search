@@ -330,6 +330,10 @@ $styleguide-dir: '../../node_modules/gent_styleguide/build/styleguide';
   border-top: 0;
 }
 
+.teaser.teaser--wide .tag {
+  margin-bottom: 0;
+}
+
 .map-toggle--top {
   position: relative;
   text-align: center;

@@ -160,7 +160,7 @@ export default Vue.extend({
     },
     async fetchAll (): Promise<void> {
       this.allItems = []
-      const url = this.createUrl()
+      const url = this.createUrl(false)
       const response = await fetch(url)
       if (!response.ok) {
         this.allItems = []

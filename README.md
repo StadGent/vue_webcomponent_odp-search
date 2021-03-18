@@ -121,13 +121,13 @@ export interface Dataset {
 
 ```ts
 export interface Row {
+  titel: string;
   beschrijving?: string;
   postcode?: string;
   gemeente?: string;
   coordinates?: string;
   website?: string;
   image_url?: string;
-  titel: string;
   teaser_text: string;
   teaser_img_url?: string;
   label_1?: string;

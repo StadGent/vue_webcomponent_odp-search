@@ -351,6 +351,13 @@ $styleguide-dir: '../../node_modules/gent_styleguide/build/styleguide';
 @import "~gent_styleguide/build/styleguide/sass/organisms";
 @import "~gent_styleguide/build/styleguide/sass/layouts";
 
+// Styleguide unreleased
+.teaser .teaser-content span.teaser-label {
+  line-height: 1.5;
+  padding: .2em .5em;
+  max-width: calc(100% - 2rem);
+}
+
 @import "../styles/map";
 
 .teaser-content .icon-list {

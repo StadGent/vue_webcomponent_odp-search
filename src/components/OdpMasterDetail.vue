@@ -36,7 +36,7 @@
 
         <p v-if="noResult" class="mb-20 mt-20"><strong>Deze zoekopdracht leverde geen resultaten op.</strong></p>
 
-        <odp-map v-if="hasMap" v-show="showMap" :show="showMap" class="odp-map" :items="items"></odp-map>
+        <odp-map v-if="hasMap" v-show="showMap" :show="showMap" class="odp-map" :items="allItems"></odp-map>
 
         <ul v-if="items.length" v-show="!showMap" :style="horizontal ? 'margin-left: 0' : null"
             :class="horizontal ? null : 'grid-3'" tabindex="-1" ref="grid">
@@ -55,7 +55,7 @@
         </div>
       </div>
 
-      <pagination class="mt-20" :total="total" :active="page" @navigate="navigate"></pagination>
+      <pagination v-show="!showMap" class="mt-20" :total="total" :active="page" @navigate="navigate"></pagination>
 
       <div v-if="loading" class="spinner-wrapper">
         <div class="spinner">
@@ -117,6 +117,7 @@ export default Vue.extend({
   data () {
     return {
       items: [] as Row[],
+      allItems: [] as Row[],
       total: 0,
       offset: 0,
       loading: true,
@@ -140,20 +141,44 @@ export default Vue.extend({
     }
   },
   methods: {
-    async fetch (): Promise<void> {
-      this.loading = true
-      this.noResult = false
-      this.items = []
-
+    createUrl (paged: boolean): string {
       const fields = this.myFormFields.filter(f => !!f.value)
+      let url
 
-      let url = `${this.source}${this.dataset}&rows=12&start=${this.offset}${this.sort ? '&sort=' + this.sort : ''}&q=`
+      if (paged) {
+        url = `${this.source}${this.dataset}&rows=12&start=${this.offset}${this.sort ? '&sort=' + this.sort : ''}&q=`
+      } else {
+        url = `${this.source}${this.dataset}&rows=255${this.sort ? '&sort=' + this.sort : ''}&q=`
+      }
 
       if (this.query && this.q) {
         url += `${this.q}${fields?.length ? ' and ' : ''}`
       }
       url += fields.map((f: FormField) => `${f.column}:'${f.value}'`).join(' and ')
 
+      return url
+    },
+    async fetchAll (): Promise<void> {
+      this.allItems = []
+      const url = this.createUrl()
+      const response = await fetch(url)
+      if (!response.ok) {
+        this.allItems = []
+        this.noResult = true
+        this.loading = false
+        this.total = 0
+        return
+      }
+
+      const { records }: Dataset = await response.json()
+      this.allItems = records.map(({ fields }) => fields)
+    },
+    async fetch (): Promise<void> {
+      this.loading = true
+      this.noResult = false
+      this.items = []
+
+      const url = this.createUrl(true)
       const response = await fetch(url)
       if (!response.ok) {
         this.noResult = true
@@ -181,10 +206,16 @@ export default Vue.extend({
 
       this.loading = false
     },
-    async search (): Promise<void> {
+    async firstFetch (): Promise<void> {
       this.offset = 0
       this.emitFilter()
       await this.fetch()
+      if (this.hasMap) {
+        await this.fetchAll()
+      }
+    },
+    async search (): Promise<void> {
+      await this.firstFetch()
       const grid = this.$refs.grid as HTMLElement
       if (grid) {
         grid.focus()
@@ -233,7 +264,7 @@ export default Vue.extend({
   },
   async mounted (): Promise<void> {
     this.myFormFields = this.formFields
-    await this.fetch()
+    await this.firstFetch()
     window.addEventListener('hashchange', this.onHashChange)
     this.onHashChange()
 

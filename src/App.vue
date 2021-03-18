@@ -1,6 +1,7 @@
 <template>
   <div id="app" class="cs--cyan">
-    <odp-master-detail dataset="stadgent-zoeker-test-data&apikey=41912e7bc2e5b15d189fafdbd7e74d5e04f26eaacfcc6524e689d3b5"
+    <odp-master-detail source=""
+                       dataset="/mockdata/ods-no-img.json?"
                        :horizontal="false"
                        :form-fields="[
                          { label: 'veld 1', column: 'kolom_1', options: [{value: 'optie1', name: 'optie één'}, {value: 'optie2', name: 'optie twee'}]},

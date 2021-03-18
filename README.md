@@ -141,4 +141,5 @@ export interface Row {
 }
 ```
 
-*Coordinates are expected as comma seperated string in  EPSG:3857 web-mercator* cfr: '410456.8852, 6633842.9202'
+**Coordinates are expected as comma separated string in  EPSG:3857 web-mercator** cfr: '410456.8852, 6633842.9202'  
+**tag_1, tag_2 and tag_3 can be a comma separated strings, resulting in multiple tags per category**

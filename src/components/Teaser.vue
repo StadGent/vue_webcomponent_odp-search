@@ -74,7 +74,9 @@ export default Vue.extend({
       return [this.teaser.label_1, this.teaser.label_2].filter(l => !!l).join(' - ')
     },
     tags (): string[] {
-      return [this.teaser.tag_1, this.teaser.tag_2, this.teaser.tag_3].filter(t => !!t) as string[]
+      // eslint-disable-next-line @typescript-eslint/camelcase
+      const { tag_1, tag_2, tag_3 } = this.teaser
+      return [...tag_1?.split(',') || [], ...tag_2?.split(',') || [], ...tag_3?.split(',') || []].filter(t => !!t).map(t => t.trim())
     },
     readMore (): string {
       return this.teaser.lees_meer || '#' + encodeURIComponent(this.teaser.titel)

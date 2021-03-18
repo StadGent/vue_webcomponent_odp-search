@@ -160,7 +160,7 @@ export default Vue.extend({
     },
     async fetchAll (): Promise<void> {
       this.allItems = []
-      const url = this.createUrl()
+      const url = this.createUrl(false)
       const response = await fetch(url)
       if (!response.ok) {
         this.allItems = []
@@ -350,6 +350,13 @@ $styleguide-dir: '../../node_modules/gent_styleguide/build/styleguide';
 @import "~gent_styleguide/build/styleguide/sass/molecules";
 @import "~gent_styleguide/build/styleguide/sass/organisms";
 @import "~gent_styleguide/build/styleguide/sass/layouts";
+
+// Styleguide unreleased
+.teaser .teaser-content span.teaser-label {
+  line-height: 1.5;
+  padding: .2em .5em;
+  max-width: calc(100% - 2rem);
+}
 
 @import "../styles/map";
 

@@ -7,7 +7,7 @@
     <article class="teaser-content">
       <div class="content__second">
         <h3>{{ teaser.titel }}</h3>
-        <div class="tag-list-wrapper mb-4" v-if="horizontal && tags && tags.length">
+        <div class="tag-list-wrapper mb-8" v-if="(horizontal || !teaser.teaser_img_url) && tags && tags.length">
           <ul class="tag-list">
             <li v-for="(tag, index) of tags" :key="index + tag">
               <span class="tag">{{ tag }}</span>
@@ -17,7 +17,11 @@
         <div class="mb-8" v-if="teaser.adres || teaser.telefoon">
           <ul class="icon-list">
             <li v-if="teaser.adres">
-              <i class='icon-marker'></i><span> {{ teaser.adres }}</span>
+              <i class='icon-marker' aria-hidden="true"></i>
+              <template> {{ teaser.adres }}</template>
+              <template v-if="teaser.postcode || teaser.gemeente">,</template>
+              <template v-if="teaser.postcode"> {{ teaser.postcode }}</template>
+              <template v-if="teaser.gemeente"> {{ teaser.gemeente }}</template>
             </li>
             <li v-if="teaser.telefoon">
               <i class="icon-phone"></i><a :href="'tel:'+teaser.telefoon">{{ teaser.telefoon }}</a>
@@ -59,11 +63,11 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue'
-import { Teaser } from '@/types/teaser'
+import { Row } from '@/types/row'
 
 export default Vue.extend({
   name: 'Teaser',
-  props: { teaser: Object as PropType<Teaser>, horizontal: Boolean, tagName: String },
+  props: { teaser: Object as PropType<Row>, horizontal: Boolean, tagName: String },
   methods: {},
   computed: {
     label (): string {

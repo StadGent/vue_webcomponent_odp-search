@@ -101,7 +101,7 @@ export interface FormField {
   label: string;
   column: string;
   value?: string;
-  options: { name: string; value: string }[];
+  options: [{ name: string; value: string } | string];
 }
 ```
 

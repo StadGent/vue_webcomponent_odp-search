@@ -3,5 +3,10 @@ export interface FormField {
   label: string;
   column: string;
   value?: string;
-  options: { name: string; value: string }[];
+  options: [Option | string];
+}
+
+export interface Option {
+  name: string;
+  value: string;
 }

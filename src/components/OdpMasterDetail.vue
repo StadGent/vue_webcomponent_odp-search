@@ -13,7 +13,7 @@
             <label :for="f.column">{{ f.label }}</label>
             <select v-if="!f.type || f.type === 'select'" v-model="f.value" :id="f.column">
               <option :value="null">Geen keuze</option>
-              <option v-for="({name, value}, i) in f.options"
+              <option v-for="({name, value}, i) in splitOptions(f.options)"
                       :key="f.column + '-' + index + '-' + value + '-' + i"
                       :value="value">{{ name }}
               </option>
@@ -73,7 +73,7 @@ import Vue, { PropType } from 'vue'
 import Pagination from '@/components/Pagination.vue'
 import Teaser from '@/components/Teaser.vue'
 import { Dataset } from '@/types/dataset'
-import { FormField } from '@/types/formField'
+import { FormField, Option } from '@/types/formField'
 import { Row } from '@/types/row'
 
 export default Vue.extend({
@@ -141,6 +141,9 @@ export default Vue.extend({
     }
   },
   methods: {
+    splitOptions: function (options: [Option | string]): Option[] {
+      return options.map((o: Option | string) => typeof o === 'string' ? { name: o, value: o } : o)
+    },
     createUrl (paged: boolean): string {
       const fields = this.myFormFields.filter(f => !!f.value)
       let url

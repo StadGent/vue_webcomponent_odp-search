@@ -76,7 +76,9 @@ export default Vue.extend({
       return [this.row.label_1, this.row.label_2].filter(l => !!l) as string[]
     },
     tags (): string[] {
-      return [this.row.tag_1, this.row.tag_2, this.row.tag_3].filter(t => !!t) as string[]
+      // eslint-disable-next-line @typescript-eslint/camelcase
+      const { tag_1, tag_2, tag_3 } = this.row
+      return [...tag_1?.split(',') || [], ...tag_2?.split(',') || [], ...tag_3?.split(',') || []].filter(t => !!t).map(t => t.trim())
     }
   },
   mounted () {

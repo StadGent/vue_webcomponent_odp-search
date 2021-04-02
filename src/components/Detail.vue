@@ -39,6 +39,10 @@
               <i class="icon-phone" aria-hidden="true"></i>
               <a :href="'tel:' + row.telefoon.split(' ').join()">{{ row.telefoon }}</a>
             </li>
+            <li v-if="row.email">
+              <i class="icon-envelope" aria-hidden="true"></i>
+              <a :href="'mailto:' + row.email.trim()">{{ row.email }}</a>
+            </li>
             <li v-if="row.website">
               <i class="icon-url" aria-hidden="true"></i>
               <a :href="row.website">{{ row.website }}</a>

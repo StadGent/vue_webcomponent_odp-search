@@ -336,7 +336,7 @@ $styleguide-dir: '../../node_modules/gent_styleguide/build/styleguide';
 @import "../styles/map";
 
 .teaser-content .icon-list {
-  margin-bottom: 0;
+  margin: .8rem 0;
 }
 
 .teaser.teaser--wide:first-of-type {

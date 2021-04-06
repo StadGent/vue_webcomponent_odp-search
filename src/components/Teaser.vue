@@ -14,20 +14,15 @@
             </li>
           </ul>
         </div>
-        <div class="mb-8" v-if="teaser.adres || teaser.telefoon">
-          <ul class="icon-list">
-            <li v-if="teaser.adres">
-              <i class='icon-marker' aria-hidden="true"></i>
-              <template> {{ teaser.adres }}</template>
-              <template v-if="teaser.postcode || teaser.gemeente">,</template>
-              <template v-if="teaser.postcode"> {{ teaser.postcode }}</template>
-              <template v-if="teaser.gemeente"> {{ teaser.gemeente }}</template>
-            </li>
-            <li v-if="teaser.telefoon">
-              <i class="icon-phone"></i><a :href="'tel:'+teaser.telefoon">{{ teaser.telefoon }}</a>
-            </li>
-          </ul>
-        </div>
+        <ul class="icon-list" v-if="teaser.adres">
+          <li v-if="teaser.adres">
+            <i class='icon-marker' aria-hidden="true"></i>
+            <template> {{ teaser.adres }}</template>
+            <template v-if="teaser.postcode || teaser.gemeente">,</template>
+            <template v-if="teaser.postcode"> {{ teaser.postcode }}</template>
+            <template v-if="teaser.gemeente"> {{ teaser.gemeente }}</template>
+          </li>
+        </ul>
         <p v-if="teaser.teaser_text">{{ teaser.teaser_text }}</p>
         <a :href="readMore" @click="$emit('selected', $event)" class="read-more standalone-link">
           Lees meer <span class="visually-hidden">over {{ teaser.titel }}</span>

@@ -28,9 +28,9 @@
         <h2>Contactgegevens</h2>
         <div class="contact-details-column">
           <ul class="icon-list contact-details-inverted">
-            <li>
+            <li v-if="row.adres || row.postcode || row.gemeente">
               <i class='icon-marker' aria-hidden="true"></i>
-              <template> {{ row.adres }}</template>
+              <template v-if="row.adres">{{ row.adres }}</template>
               <template v-if="row.postcode || row.gemeente">,</template>
               <template v-if="row.postcode"> {{ row.postcode }}</template>
               <template v-if="row.gemeente"> {{ row.gemeente }}</template>
@@ -38,6 +38,10 @@
             <li v-if="row.telefoon">
               <i class="icon-phone" aria-hidden="true"></i>
               <a :href="'tel:' + row.telefoon.split(' ').join()">{{ row.telefoon }}</a>
+            </li>
+            <li v-if="row.email">
+              <i class="icon-envelope" aria-hidden="true"></i>
+              <a :href="'mailto:' + row.email.trim()">{{ row.email }}</a>
             </li>
             <li v-if="row.website">
               <i class="icon-url" aria-hidden="true"></i>
@@ -76,7 +80,9 @@ export default Vue.extend({
       return [this.row.label_1, this.row.label_2].filter(l => !!l) as string[]
     },
     tags (): string[] {
-      return [this.row.tag_1, this.row.tag_2, this.row.tag_3].filter(t => !!t) as string[]
+      // eslint-disable-next-line @typescript-eslint/camelcase
+      const { tag_1, tag_2, tag_3 } = this.row
+      return [...tag_1?.split(',') || [], ...tag_2?.split(',') || [], ...tag_3?.split(',') || []].filter(t => !!t).map(t => t.trim())
     }
   },
   mounted () {

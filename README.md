@@ -137,6 +137,7 @@ export interface Row {
   tag_3?: string;
   adres?: string;
   telefoon?: string;
+  email?: string;
   lees_meer?: string;
 }
 ```

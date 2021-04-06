@@ -321,34 +321,6 @@ $styleguide-dir: '../../node_modules/gent_styleguide/build/styleguide';
 @import '~gent_styleguide/build/styleguide/sass/settings';
 @import '~gent_styleguide/build/styleguide/sass/mixins';
 @import '~gent_styleguide/build/styleguide/sass/base';
-
-// For some reason this font does not load in production mode.
-// See demo/index.html for a 'fix'.
-@font-face {
-  font-family: "gent-icons-v4";
-  src: url('~gent_styleguide/build/styleguide/fonts/gent-icons.woff2') format('woff2'), url('~gent_styleguide/build/styleguide/fonts/gent-icons.woff') format('woff');
-}
-
-// Override icon-styles and rename the font-family to avoid conflict with the host page.
-@mixin icon-styles {
-  font-family: "gent-icons-v4", "fira-sans", "sans-serif";
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  text-decoration: none;
-  text-transform: none;
-}
-
-[class*='icon-'],
-%icon {
-  font-family: "gent-icons-v4", "fira-sans", "sans-serif";
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  text-decoration: none;
-  text-transform: none;
-}
-
 @import "~gent_styleguide/build/styleguide/sass/atoms";
 @import "~gent_styleguide/build/styleguide/sass/molecules";
 @import "~gent_styleguide/build/styleguide/sass/organisms";
@@ -364,7 +336,7 @@ $styleguide-dir: '../../node_modules/gent_styleguide/build/styleguide';
 @import "../styles/map";
 
 .teaser-content .icon-list {
-  margin-bottom: 0;
+  margin: .8rem 0;
 }
 
 .teaser.teaser--wide:first-of-type {

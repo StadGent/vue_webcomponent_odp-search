@@ -62,7 +62,23 @@ import { Row } from '@/types/row'
 
 export default Vue.extend({
   name: 'Teaser',
-  props: { teaser: Object as PropType<Row>, horizontal: Boolean, tagName: String },
+  props: {
+    teaser: Object as PropType<Row>,
+    horizontal: Boolean,
+    tagName: String,
+    tag1Hidden: {
+      type: Boolean,
+      default: true
+    },
+    tag2Hidden: {
+      type: Boolean,
+      default: true
+    },
+    tag3Hidden: {
+      type: Boolean,
+      default: true
+    }
+  },
   methods: {},
   computed: {
     label (): string {
@@ -70,8 +86,11 @@ export default Vue.extend({
     },
     tags (): string[] {
       // eslint-disable-next-line @typescript-eslint/camelcase
-      const { tag_1, tag_2, tag_3 } = this.teaser
-      return [...tag_1?.split(',') || [], ...tag_2?.split(',') || [], ...tag_3?.split(',') || []].filter(t => !!t).map(t => t.trim())
+      const { tag_1, tag_2, tag_3, tag1Hidden, tag2Hidden, tag3Hidden } = this.teaser
+      const tag1 = (tag1Hidden === undefined || tag1Hidden === false) ? [...tag_1?.split(',') || []] : []
+      const tag2 = (tag2Hidden === undefined || tag2Hidden === false) ? [...tag_2?.split(',') || []] : []
+      const tag3 = (tag3Hidden === undefined || tag3Hidden === false) ? [...tag_3?.split(',') || []] : []
+      return [...tag1, ...tag2, ...tag3].filter(t => !!t).map(t => t.trim())
     },
     readMore (): string {
       return this.teaser.lees_meer || '#' + encodeURIComponent(this.teaser.titel)

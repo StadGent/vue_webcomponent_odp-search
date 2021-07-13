@@ -7,6 +7,9 @@ export interface Row {
   tag_1?: string;
   tag_2?: string;
   tag_3?: string;
+  tag1Hidden?: boolean;
+  tag2Hidden?: boolean;
+  tag3Hidden?: boolean;
   adres?: string;
   telefoon?: string;
   email?: string;

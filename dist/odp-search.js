@@ -8722,11 +8722,11 @@ module.exports = DESCRIPTORS ? Object.defineProperties : function defineProperti
 // Imports
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__("24fb");
 var ___CSS_LOADER_GET_URL_IMPORT___ = __webpack_require__("1de5");
-var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__("a929");
+var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__("da91");
 var ___CSS_LOADER_URL_IMPORT_1___ = __webpack_require__("3ae2");
-var ___CSS_LOADER_URL_IMPORT_2___ = __webpack_require__("ed14");
-var ___CSS_LOADER_URL_IMPORT_3___ = __webpack_require__("3ece");
-var ___CSS_LOADER_URL_IMPORT_4___ = __webpack_require__("8f85");
+var ___CSS_LOADER_URL_IMPORT_2___ = __webpack_require__("8555");
+var ___CSS_LOADER_URL_IMPORT_3___ = __webpack_require__("b719");
+var ___CSS_LOADER_URL_IMPORT_4___ = __webpack_require__("9b88");
 var ___CSS_LOADER_URL_IMPORT_5___ = __webpack_require__("9642");
 var ___CSS_LOADER_URL_IMPORT_6___ = __webpack_require__("6bba");
 var ___CSS_LOADER_URL_IMPORT_7___ = __webpack_require__("cb8c");
@@ -8768,11 +8768,11 @@ var ___CSS_LOADER_URL_IMPORT_42___ = __webpack_require__("146d");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Fira+Sans:400,600,700);"]);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
-var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___, { hash: "?#iefix?v=842" });
+var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___, { hash: "?#iefix?v=507" });
 var ___CSS_LOADER_URL_REPLACEMENT_2___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_2___);
 var ___CSS_LOADER_URL_REPLACEMENT_3___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_3___);
 var ___CSS_LOADER_URL_REPLACEMENT_4___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_4___);
-var ___CSS_LOADER_URL_REPLACEMENT_5___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_5___, { hash: "#gent-icons-v5?v=842" });
+var ___CSS_LOADER_URL_REPLACEMENT_5___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_5___, { hash: "#gent-icons-v5?v=507" });
 var ___CSS_LOADER_URL_REPLACEMENT_6___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_6___);
 var ___CSS_LOADER_URL_REPLACEMENT_7___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_7___);
 var ___CSS_LOADER_URL_REPLACEMENT_8___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_8___);
@@ -8843,13 +8843,6 @@ module.exports = function (it) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/lightbulb-light--blue.svg";
-
-/***/ }),
-
-/***/ "3ece":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "fonts/gent-icons-v5.woff";
 
 /***/ }),
 
@@ -10367,6 +10360,13 @@ module.exports = !fails(function () {
 
 /***/ }),
 
+/***/ "8555":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "fonts/gent-icons-v5.woff2";
+
+/***/ }),
+
 /***/ "861d":
 /***/ (function(module, exports) {
 
@@ -10508,13 +10508,6 @@ module.exports = function (S, index, unicode) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/lightbulb-light--cyan.svg";
-
-/***/ }),
-
-/***/ "8f85":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "fonts/gent-icons-v5.ttf";
 
 /***/ }),
 
@@ -10692,6 +10685,13 @@ module.exports = __webpack_require__.p + "img/gent-icons-v5.svg";
 
 /***/ }),
 
+/***/ "9b88":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "fonts/gent-icons-v5.ttf";
+
+/***/ }),
+
 /***/ "9bf2":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10793,13 +10793,6 @@ module.exports = function (argument) {
   return isNaN(argument = +argument) ? 0 : (argument > 0 ? floor : ceil)(argument);
 };
 
-
-/***/ }),
-
-/***/ "a929":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "fonts/gent-icons-v5.eot";
 
 /***/ }),
 
@@ -10927,6 +10920,13 @@ module.exports = function (name) {
 
 /***/ }),
 
+/***/ "b719":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "fonts/gent-icons-v5.woff";
+
+/***/ }),
+
 /***/ "ba59":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10939,7 +10939,7 @@ module.exports = __webpack_require__.p + "img/link-light--cyan.svg";
 
 "use strict";
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"28803b9b-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Teaser.vue?vue&type=template&id=93b1a664&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"28803b9b-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Teaser.vue?vue&type=template&id=0af1a258&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c(_vm.tagName || 'li',{tag:"component",staticClass:"teaser",class:[
              !_vm.horizontal && !_vm.teaser.teaser_img_url ? 'teaser--underlined' : null,
              _vm.horizontal ? 'teaser--wide' : null
@@ -10947,7 +10947,7 @@ var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._sel
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/Teaser.vue?vue&type=template&id=93b1a664&
+// CONCATENATED MODULE: ./src/components/Teaser.vue?vue&type=template&id=0af1a258&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom-collections.iterator.js
 var web_dom_collections_iterator = __webpack_require__("ddb0");
@@ -10965,22 +10965,37 @@ var vue_runtime_esm = __webpack_require__("2b0e");
     horizontal: Boolean,
     tagName: String,
     tag1Hidden: {
-      type: Boolean,
-      default: true
+      type: Boolean
     },
     tag2Hidden: {
-      type: Boolean,
-      default: true
+      type: Boolean
     },
     tag3Hidden: {
-      type: Boolean,
-      default: true
+      type: Boolean
+    },
+    label1Hidden: {
+      type: Boolean
+    },
+    label2Hidden: {
+      type: Boolean
     }
   },
   methods: {},
   computed: {
     label() {
-      return [this.teaser.label_1, this.teaser.label_2].filter(l => !!l).join(' - ');
+      // eslint-disable-next-line @typescript-eslint/camelcase
+      const {
+        label_1,
+        label_2,
+        label1Hidden,
+        label2Hidden
+      } = this.teaser; // eslint-disable-next-line @typescript-eslint/camelcase
+
+      const label1 = label1Hidden === undefined || label1Hidden === false ? label_1 : ''; // eslint-disable-next-line @typescript-eslint/camelcase
+
+      const label2 = label2Hidden === undefined || label2Hidden === false ? label_2 : '';
+      console.log(label1, label2);
+      return [label1, label2].filter(l => !!l).join(' - ');
     },
 
     tags() {
@@ -11479,6 +11494,13 @@ module.exports =
 
 /***/ }),
 
+/***/ "da91":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "fonts/gent-icons-v5.eot";
+
+/***/ }),
+
 /***/ "dd2f":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11675,13 +11697,6 @@ var add = __webpack_require__("35d6").default
 module.exports.__inject__ = function (shadowRoot) {
   add("7566edde", content, shadowRoot)
 };
-
-/***/ }),
-
-/***/ "ed14":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "fonts/gent-icons-v5.woff2";
 
 /***/ }),
 

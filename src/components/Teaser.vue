@@ -67,22 +67,33 @@ export default Vue.extend({
     horizontal: Boolean,
     tagName: String,
     tag1Hidden: {
-      type: Boolean,
-      default: true
+      type: Boolean
     },
     tag2Hidden: {
-      type: Boolean,
-      default: true
+      type: Boolean
     },
     tag3Hidden: {
-      type: Boolean,
-      default: true
+      type: Boolean
+    },
+    label1Hidden: {
+      type: Boolean
+    },
+    label2Hidden: {
+      type: Boolean
     }
   },
   methods: {},
   computed: {
     label (): string {
-      return [this.teaser.label_1, this.teaser.label_2].filter(l => !!l).join(' - ')
+      // eslint-disable-next-line @typescript-eslint/camelcase
+      const { label_1, label_2, label1Hidden, label2Hidden } = this.teaser
+      // eslint-disable-next-line @typescript-eslint/camelcase
+      const label1 = (label1Hidden === undefined || label1Hidden === false) ? label_1 : ''
+      // eslint-disable-next-line @typescript-eslint/camelcase
+      const label2 = (label2Hidden === undefined || label2Hidden === false) ? label_2 : ''
+
+      console.log(label1, label2)
+      return [label1, label2].filter(l => !!l).join(' - ')
     },
     tags (): string[] {
       // eslint-disable-next-line @typescript-eslint/camelcase

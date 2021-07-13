@@ -4,6 +4,8 @@ export interface Row {
   teaser_img_url?: string;
   label_1?: string;
   label_2?: string;
+  label1Hidden?: boolean
+  label2Hidden?: boolean
   tag_1?: string;
   tag_2?: string;
   tag_3?: string;

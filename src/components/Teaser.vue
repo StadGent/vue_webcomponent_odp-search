@@ -53,6 +53,7 @@
        class="teaser-overlay-link"
        tabindex="-1"
        aria-hidden="true">{{ teaser.titel }}</a>
+       {{ teaser.tag1Hidden }}
   </component>
 </template>
 
@@ -86,21 +87,21 @@ export default Vue.extend({
   computed: {
     label (): string {
       // eslint-disable-next-line @typescript-eslint/camelcase
-      const { label_1, label_2, label1Hidden, label2Hidden } = this.teaser
+      const { label_1, label_2, label1hidden, label2hidden } = this.teaser
       // eslint-disable-next-line @typescript-eslint/camelcase
-      const label1 = (label1Hidden === undefined || label1Hidden === false) ? label_1 : ''
+      const label1 = (label1hidden === undefined || label1hidden === false) ? label_1 : ''
       // eslint-disable-next-line @typescript-eslint/camelcase
-      const label2 = (label2Hidden === undefined || label2Hidden === false) ? label_2 : ''
+      const label2 = (label2hidden === undefined || label2hidden === false) ? label_2 : ''
 
       console.log(label1, label2)
       return [label1, label2].filter(l => !!l).join(' - ')
     },
     tags (): string[] {
       // eslint-disable-next-line @typescript-eslint/camelcase
-      const { tag_1, tag_2, tag_3, tag1Hidden, tag2Hidden, tag3Hidden } = this.teaser
-      const tag1 = (tag1Hidden === undefined || tag1Hidden === false) ? [...tag_1?.split(',') || []] : []
-      const tag2 = (tag2Hidden === undefined || tag2Hidden === false) ? [...tag_2?.split(',') || []] : []
-      const tag3 = (tag3Hidden === undefined || tag3Hidden === false) ? [...tag_3?.split(',') || []] : []
+      const { tag_1, tag_2, tag_3, tag1hidden, tag2hidden, tag3hidden } = this.teaser
+      const tag1 = (tag1hidden === undefined || tag1hidden === false) ? [...tag_1?.split(',') || []] : []
+      const tag2 = (tag2hidden === undefined || tag2hidden === false) ? [...tag_2?.split(',') || []] : []
+      const tag3 = (tag3hidden === undefined || tag3hidden === false) ? [...tag_3?.split(',') || []] : []
       return [...tag1, ...tag2, ...tag3].filter(t => !!t).map(t => t.trim())
     },
     readMore (): string {

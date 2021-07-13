@@ -53,7 +53,6 @@
        class="teaser-overlay-link"
        tabindex="-1"
        aria-hidden="true">{{ teaser.titel }}</a>
-       {{ teaser.tag1Hidden }}
   </component>
 </template>
 
@@ -67,20 +66,20 @@ export default Vue.extend({
     teaser: Object as PropType<Row>,
     horizontal: Boolean,
     tagName: String,
-    tag1Hidden: {
-      type: Boolean
+    tag1hidden: {
+      type: String
     },
-    tag2Hidden: {
-      type: Boolean
+    tag2hidden: {
+      type: String
     },
-    tag3Hidden: {
-      type: Boolean
+    tag3hidden: {
+      type: String
     },
-    label1Hidden: {
-      type: Boolean
+    label1hidden: {
+      type: String
     },
-    label2Hidden: {
-      type: Boolean
+    label2hidden: {
+      type: String
     }
   },
   methods: {},
@@ -89,19 +88,17 @@ export default Vue.extend({
       // eslint-disable-next-line @typescript-eslint/camelcase
       const { label_1, label_2, label1hidden, label2hidden } = this.teaser
       // eslint-disable-next-line @typescript-eslint/camelcase
-      const label1 = (label1hidden === undefined || label1hidden === false) ? label_1 : ''
+      const label1 = (label1hidden === undefined || label1hidden === 'false') ? label_1 : ''
       // eslint-disable-next-line @typescript-eslint/camelcase
-      const label2 = (label2hidden === undefined || label2hidden === false) ? label_2 : ''
-
-      console.log(label1, label2)
+      const label2 = (label2hidden === undefined || label2hidden === 'false') ? label_2 : ''
       return [label1, label2].filter(l => !!l).join(' - ')
     },
     tags (): string[] {
       // eslint-disable-next-line @typescript-eslint/camelcase
       const { tag_1, tag_2, tag_3, tag1hidden, tag2hidden, tag3hidden } = this.teaser
-      const tag1 = (tag1hidden === undefined || tag1hidden === false) ? [...tag_1?.split(',') || []] : []
-      const tag2 = (tag2hidden === undefined || tag2hidden === false) ? [...tag_2?.split(',') || []] : []
-      const tag3 = (tag3hidden === undefined || tag3hidden === false) ? [...tag_3?.split(',') || []] : []
+      const tag1 = (tag1hidden === undefined || tag1hidden === 'false') ? [...tag_1?.split(',') || []] : []
+      const tag2 = (tag2hidden === undefined || tag2hidden === 'false') ? [...tag_2?.split(',') || []] : []
+      const tag3 = (tag3hidden === undefined || tag3hidden === 'false') ? [...tag_3?.split(',') || []] : []
       return [...tag1, ...tag2, ...tag3].filter(t => !!t).map(t => t.trim())
     },
     readMore (): string {

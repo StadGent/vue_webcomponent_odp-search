@@ -30,7 +30,8 @@
         "label1hidden": true,
         "label_2": "instruction set",
         "image_url": "http://dummyimage.com/220x192.bmp/dddddd/000000",
-        "website": "https://ihg.com/sem/mauris/laoreet/ut/rhoncus/aliquet.png?faucibus=justo&orci=sit&luctus=amet&et=sapien&ultrices=dignissim&posuere=vestibulum&cubilia=vestibulum&curae=ante&donec=ipsum&pharetra=primis&magna=in&vestibulum=faucibus&aliquet=orci&ultrices=luctus&erat=et&tortor=ultrices&sollicitudin=posuere&mi=cubilia&sit=curae&amet=nulla&lobortis=dapibus&sapien=dolor&sapien=vel&non=est&mi=donec&integer=odio&ac=justo&neque=sollicitudin&duis=ut&bibendum=suscipit&morbi=a&non=feugiat&quam=et&nec=eros&dui=vestibulum&luctus=ac&rutrum=est&nulla=lacinia&tellus=nisi&in=venenatis&sagittis=tristique&dui=fusce&vel=congue&nisl=diam&duis=id&ac=ornare&nibh=imperdiet&fusce=sapien&lacus=urna&purus=pretium&aliquet=nisl&at=ut&feugiat=volutpat&non=sapien&pretium=arcu&quis=sed&lectus=augue&suspendisse=aliquam&potenti=erat&in=volutpat&eleifend=in&quam=congue&a=etiam&odio=justo&in=etiam&hac=pretium&habitasse=iaculis&platea=justo&dictumst=in&maecenas=hac&ut=habitasse&massa=platea&quis=dictumst&augue=etiam&luctus=faucibus&tincidunt=cursus&nulla=urna"
+        "website": "https://ihg.com/sem/mauris/laoreet/ut/rhoncus/aliquet.png?faucibus=justo&orci=sit&luctus=amet&et=sapien&ultrices=dignissim&posuere=vestibulum&cubilia=vestibulum&curae=ante&donec=ipsum&pharetra=primis&magna=in&vestibulum=faucibus&aliquet=orci&ultrices=luctus&erat=et&tortor=ultrices&sollicitudin=posuere&mi=cubilia&sit=curae&amet=nulla&lobortis=dapibus&sapien=dolor&sapien=vel&non=est&mi=donec&integer=odio&ac=justo&neque=sollicitudin&duis=ut&bibendum=suscipit&morbi=a&non=feugiat&quam=et&nec=eros&dui=vestibulum&luctus=ac&rutrum=est&nulla=lacinia&tellus=nisi&in=venenatis&sagittis=tristique&dui=fusce&vel=congue&nisl=diam&duis=id&ac=ornare&nibh=imperdiet&fusce=sapien&lacus=urna&purus=pretium&aliquet=nisl&at=ut&feugiat=volutpat&non=sapien&pretium=arcu&quis=sed&lectus=augue&suspendisse=aliquam&potenti=erat&in=volutpat&eleifend=in&quam=congue&a=etiam&odio=justo&in=etiam&hac=pretium&habitasse=iaculis&platea=justo&dictumst=in&maecenas=hac&ut=habitasse&massa=platea&quis=dictumst&augue=etiam&luctus=faucibus&tincidunt=cursus&nulla=urna",
+        "openingsuren": "10:00 - 12:00, 14:00 - 16:00, 18:00 - 22:00"
       },
       "record_timestamp": "2021-02-04T11:00:02.254000+00:00"
     },
@@ -54,7 +55,10 @@
         "label_1": "real-time",
         "label_2": "productivity",
         "image_url": "http://dummyimage.com/139x191.bmp/dddddd/000000",
-        "website": "http://nhs.uk/et/magnis/dis/parturient/montes/nascetur/ridiculus.jpg?accumsan=ipsum&odio=primis&curabitur=in&convallis=faucibus&duis=orci&consequat=luctus&dui=et&nec=ultrices&nisi=posuere&volutpat=cubilia&eleifend=curae&donec=duis&ut=faucibus&dolor=accumsan&morbi=odio&vel=curabitur&lectus=convallis&in=duis&quam=consequat&fringilla=dui&rhoncus=nec&mauris=nisi&enim=volutpat&leo=eleifend&rhoncus=donec&sed=ut&vestibulum=dolor&sit=morbi&amet=vel&cursus=lectus&id=in&turpis=quam&integer=fringilla&aliquet=rhoncus&massa=mauris&id=enim&lobortis=leo&convallis=rhoncus&tortor=sed&risus=vestibulum"
+        "website": "http://nhs.uk/et/magnis/dis/parturient/montes/nascetur/ridiculus.jpg?accumsan=ipsum&odio=primis&curabitur=in&convallis=faucibus&duis=orci&consequat=luctus&dui=et&nec=ultrices&nisi=posuere&volutpat=cubilia&eleifend=curae&donec=duis&ut=faucibus&dolor=accumsan&morbi=odio&vel=curabitur&lectus=convallis&in=duis&quam=consequat&fringilla=dui&rhoncus=nec&mauris=nisi&enim=volutpat&leo=eleifend&rhoncus=donec&sed=ut&vestibulum=dolor&sit=morbi&amet=vel&cursus=lectus&id=in&turpis=quam&integer=fringilla&aliquet=rhoncus&massa=mauris&id=enim&lobortis=leo&convallis=rhoncus&tortor=sed&risus=vestibulum",
+        "openingsuren": "10:00 - 12:00, 14:00 - 16:00",
+        "totale_capaciteit": "100",
+        "gereserveerde_plaatsen": "80"
       },
       "record_timestamp": "2021-02-04T11:00:02.254000+00:00"
     },

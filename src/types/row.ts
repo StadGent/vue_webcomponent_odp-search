@@ -4,8 +4,8 @@ export interface Row {
   teaser_img_url?: string;
   label_1?: string;
   label_2?: string;
-  label1hidden?: string
-  label2hidden?: string
+  label1hidden?: string;
+  label2hidden?: string;
   tag_1?: string;
   tag_2?: string;
   tag_3?: string;
@@ -22,4 +22,5 @@ export interface Row {
   coordinates?: string;
   website?: string;
   image_url?: string;
+  openingsuren?: string;
 }

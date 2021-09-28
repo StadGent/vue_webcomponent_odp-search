@@ -41,7 +41,7 @@ yarn lint
 ### query
 
 * type: String
-* default: 'Inhoud'
+* default: 'Zoek op trefwoord'
 
 Defines the label of the text input field.
 
@@ -121,24 +121,30 @@ export interface Dataset {
 
 ```ts
 export interface Row {
-  titel: string;
+titel: string;
+  teaser_text: string;
+  teaser_img_url?: string;
+  label_1?: string;
+  label_2?: string;
+  label1hidden?: string;
+  label2hidden?: string;
+  tag_1?: string;
+  tag_2?: string;
+  tag_3?: string;
+  tag1hidden?: string;
+  tag2hidden?: string;
+  tag3hidden?: string;
+  adres?: string;
+  telefoon?: string;
+  email?: string;
+  lees_meer?: string;
   beschrijving?: string;
   postcode?: string;
   gemeente?: string;
   coordinates?: string;
   website?: string;
   image_url?: string;
-  teaser_text: string;
-  teaser_img_url?: string;
-  label_1?: string;
-  label_2?: string;
-  tag_1?: string;
-  tag_2?: string;
-  tag_3?: string;
-  adres?: string;
-  telefoon?: string;
-  email?: string;
-  lees_meer?: string;
+  openingsuren?: string;
 }
 ```
 

@@ -45,7 +45,7 @@
                   :key="'teaser'+index"></teaser>
         </ul>
 
-        <div class="map-toggle--bottom">
+        <div v-if="hasMap" class="map-toggle--bottom">
           <button v-show="!showMap" class="button button-primary button-small icon-marker" @click="showMap = true"
                   style="margin-left: auto">Toon op kaart
           </button>
@@ -95,7 +95,7 @@ export default Vue.extend({
     },
     query: {
       type: String,
-      default: 'Inhoud'
+      default: 'Zoek op trefwoord'
     },
     horizontal: {
       type: Boolean,
@@ -121,7 +121,7 @@ export default Vue.extend({
       total: 0,
       offset: 0,
       loading: true,
-      noResult: false,
+      noResult: true,
       q: null,
       myFormFields: [] as FormField[],
       selectedRecord: null as (Row | null),
@@ -174,11 +174,11 @@ export default Vue.extend({
       }
 
       const { records }: Dataset = await response.json()
+      records.length === 0 ? this.noResult = true : this.noResult = false
       this.allItems = records.map(({ fields }) => fields)
     },
     async fetch (): Promise<void> {
       this.loading = true
-      this.noResult = false
       this.items = []
 
       const url = this.createUrl(true)
@@ -194,6 +194,8 @@ export default Vue.extend({
         nhits,
         records
       }: Dataset = await response.json()
+
+      records.length === 0 ? this.noResult = true : this.noResult = false
 
       this.total = Math.ceil(nhits / 12)
       this.items = records.map(({ fields }) => fields)

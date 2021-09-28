@@ -23,6 +23,53 @@
       </ul>
     </div>
 
+    <div v-if="row.totale_capaciteit">
+      <ul class="icon-list">
+        <li v-if="row.totale_capaciteit">
+          <i class='icon-users' aria-hidden="true"></i>
+          <template v-if="row.totale_capaciteit && row.gereserveerde_plaatsen">{{ row.gereserveerde_plaatsen }} / {{ row.totale_capaciteit }}</template>
+          <template v-else>{{ row.totale_capaciteit }}</template>
+        </li>
+      </ul>
+    </div>
+
+            <div class="opening-hours-accordion">
+          <div class="opening-hours-accordion__item">
+            <div class="openinghours-wrapper">
+              <div id="opening-hours" role="tabpanel">
+                <div class="openinghours-widget" data-type="day" v-if="openingHours.length > 0">
+                    <div class="openinghours openinghours--details openinghours--day-open" property="openingHoursSpecification" typeof="OpeningHoursSpecification">
+                        <div class="openinghours--date openinghours--special-day" property="validFrom validThrough" :datetime="getDateTime()">
+                            <span class="openinghours--date-special-day">Vandaag </span>
+                            <span class="openinghours--date-between">, </span>
+                            <span class="openinghours--date-day-of-week">
+                              <link property="dayOfWeek" :href="'http://schema.org/' + moment(getDateTime(), 'YYYY-MM-DD').format('dddd')">{{ moment(getDateTime(), 'YYYY-MM-DD').format('dddd') }}
+                            </span>
+                            <span class="openinghours--date-day">{{ moment(getDateTime(), 'YYYY-MM-DD').format('D') }}</span>
+                            <span class="openinghours--date-month">{{ moment(getDateTime(), 'YYYY-MM-DD').format('MMMM') }}</span>
+                        </div>
+                        <div class="openinghours--content">
+                            <div class="openinghours--times">
+                                <span class="openinghours--status">open</span>
+                                <div class="openinghours--time" v-for="(openingHour, index) of openingHours" :key="index + openingHour">
+                                    <span class="openinghours--time-prefix">from</span>
+                                    <time v-if="startHour(openingHour)" property="opens" :datetime="startHour(openingHour)" :aria-label="startHour(openingHour)">
+                                        {{ startHour(openingHour) }} u. </time>
+                                    <span class="openinghours--time-separator">to</span>
+                                    <time property="closes" :datetime="endHour(openingHour)" :aria-label="endHour(openingHour)">
+                                        {{ endHour(openingHour) }} u.</time>
+                                    <div v-if="openingHours.length > 2 && index != Object.keys(openingHours).length - 1 && index != Object.keys(openingHours).length - 2" class="openinghours--times-between">,</div>
+                                    <div v-if="openingHours.length > 1 && index == Object.keys(openingHours).length - 2" class="openinghours--times-between"> en</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
     <section class="highlight contact-details contact-details-inverted highlight--top">
       <div class="highlight__inner">
         <h2>Contactgegevens</h2>
@@ -66,6 +113,7 @@
 <script lang="ts">
 import Vue, { PropType } from 'vue'
 import { Row } from '@/types/row'
+import moment from 'moment'
 
 export default Vue.extend({
   name: 'Detail',
@@ -75,9 +123,32 @@ export default Vue.extend({
       type: Object as PropType<Row>
     }
   },
+  methods: {
+    getDateTime () {
+      const today = new Date()
+      const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
+
+      return date
+    },
+    startHour (openingHour: string): string {
+      const startHour = openingHour ? openingHour?.split(' - ')[0] : ''
+      return startHour
+    },
+    endHour (openingHour: string): string {
+      const endHour = openingHour ? openingHour?.split(' - ')[1] : ''
+      return endHour
+    }
+  },
   computed: {
+    moment: () => moment,
     labels (): string[] {
       return [this.row.label_1, this.row.label_2].filter(l => !!l) as string[]
+    },
+    openingHours (): string[] {
+      // eslint-disable-next-line @typescript-eslint/camelcase
+      const { openingsuren } = this.row
+      const openingHours = [...openingsuren?.split(',') || []]
+      return openingHours
     },
     tags (): string[] {
       // eslint-disable-next-line @typescript-eslint/camelcase

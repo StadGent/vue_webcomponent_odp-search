@@ -27,7 +27,7 @@
       <ul class="icon-list">
         <li v-if="row.totale_capaciteit">
           <i class='icon-users' aria-hidden="true"></i>
-          <template v-if="row.totale_capaciteit && row.gereserveerde_plaatsen">{{ row.gereserveerde_plaatsen }} / {{ row.totale_capaciteit }}</template>
+          <template v-if="row.totale_capaciteit && row.gereserveerde_plaatsen">{{ row.gereserveerde_plaatsen }} / {{ row.totale_capaciteit }} gereserveerd</template>
           <template v-else>{{ row.totale_capaciteit }}</template>
         </li>
       </ul>

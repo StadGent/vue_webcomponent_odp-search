@@ -159,7 +159,7 @@ export default Vue.extend({
       vectorLayer.getSource().addFeatures(this.items.map(
         item => new Feature<Geometry>({
           teaser: item,
-          geometry: new Point(item.coordinates?.split(',') as unknown as number[])
+          geometry: item?.coordinates ? new Point(item.coordinates?.split(',') as unknown as number[]) : null
         })
       ))
     },

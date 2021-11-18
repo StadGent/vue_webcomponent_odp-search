@@ -3309,6 +3309,13 @@ function toComment(sourceMap) {
 
 /***/ }),
 
+/***/ "2618":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "fonts/gent-icons-v5.eot";
+
+/***/ }),
+
 /***/ "2695":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -11806,13 +11813,6 @@ module.exports = __webpack_require__.p + "img/link-light--blue.svg";
 
 /***/ }),
 
-/***/ "319c":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "fonts/gent-icons-v5.woff2";
-
-/***/ }),
-
 /***/ "35d6":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -11927,6 +11927,13 @@ function addStyle (obj /* StyleObjectPart */, shadowRoot) {
 
 /***/ }),
 
+/***/ "3675":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "fonts/gent-icons-v5.ttf";
+
+/***/ }),
+
 /***/ "37e8":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12036,11 +12043,11 @@ module.exports = DESCRIPTORS ? Object.defineProperties : function defineProperti
 // Imports
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__("24fb");
 var ___CSS_LOADER_GET_URL_IMPORT___ = __webpack_require__("1de5");
-var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__("eff7");
+var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__("2618");
 var ___CSS_LOADER_URL_IMPORT_1___ = __webpack_require__("3ae2");
-var ___CSS_LOADER_URL_IMPORT_2___ = __webpack_require__("319c");
-var ___CSS_LOADER_URL_IMPORT_3___ = __webpack_require__("d939");
-var ___CSS_LOADER_URL_IMPORT_4___ = __webpack_require__("f0b3");
+var ___CSS_LOADER_URL_IMPORT_2___ = __webpack_require__("aa4e");
+var ___CSS_LOADER_URL_IMPORT_3___ = __webpack_require__("d96a");
+var ___CSS_LOADER_URL_IMPORT_4___ = __webpack_require__("3675");
 var ___CSS_LOADER_URL_IMPORT_5___ = __webpack_require__("9642");
 var ___CSS_LOADER_URL_IMPORT_6___ = __webpack_require__("6bba");
 var ___CSS_LOADER_URL_IMPORT_7___ = __webpack_require__("cb8c");
@@ -12082,11 +12089,11 @@ var ___CSS_LOADER_URL_IMPORT_42___ = __webpack_require__("146d");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Fira+Sans:400,600,700);"]);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
-var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___, { hash: "?#iefix?v=386" });
+var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___, { hash: "?#iefix?v=674" });
 var ___CSS_LOADER_URL_REPLACEMENT_2___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_2___);
 var ___CSS_LOADER_URL_REPLACEMENT_3___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_3___);
 var ___CSS_LOADER_URL_REPLACEMENT_4___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_4___);
-var ___CSS_LOADER_URL_REPLACEMENT_5___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_5___, { hash: "#gent-icons-v5?v=386" });
+var ___CSS_LOADER_URL_REPLACEMENT_5___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_5___, { hash: "#gent-icons-v5?v=674" });
 var ___CSS_LOADER_URL_REPLACEMENT_6___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_6___);
 var ___CSS_LOADER_URL_REPLACEMENT_7___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_7___);
 var ___CSS_LOADER_URL_REPLACEMENT_8___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_8___);
@@ -22112,6 +22119,13 @@ module.exports = __webpack_require__.p + "img/camera-light--teal.svg";
 
 /***/ }),
 
+/***/ "aa4e":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "fonts/gent-icons-v5.woff2";
+
+/***/ }),
+
 /***/ "aaf2":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -30856,7 +30870,7 @@ module.exports = function (KEY, length, exec, sham) {
 
 /***/ }),
 
-/***/ "d939":
+/***/ "d96a":
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "fonts/gent-icons-v5.woff";
@@ -32162,20 +32176,6 @@ module.exports.__inject__ = function (shadowRoot) {
 
 })));
 
-
-/***/ }),
-
-/***/ "eff7":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "fonts/gent-icons-v5.eot";
-
-/***/ }),
-
-/***/ "f0b3":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "fonts/gent-icons-v5.ttf";
 
 /***/ }),
 

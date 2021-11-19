@@ -156,8 +156,10 @@ export default Vue.extend({
     },
     setFeatures: function (): void {
       vectorLayer.getSource().clear()
-      activeVectorLayer.getSource().clear()
-      this.olMap.removeOverlay(this.flyOut)
+      if (this.olMap) {
+        activeVectorLayer.getSource().clear()
+        this.olMap.removeOverlay(this.flyOut)
+      }
       vectorLayer.getSource().addFeatures(this.items.map(
         item => new Feature<Geometry>({
           teaser: item,

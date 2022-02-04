@@ -227,7 +227,7 @@ export default Vue.extend({
       }
     },
     emitFilter (): void {
-      const formValue: { [key: string]: any } = {
+      const formValue: { [key: string]: unknown } = {
         q: this.q
       }
       this.myFormFields.forEach((f: FormField) => {

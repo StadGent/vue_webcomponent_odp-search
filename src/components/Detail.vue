@@ -13,7 +13,7 @@
       </ul>
     </div>
 
-    <div v-html="row.beschrijving"></div>
+    <div><vue-simple-markdown :source="row.beschrijving"></vue-simple-markdown></div>
 
     <div v-if="tags.length" class="tag-list-wrapper">
       <ul class="tag-list">
@@ -115,6 +115,9 @@
 import Vue, { PropType } from 'vue'
 import { Row } from '@/types/row'
 import moment from 'moment'
+import VueSimpleMarkdown from 'vue-simple-markdown'
+
+Vue.use(VueSimpleMarkdown)
 
 export default Vue.extend({
   name: 'Detail',

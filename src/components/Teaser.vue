@@ -1,7 +1,7 @@
 <template>
   <component :is="tagName || 'li'" class="teaser"
              :class="[
-               !horizontal && !teaser.teaser_img_url ? 'teaser--underlined' : null,
+               !this.images && !horizontal && !teaser.teaser_img_url ? 'teaser--underlined' : null,
                horizontal ? 'teaser--wide' : null
              ]">
     <article class="teaser-content">
@@ -108,6 +108,7 @@ export default Vue.extend({
   props: {
     teaser: Object as PropType<Row>,
     horizontal: Boolean,
+    images: Boolean,
     tagName: String,
     tag1hidden: {
       type: String
@@ -129,7 +130,6 @@ export default Vue.extend({
     getDateTime () {
       const today = new Date()
       const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate()
-
       return date
     },
     startHour (openingHour: string): string {
@@ -150,6 +150,7 @@ export default Vue.extend({
       const label1 = (label1hidden === undefined || label1hidden === 'false') ? label_1 : ''
       // eslint-disable-next-line @typescript-eslint/camelcase
       const label2 = (label2hidden === undefined || label2hidden === 'false') ? label_2 : ''
+
       return [label1, label2].filter(l => !!l).join(' - ')
     },
     tags (): string[] {

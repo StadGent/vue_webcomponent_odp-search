@@ -42,7 +42,7 @@
             :class="horizontal ? null : 'grid-3'" tabindex="-1" ref="grid">
           <teaser v-for="(i, index) in items" @selected="setTrigger($event)" :teaser="i"
                   :horizontal="horizontal"
-                  :key="'teaser'+index"></teaser>
+                  :key="'teaser'+index" :images="images"></teaser>
         </ul>
 
         <div v-if="hasMap" class="map-toggle--bottom">
@@ -118,6 +118,7 @@ export default Vue.extend({
     return {
       items: [] as Row[],
       allItems: [] as Row[],
+      images: false,
       total: 0,
       offset: 0,
       loading: true,
@@ -176,6 +177,7 @@ export default Vue.extend({
       const { records }: Dataset = await response.json()
       records.length === 0 ? this.noResult = true : this.noResult = false
       this.allItems = records.map(({ fields }) => fields)
+      this.hasMap = !!this.allItems[0]?.coordinates
     },
     async fetch (): Promise<void> {
       this.loading = true
@@ -200,6 +202,14 @@ export default Vue.extend({
       this.total = Math.ceil(nhits / 12)
       this.items = records.map(({ fields }) => fields)
       this.hasMap = !!this.items[0]?.coordinates
+
+      this.images = false
+
+      for (let i = 0; i < this.items.length; i++) {
+        if ((this.images = !!this.items[i]?.teaser_img_url) === true) {
+          break
+        }
+      }
 
       /**
        * reset pagination if needed
@@ -283,6 +293,7 @@ export default Vue.extend({
      */
     try {
       const docFontSize = +getComputedStyle(document.documentElement).fontSize.replace('px', '')
+      // eslint-disable-next-line
       console.warn('DocFontsize is ' + docFontSize + '. Adjusting font-sizes now, but this impacts performance.')
 
       if (docFontSize === 20) {
@@ -311,6 +322,7 @@ export default Vue.extend({
         }
       }
     } catch (e) {
+      // eslint-disable-next-line
       console.error(e)
     }
   }

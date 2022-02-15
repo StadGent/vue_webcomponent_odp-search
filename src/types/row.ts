@@ -23,4 +23,5 @@ export interface Row {
   website?: string;
   image_url?: string;
   openingsuren?: string;
+  images?: boolean;
 }

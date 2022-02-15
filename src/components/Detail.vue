@@ -34,7 +34,7 @@
       </ul>
     </div>
 
-            <div class="opening-hours-accordion">
+        <div class="opening-hours-accordion" v-if="openingHours.length >= 1">
           <div class="opening-hours-accordion__item">
             <div class="openinghours-wrapper">
               <div id="opening-hours" role="tabpanel">
@@ -71,7 +71,7 @@
           </div>
         </div>
 
-    <section class="highlight contact-details contact-details-inverted highlight--top">
+    <section class="highlight contact-details contact-details-inverted highlight--top" v-if="row.adres || row.gemeente || row.postcode || row.telefoon || row.email || row.website">
       <div class="highlight__inner">
         <h2>Contactgegevens</h2>
         <div class="contact-details-column">

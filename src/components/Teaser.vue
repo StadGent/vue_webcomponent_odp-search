@@ -168,7 +168,7 @@ export default Vue.extend({
       return openingHours
     },
     readMore (): string {
-      return this.teaser.lees_meer || '#' + encodeURIComponent(this.teaser.titel)
+      return this.teaser.lees_meer || '#' + this.teaser.id.toString()
     }
   }
 })

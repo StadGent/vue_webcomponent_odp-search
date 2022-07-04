@@ -179,11 +179,13 @@ export default Vue.extend({
       this.allItems = records.map(({ fields }) => fields)
       this.hasMap = !!this.allItems[0]?.coordinates
     },
-    async fetch (): Promise<void> {
+    async fetch (hash: boolean): Promise<void> {
       this.loading = true
       this.items = []
+      let url = ''
 
-      const url = this.createUrl(true)
+      hash ? url = this.createUrl(false) : url = this.createUrl(true)
+
       const response = await fetch(url)
       if (!response.ok) {
         this.noResult = true
@@ -206,6 +208,8 @@ export default Vue.extend({
       this.images = false
 
       for (let i = 0; i < this.items.length; i++) {
+        this.items[i].id = (i + 1).toString()
+
         if ((this.images = !!this.items[i]?.teaser_img_url) === true) {
           break
         }
@@ -216,7 +220,7 @@ export default Vue.extend({
        */
       if (nhits < this.offset) {
         this.offset = 0
-        await this.fetch()
+        await this.fetch(false)
       }
 
       this.loading = false
@@ -224,7 +228,12 @@ export default Vue.extend({
     async firstFetch (): Promise<void> {
       this.offset = 0
       this.emitFilter()
-      await this.fetch()
+      const hash = window.location.hash.replace('#', '')
+      let hashBool = false
+
+      hash ? hashBool = true : hashBool = false
+
+      await this.fetch(hashBool)
       if (this.hasMap) {
         await this.fetchAll()
       }
@@ -248,8 +257,9 @@ export default Vue.extend({
     setTrigger ({ currentTarget }: Event): void {
       this.trigger = currentTarget as HTMLElement
     },
-    back (): void {
+    async back (): Promise<void> {
       location.hash = ''
+      await this.fetch(false)
     },
     onHashChange (): void {
       const hash = window.location.hash.replace('#', '')
@@ -262,7 +272,8 @@ export default Vue.extend({
         })
         return
       }
-      const row = this.items.find(i => encodeURIComponent(i.titel) === hash)
+
+      const row = this.items.find(i => i.id.toString() === hash)
       if (row) {
         this.selectedRecord = row
         this.$emit('detail', JSON.parse(JSON.stringify(row)))
@@ -270,7 +281,7 @@ export default Vue.extend({
     },
     async navigate (page: number): Promise<void> {
       this.offset = (page - 1) * 12
-      await this.fetch()
+      await this.fetch(false)
       const grid = this.$refs.grid as HTMLElement
       if (grid) {
         grid.focus()

@@ -1,5 +1,5 @@
 export interface Row {
-  id: string;
+  recordid: string;
   titel: string;
   teaser_text: string;
   teaser_img_url?: string;

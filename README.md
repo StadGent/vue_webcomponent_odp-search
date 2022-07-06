@@ -6,6 +6,10 @@ A generic search component.
 * [Minimal](./demo/minimal.html)
 * [Try it out with a real dataset](./demo/index.html)
 
+## Limitations
+
+Max 1000 items in dataset. OdpMasterDetail:155
+
 ## Project setup
 ```
 yarn install
@@ -112,6 +116,7 @@ export interface Dataset {
   nhits: number;
   parameters: { [key: string]: string };
   records: {
+    recordid: string;
     fields: Row;
   }[];
 }
@@ -122,6 +127,7 @@ export interface Dataset {
 ```ts
 export interface Row {
 titel: string;
+  recordid: string;
   teaser_text: string;
   teaser_img_url?: string;
   label_1?: string;

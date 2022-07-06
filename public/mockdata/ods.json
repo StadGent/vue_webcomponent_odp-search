@@ -10,12 +10,12 @@
   "records": [
     {
       "datasetid": "",
-      "recordid": "",
+      "recordid": "aecenasfaucibusmollisinterdum",
       "fields": {
-        "id": 1,
+        "id": "1",
         "titel": "Salmon - Atlantic, Skin On",
         "teaser_text": "Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.",
-        "teaser_img_url": "http://dummyimage.com/223x233.jpg/dddddd/000000",
+        "teaser_img_url": "",
         "beschrijving": "Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.",
         "adres": "87 Kim Circle",
         "postcode": null,
@@ -37,9 +37,9 @@
     },
     {
       "datasetid": "",
-      "recordid": "",
+      "recordid": "ullavitaeelitliberoapharetraaugue",
       "fields": {
-        "id": 2,
+        "id": "2",
         "titel": "Tray - 12in Rnd Blk",
         "teaser_text": "Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris.",
         "teaser_img_url": "http://dummyimage.com/176x138.png/ff4444/ffffff",

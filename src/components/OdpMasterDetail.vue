@@ -152,7 +152,7 @@ export default Vue.extend({
       if (paged) {
         url = `${this.source}${this.dataset}&rows=12&start=${this.offset}${this.sort ? '&sort=' + this.sort : ''}&q=`
       } else {
-        url = `${this.source}${this.dataset}&rows=255${this.sort ? '&sort=' + this.sort : ''}&q=`
+        url = `${this.source}${this.dataset}&rows=1000${this.sort ? '&sort=' + this.sort : ''}&q=`
       }
 
       if (this.query && this.q) {

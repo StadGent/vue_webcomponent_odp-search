@@ -84,8 +84,8 @@ odpSearch.addEventListener('filter', sendToGTM)
 odpSearch.addEventListener('detail', sendToGTM)
 
 function sendToGTM(e) {
-    if (window.dataLayers) {
-      window.dataLayers.push({
+    if (window.dataLayer) {
+      window.dataLayer.push({
         event: 'custom_event_' + e.type,
         custom_event: {
           detail: e.detail[0]

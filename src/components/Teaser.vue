@@ -65,7 +65,7 @@
             </div>
           </div>
         </div>
-        <p v-if="teaser.teaser_text">{{ teaser.teaser_text }}</p>
+        <p v-if="teaser.teaser_text" v-html="teaser.teaser_text"></p>
         <a :href="readMore" @click="$emit('selected', $event)" class="read-more standalone-link">
           Lees meer <span class="visually-hidden">over {{ teaser.titel }}</span>
         </a>

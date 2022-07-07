@@ -13,7 +13,7 @@
       </ul>
     </div>
 
-    <div><vue-simple-markdown :source="row.beschrijving"></vue-simple-markdown></div>
+    <div v-html="row.beschrijving"></div>
 
     <div v-if="tags.length" class="tag-list-wrapper">
       <ul class="tag-list">

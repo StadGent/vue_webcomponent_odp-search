@@ -202,15 +202,16 @@ export default Vue.extend({
       records.length === 0 ? this.noResult = true : this.noResult = false
 
       this.total = Math.ceil(nhits / 12)
-      const recordsids = records.map((recordid) => recordid)
       this.items = records.map(({ fields }) => fields)
-      this.hasMap = !!this.items[0]?.coordinates
 
+      for (let i = 0; i < records.length; i++) {
+        this.items[i].recordid = records[i].recordid
+      }
+
+      this.hasMap = !!this.items[0]?.coordinates
       this.images = false
 
       for (let i = 0; i < this.items.length; i++) {
-        this.items[i].recordid = recordsids[i].recordid
-
         if ((this.images = !!this.items[i]?.teaser_img_url) === true) {
           break
         }

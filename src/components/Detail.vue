@@ -8,7 +8,7 @@
     </div>
 
     <div v-if="labels.length">
-      <ul class="dash-separated-list">
+      <ul class="label-list">
         <li v-for="(label, index) of labels" :key="index + label">{{ label }}</li>
       </ul>
     </div>

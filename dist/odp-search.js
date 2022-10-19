@@ -11806,13 +11806,6 @@ module.exports = __webpack_require__.p + "img/link-light--blue.svg";
 
 /***/ }),
 
-/***/ "341a":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "fonts/gent-icons-v5.woff";
-
-/***/ }),
-
 /***/ "35d6":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -11950,6 +11943,13 @@ module.exports = DESCRIPTORS ? Object.defineProperties : function defineProperti
 
 /***/ }),
 
+/***/ "37f7":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "fonts/gent-icons-v5.woff2";
+
+/***/ }),
+
 /***/ "3886":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12036,11 +12036,11 @@ module.exports = DESCRIPTORS ? Object.defineProperties : function defineProperti
 // Imports
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__("24fb");
 var ___CSS_LOADER_GET_URL_IMPORT___ = __webpack_require__("1de5");
-var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__("4fc3");
+var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__("5f88");
 var ___CSS_LOADER_URL_IMPORT_1___ = __webpack_require__("3ae2");
-var ___CSS_LOADER_URL_IMPORT_2___ = __webpack_require__("90ea8");
-var ___CSS_LOADER_URL_IMPORT_3___ = __webpack_require__("341a");
-var ___CSS_LOADER_URL_IMPORT_4___ = __webpack_require__("cc4a");
+var ___CSS_LOADER_URL_IMPORT_2___ = __webpack_require__("37f7");
+var ___CSS_LOADER_URL_IMPORT_3___ = __webpack_require__("7c12");
+var ___CSS_LOADER_URL_IMPORT_4___ = __webpack_require__("543d");
 var ___CSS_LOADER_URL_IMPORT_5___ = __webpack_require__("9642");
 var ___CSS_LOADER_URL_IMPORT_6___ = __webpack_require__("6bba");
 var ___CSS_LOADER_URL_IMPORT_7___ = __webpack_require__("cb8c");
@@ -12082,11 +12082,11 @@ var ___CSS_LOADER_URL_IMPORT_42___ = __webpack_require__("146d");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Fira+Sans:400,600,700&display=swap);"]);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
-var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___, { hash: "?#iefix?v=504" });
+var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___, { hash: "?#iefix?v=631" });
 var ___CSS_LOADER_URL_REPLACEMENT_2___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_2___);
 var ___CSS_LOADER_URL_REPLACEMENT_3___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_3___);
 var ___CSS_LOADER_URL_REPLACEMENT_4___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_4___);
-var ___CSS_LOADER_URL_REPLACEMENT_5___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_5___, { hash: "#gent-icons-v5?v=504" });
+var ___CSS_LOADER_URL_REPLACEMENT_5___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_5___, { hash: "#gent-icons-v5?v=631" });
 var ___CSS_LOADER_URL_REPLACEMENT_6___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_6___);
 var ___CSS_LOADER_URL_REPLACEMENT_7___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_7___);
 var ___CSS_LOADER_URL_REPLACEMENT_8___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_8___);
@@ -14365,13 +14365,6 @@ module.exports = __webpack_require__.p + "img/book-light--orange.svg";
 
 /***/ }),
 
-/***/ "4fc3":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "fonts/gent-icons-v5.eot";
-
-/***/ }),
-
 /***/ "5038":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -14917,6 +14910,13 @@ fixRegExpWellKnownSymbolLogic('replace', 2, function (REPLACE, nativeReplace, ma
   ];
 });
 
+
+/***/ }),
+
+/***/ "543d":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "fonts/gent-icons-v5.ttf";
 
 /***/ }),
 
@@ -15586,15 +15586,15 @@ var addStylesShadow = __webpack_require__("35d6");
 // EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
 var componentNormalizer = __webpack_require__("2877");
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"72855dcc-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/OdpMasterDetail.vue?vue&type=template&id=6e2a7608&shadow
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"72855dcc-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/OdpMasterDetail.vue?vue&type=template&id=af6b5e46&shadow
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:"root",staticClass:"odp-master-detail",class:_vm.theme},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(!_vm.selectedRecord),expression:"!selectedRecord"}]},[_c('form',{staticClass:"mb-20",on:{"submit":function($event){$event.preventDefault();return _vm.search($event)}}},[_c('div',{staticClass:"flex mb-10"},[(_vm.query)?_c('div',[_c('label',{attrs:{"for":"query"}},[_vm._v(_vm._s(_vm.query))]),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.q),expression:"q"}],attrs:{"type":"text","id":"query"},domProps:{"value":(_vm.q)},on:{"input":function($event){if($event.target.composing){ return; }_vm.q=$event.target.value}}})]):_vm._e(),_vm._l((_vm.myFormFields),function(f,index){return _c('div',{key:f.column + '-' + index},[_c('label',{attrs:{"for":f.column}},[_vm._v(_vm._s(f.label))]),(!f.type || f.type === 'select')?_c('select',{directives:[{name:"model",rawName:"v-model",value:(f.value),expression:"f.value"}],attrs:{"id":f.column},on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.$set(f, "value", $event.target.multiple ? $$selectedVal : $$selectedVal[0])}}},[_c('option',{domProps:{"value":null}},[_vm._v("Geen keuze")]),_vm._l((_vm.splitOptions(f.options)),function(ref,i){
 var name = ref.name;
 var value = ref.value;
-return _c('option',{key:f.column + '-' + index + '-' + value + '-' + i,domProps:{"value":value}},[_vm._v(_vm._s(name)+" ")])})],2):_vm._e()])})],2),_c('button',{staticClass:"button button-secondary icon-search icon-left",attrs:{"type":"submit"}},[_vm._v("Zoeken")])]),_c('div',{staticStyle:{"position":"relative"}},[(_vm.hasMap)?_c('div',{staticClass:"map-toggle--top"},[_c('button',{directives:[{name:"show",rawName:"v-show",value:(!_vm.showMap),expression:"!showMap"}],staticClass:"button button-primary button-small icon-marker",staticStyle:{"margin-left":"auto"},on:{"click":function($event){_vm.showMap = true}}},[_vm._v("Toon op kaart ")]),_c('button',{directives:[{name:"show",rawName:"v-show",value:(_vm.showMap),expression:"showMap"}],staticClass:"button button-primary button-small icon-document",staticStyle:{"margin-left":"auto"},on:{"click":function($event){_vm.showMap = false}}},[_vm._v("Toon als lijst ")])]):_vm._e(),(_vm.noResult)?_c('p',{staticClass:"mb-20 mt-20"},[_c('strong',[_vm._v("Deze zoekopdracht leverde geen resultaten op.")])]):_vm._e(),(_vm.hasMap)?_c('odp-map',{directives:[{name:"show",rawName:"v-show",value:(_vm.showMap),expression:"showMap"}],staticClass:"odp-map",attrs:{"show":_vm.showMap,"items":_vm.allItems}}):_vm._e(),(_vm.items.length)?_c('ul',{directives:[{name:"show",rawName:"v-show",value:(!_vm.showMap),expression:"!showMap"}],ref:"grid",class:_vm.horizontal ? null : 'grid-3',style:(_vm.horizontal ? 'margin-left: 0' : null),attrs:{"tabindex":"-1"}},_vm._l((_vm.items),function(i,index){return _c('teaser',{key:'teaser'+index,attrs:{"teaser":i,"horizontal":_vm.horizontal,"images":_vm.images},on:{"selected":function($event){return _vm.setTrigger($event)}}})}),1):_vm._e(),(_vm.hasMap)?_c('div',{staticClass:"map-toggle--bottom"},[_c('button',{directives:[{name:"show",rawName:"v-show",value:(!_vm.showMap),expression:"!showMap"}],staticClass:"button button-primary button-small icon-marker",staticStyle:{"margin-left":"auto"},on:{"click":function($event){_vm.showMap = true}}},[_vm._v("Toon op kaart ")]),_c('button',{directives:[{name:"show",rawName:"v-show",value:(_vm.showMap),expression:"showMap"}],staticClass:"button button-primary button-small icon-document",staticStyle:{"margin-left":"auto"},on:{"click":function($event){_vm.showMap = false}}},[_vm._v("Toon als lijst ")])]):_vm._e()],1),_c('pagination',{directives:[{name:"show",rawName:"v-show",value:(!_vm.showMap),expression:"!showMap"}],staticClass:"mt-20",attrs:{"total":_vm.total,"active":_vm.page},on:{"navigate":_vm.navigate}}),(_vm.loading)?_c('div',{staticClass:"spinner-wrapper"},[_vm._m(0)]):_vm._e()],1),(_vm.selectedRecord)?_c('detail',{attrs:{"row":_vm.selectedRecord},on:{"back":function($event){return _vm.back()}}}):_vm._e()],1)}
+return _c('option',{key:f.column + '-' + index + '-' + value + '-' + i,domProps:{"value":value}},[_vm._v(_vm._s(name)+" ")])})],2):_vm._e()])})],2),_c('button',{staticClass:"button button-secondary icon-search icon-left",attrs:{"type":"submit"}},[_vm._v("Zoeken")])]),_c('div',{staticStyle:{"position":"relative"}},[(_vm.hasMap)?_c('div',{staticClass:"map-toggle--top"},[_c('button',{directives:[{name:"show",rawName:"v-show",value:(!_vm.showMap),expression:"!showMap"}],staticClass:"button button-primary button-small icon-marker",staticStyle:{"margin-left":"auto"},on:{"click":function($event){_vm.showMap = true}}},[_vm._v("Toon op kaart ")]),_c('button',{directives:[{name:"show",rawName:"v-show",value:(_vm.showMap),expression:"showMap"}],staticClass:"button button-primary button-small icon-document",staticStyle:{"margin-left":"auto"},on:{"click":function($event){_vm.showMap = false}}},[_vm._v("Toon als lijst ")])]):_vm._e(),(_vm.noResult)?_c('p',{staticClass:"mb-20 mt-20"},[_c('strong',[_vm._v("Deze zoekopdracht leverde geen resultaten op.")])]):_vm._e(),(_vm.hasMap)?_c('odp-map',{directives:[{name:"show",rawName:"v-show",value:(_vm.showMap),expression:"showMap"}],staticClass:"odp-map",attrs:{"show":_vm.showMap,"items":_vm.allItems}}):_vm._e(),(_vm.items.length && !_vm.random)?_c('ul',{directives:[{name:"show",rawName:"v-show",value:(!_vm.showMap),expression:"!showMap"}],ref:"grid",staticClass:"is-ordered",class:_vm.horizontal ? null : 'grid-3',style:(_vm.horizontal ? 'margin-left: 0' : null),attrs:{"tabindex":"-1"}},_vm._l((_vm.items),function(i,index){return _c('teaser',{key:'teaser'+index,attrs:{"teaser":i,"horizontal":_vm.horizontal,"images":_vm.images},on:{"selected":function($event){return _vm.setTrigger($event)}}})}),1):_vm._e(),(_vm.items.length && _vm.random )?_c('ul',{directives:[{name:"show",rawName:"v-show",value:(!_vm.showMap),expression:"!showMap"}],ref:"grid",staticClass:"is-random",class:_vm.horizontal ? null : 'grid-3',style:(_vm.horizontal ? 'margin-left: 0' : null),attrs:{"tabindex":"-1"}},_vm._l((_vm.randomList(_vm.items)),function(i,index){return _c('teaser',{key:'teaser'+index,attrs:{"teaser":i,"horizontal":_vm.horizontal,"images":_vm.images},on:{"selected":function($event){return _vm.setTrigger($event)}}})}),1):_vm._e(),(_vm.hasMap)?_c('div',{staticClass:"map-toggle--bottom"},[_c('button',{directives:[{name:"show",rawName:"v-show",value:(!_vm.showMap),expression:"!showMap"}],staticClass:"button button-primary button-small icon-marker",staticStyle:{"margin-left":"auto"},on:{"click":function($event){_vm.showMap = true}}},[_vm._v("Toon op kaart ")]),_c('button',{directives:[{name:"show",rawName:"v-show",value:(_vm.showMap),expression:"showMap"}],staticClass:"button button-primary button-small icon-document",staticStyle:{"margin-left":"auto"},on:{"click":function($event){_vm.showMap = false}}},[_vm._v("Toon als lijst ")])]):_vm._e()],1),_c('pagination',{directives:[{name:"show",rawName:"v-show",value:(!_vm.showMap),expression:"!showMap"}],staticClass:"mt-20",attrs:{"total":_vm.total,"active":_vm.page},on:{"navigate":_vm.navigate}}),(_vm.loading)?_c('div',{staticClass:"spinner-wrapper"},[_vm._m(0)]):_vm._e()],1),(_vm.selectedRecord)?_c('detail',{attrs:{"row":_vm.selectedRecord},on:{"back":function($event){return _vm.back()}}}):_vm._e()],1)}
 var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"spinner"},[_c('div',[_vm._v("…loading")])])}]
 
 
-// CONCATENATED MODULE: ./src/components/OdpMasterDetail.vue?vue&type=template&id=6e2a7608&shadow
+// CONCATENATED MODULE: ./src/components/OdpMasterDetail.vue?vue&type=template&id=af6b5e46&shadow
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.replace.js
 var es_string_replace = __webpack_require__("5319");
@@ -15696,6 +15696,10 @@ var Teaser = __webpack_require__("bc34");
       type: String,
       required: false
     },
+    random: {
+      type: Boolean,
+      default: false
+    },
     theme: {
       type: String,
       default: 'cs--cyan'
@@ -15733,6 +15737,12 @@ var Teaser = __webpack_require__("bc34");
 
   },
   methods: {
+    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
+    randomList: function (rand) {
+      return rand.sort(function () {
+        return 0.5 - Math.random();
+      });
+    },
     splitOptions: function (options) {
       return options.map(o => typeof o === 'string' ? {
         name: o,
@@ -16499,6 +16509,13 @@ module.exports = function (bitmap, value) {
 
 })));
 
+
+/***/ }),
+
+/***/ "5f88":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "fonts/gent-icons-v5.eot";
 
 /***/ }),
 
@@ -18550,6 +18567,13 @@ module.exports = function (argument) {
 
 })));
 
+
+/***/ }),
+
+/***/ "7c12":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "fonts/gent-icons-v5.woff";
 
 /***/ }),
 
@@ -20733,13 +20757,6 @@ module.exports = function (key) {
 
 })));
 
-
-/***/ }),
-
-/***/ "90ea8":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "fonts/gent-icons-v5.woff2";
 
 /***/ }),
 
@@ -29727,13 +29744,6 @@ module.exports = function (it) {
   return EXISTS ? document.createElement(it) : {};
 };
 
-
-/***/ }),
-
-/***/ "cc4a":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "fonts/gent-icons-v5.ttf";
 
 /***/ }),
 

@@ -38,9 +38,18 @@
 
         <odp-map v-if="hasMap" v-show="showMap" :show="showMap" class="odp-map" :items="allItems"></odp-map>
 
-        <ul v-if="items.length" v-show="!showMap" :style="horizontal ? 'margin-left: 0' : null"
+        <ul v-if="items.length && !random" v-show="!showMap" :style="horizontal ? 'margin-left: 0' : null"
+            class="is-ordered"
             :class="horizontal ? null : 'grid-3'" tabindex="-1" ref="grid">
           <teaser v-for="(i, index) in items" @selected="setTrigger($event)" :teaser="i"
+                  :horizontal="horizontal"
+                  :key="'teaser'+index" :images="images"></teaser>
+        </ul>
+
+        <ul v-if="items.length && random " v-show="!showMap" :style="horizontal ? 'margin-left: 0' : null"
+            class="is-random"
+            :class="horizontal ? null : 'grid-3'" tabindex="-1" ref="grid">
+          <teaser v-for="(i, index) in randomList(items)" @selected="setTrigger($event)" :teaser="i"
                   :horizontal="horizontal"
                   :key="'teaser'+index" :images="images"></teaser>
         </ul>
@@ -109,6 +118,10 @@ export default Vue.extend({
       type: String,
       required: false
     },
+    random: {
+      type: Boolean,
+      default: false
+    },
     theme: {
       type: String,
       default: 'cs--cyan'
@@ -142,6 +155,10 @@ export default Vue.extend({
     }
   },
   methods: {
+    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
+    randomList: function (rand: any) {
+      return rand.sort(function () { return 0.5 - Math.random() })
+    },
     splitOptions: function (options: [Option | string]): Option[] {
       return options.map((o: Option | string) => typeof o === 'string' ? { name: o, value: o } : o)
     },

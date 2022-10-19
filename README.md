@@ -65,6 +65,11 @@ Determines if the teasers are rendered in a grid or as a stacked column.
 
 * type: String
 
+### random
+
+* type: Boolean
+* default: false
+
 ### theme
 
 type: String

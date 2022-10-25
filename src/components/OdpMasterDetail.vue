@@ -157,7 +157,7 @@ export default Vue.extend({
   methods: {
     // eslint-disable-next-line  @typescript-eslint/no-explicit-any
     randomList: function (rand: any) {
-      return rand.sort(function () { return 0.5 - Math.random() })
+      return rand.slice().sort(function () { return 0.5 - Math.random() })
     },
     splitOptions: function (options: [Option | string]): Option[] {
       return options.map((o: Option | string) => typeof o === 'string' ? { name: o, value: o } : o)

@@ -4403,10 +4403,10 @@ gensync@^1.0.0-beta.1:
   version "1.0.0-beta.2"
   resolved "https://registry.npmjs.org/gensync/-/gensync-1.0.0-beta.2.tgz#32a6ee76c3d7f52d46b2b1ae5d93fea8580a25e0"
 
-gent_styleguide@^5.0.24:
-  version "5.0.24"
-  resolved "https://registry.yarnpkg.com/gent_styleguide/-/gent_styleguide-5.0.24.tgz#6b1743daa14ff705e0989f653c9b7e9a4264ac61"
-  integrity sha512-Dg8AEkvfrCE6oB+G0qLv45YwxYu4h2mLcgh9Toe05PBXnlHk1KaNU9xBt4tUKiXibPV/1HEV6jq1xIInAvUnvw==
+gent_styleguide@^5.0.25:
+  version "5.0.25"
+  resolved "https://registry.yarnpkg.com/gent_styleguide/-/gent_styleguide-5.0.25.tgz#1674fcbf23aa2d23403b1010b32ddf807b28a2a7"
+  integrity sha512-D9MKKPPWe4HQmMjrNNy6GnvK95O65y8NnDss23hjv3kg4s9dRHWWqXynSTp6V4csa86GCWOCeLLQ08gF2KWuAQ==
   dependencies:
     "@digipolis-gent/modal" "^1.0.2"
     acorn "^8.0.1"

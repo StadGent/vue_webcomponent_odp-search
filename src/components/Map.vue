@@ -10,6 +10,9 @@
             <button type="button" @click="zoomOut" aria-label="Zoom uit" title="Zoom uit">
               <i class="icon-minus" aria-hidden="true"></i>
             </button>
+            <button type="button" @click="goToCurrentLocation" aria-label="Ga naar huidige locatie" title="Ga naar huidige locatie">
+              <i class="icon-marker" aria-hidden="true"></i>
+            </button>
           </div>
         </div>
       </div>
@@ -199,6 +202,20 @@ export default Vue.extend({
     },
     zoomOut: function () {
       this.olMap.getView().setZoom((this.olMap.getView()?.getZoom() || 15) - 1)
+    },
+    goToCurrentLocation: function () {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(position => {
+          const { longitude, latitude } = position.coords
+          const coords = fromLonLat([longitude, latitude])
+          this.olMap.getView().animate({ center: coords, zoom: 14 })
+        }, error => {
+          console.error('Geolocation error:', error)
+          alert('Unable to retrieve your location.')
+        })
+      } else {
+        alert('Geolocation is not supported by your browser.')
+      }
     }
   },
   watch: {

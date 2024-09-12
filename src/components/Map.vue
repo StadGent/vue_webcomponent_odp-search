@@ -46,7 +46,7 @@ import OverlayPositioning from 'ol/OverlayPositioning'
 
 const TeaserClass = Vue.extend(Teaser)
 
-const projection = getProjection('EPSG:3857')
+const projection = getProjection('EPSG:4326')
 const projectionExtent = projection.getExtent()
 const size = getWidth(projectionExtent) / 256
 const resolutions = new Array(14)

@@ -23,7 +23,7 @@
 
 <script lang="ts">
 import Vue, { PropType } from 'vue'
-import { fromLonLat, get as getProjection } from 'ol/proj'
+import { fromLonLat, get as getProjection, transform } from 'ol/proj'
 import WMTSTileGrid from 'ol/tilegrid/WMTS'
 import { getTopLeft, getWidth } from 'ol/extent'
 import WMTS from 'ol/source/WMTS'
@@ -46,7 +46,7 @@ import OverlayPositioning from 'ol/OverlayPositioning'
 
 const TeaserClass = Vue.extend(Teaser)
 
-const projection = getProjection('EPSG:4326')
+const projection = getProjection('EPSG:3857')
 const projectionExtent = projection.getExtent()
 const size = getWidth(projectionExtent) / 256
 const resolutions = new Array(14)
@@ -164,10 +164,18 @@ export default Vue.extend({
         this.olMap.removeOverlay(this.flyOut)
       }
       vectorLayer.getSource().addFeatures(this.items.map(
-        item => new Feature<Geometry>({
-          teaser: item,
-          geometry: item?.coordinates ? new Point(item.coordinates?.split(',') as unknown as number[]) : null
-        })
+        item => {
+          const coordinates = item?.coordinates ? item.coordinates.split(',').map(Number) as [number, number] : null
+          // Transform source coordinates with EPSG:4326 projection to EPSG:3857 projection.
+          const transformedCoordinates = coordinates ? transform(coordinates, 'EPSG:4326', 'EPSG:3857') : null
+          // Update item.coordinates so Fly-out can use the same EPSG:3857 coordinates.
+          item.coordinates = transformedCoordinates ? transformedCoordinates.join(',') : ''
+
+          return new Feature<Geometry>({
+            teaser: item,
+            geometry: transformedCoordinates ? new Point(transformedCoordinates) : null
+          })
+        }
       ))
     },
     createFlyOut: function (teaser: Row): Overlay {

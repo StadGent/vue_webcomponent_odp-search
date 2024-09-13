@@ -7,12 +7,12 @@
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"ece64d18-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Map.vue?vue&type=template&id=7a08e85c&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"8be3b0ea-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Map.vue?vue&type=template&id=0db36e94&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('div',{ref:"map",staticClass:"map-container"},[_c('div',{staticClass:"content-container"},[_c('div',{staticClass:"geolocate"},[_c('div',{staticClass:"tools"},[_c('button',{attrs:{"type":"button","aria-label":"Zoom in","title":"Zoom in"},on:{"click":_vm.zoomIn}},[_c('i',{staticClass:"icon-plus",attrs:{"aria-hidden":"true"}})]),_c('button',{attrs:{"type":"button","aria-label":"Zoom uit","title":"Zoom uit"},on:{"click":_vm.zoomOut}},[_c('i',{staticClass:"icon-minus",attrs:{"aria-hidden":"true"}})]),_c('button',{attrs:{"type":"button","aria-label":"Ga naar huidige locatie","title":"Ga naar huidige locatie"},on:{"click":_vm.goToCurrentLocation}},[_c('i',{staticClass:"icon-marker",attrs:{"aria-hidden":"true"}})])])])])])])}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/Map.vue?vue&type=template&id=7a08e85c&
+// CONCATENATED MODULE: ./src/components/Map.vue?vue&type=template&id=0db36e94&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom-collections.iterator.js
 var web_dom_collections_iterator = __webpack_require__("ddb0");
@@ -212,11 +212,14 @@ const activeVectorLayer = new Vector["a" /* default */]({
       }
 
       vectorLayer.getSource().addFeatures(this.items.map(item => {
-        var _item$coordinates;
+        const coordinates = item !== null && item !== void 0 && item.coordinates ? item.coordinates.split(',').map(Number) : null; // Transform source coordinates with EPSG:4326 projection to EPSG:3857 projection.
 
+        const transformedCoordinates = coordinates ? Object(proj["n" /* transform */])(coordinates, 'EPSG:4326', 'EPSG:3857') : null; // Update item.coordinates so Fly-out can use the same EPSG:3857 coordinates.
+
+        item.coordinates = transformedCoordinates ? transformedCoordinates.join(',') : '';
         return new Feature["a" /* default */]({
           teaser: item,
-          geometry: item !== null && item !== void 0 && item.coordinates ? new Point["a" /* default */]((_item$coordinates = item.coordinates) === null || _item$coordinates === void 0 ? void 0 : _item$coordinates.split(',')) : null
+          geometry: transformedCoordinates ? new Point["a" /* default */](transformedCoordinates) : null
         });
       }));
     },

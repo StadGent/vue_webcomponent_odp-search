@@ -1053,6 +1053,13 @@ exports.f = DESCRIPTORS ? nativeGetOwnPropertyDescriptor : function getOwnProper
 
 /***/ }),
 
+/***/ "0c7f":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "fonts/gent-icons-v5.ttf";
+
+/***/ }),
+
 /***/ "0caa":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2725,13 +2732,6 @@ module.exports = function (url, options) {
 
 })));
 
-
-/***/ }),
-
-/***/ "2129":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "fonts/gent-icons-v5.eot";
 
 /***/ }),
 
@@ -12058,11 +12058,11 @@ var ___CSS_LOADER_URL_IMPORT_11___ = __webpack_require__("6503");
 var ___CSS_LOADER_URL_IMPORT_12___ = __webpack_require__("891f");
 var ___CSS_LOADER_URL_IMPORT_13___ = __webpack_require__("148c");
 var ___CSS_LOADER_URL_IMPORT_14___ = __webpack_require__("c6cb");
-var ___CSS_LOADER_URL_IMPORT_15___ = __webpack_require__("2129");
+var ___CSS_LOADER_URL_IMPORT_15___ = __webpack_require__("e218");
 var ___CSS_LOADER_URL_IMPORT_16___ = __webpack_require__("3ae2");
-var ___CSS_LOADER_URL_IMPORT_17___ = __webpack_require__("ba91");
-var ___CSS_LOADER_URL_IMPORT_18___ = __webpack_require__("be27");
-var ___CSS_LOADER_URL_IMPORT_19___ = __webpack_require__("41f1");
+var ___CSS_LOADER_URL_IMPORT_17___ = __webpack_require__("d782");
+var ___CSS_LOADER_URL_IMPORT_18___ = __webpack_require__("999c");
+var ___CSS_LOADER_URL_IMPORT_19___ = __webpack_require__("0c7f");
 var ___CSS_LOADER_URL_IMPORT_20___ = __webpack_require__("9642");
 var ___CSS_LOADER_URL_IMPORT_21___ = __webpack_require__("6bba");
 var ___CSS_LOADER_URL_IMPORT_22___ = __webpack_require__("cb8c");
@@ -12121,11 +12121,11 @@ var ___CSS_LOADER_URL_REPLACEMENT_15___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS
 var ___CSS_LOADER_URL_REPLACEMENT_16___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_13___);
 var ___CSS_LOADER_URL_REPLACEMENT_17___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_14___, { hash: "#FiraSans" });
 var ___CSS_LOADER_URL_REPLACEMENT_18___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_15___);
-var ___CSS_LOADER_URL_REPLACEMENT_19___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_16___, { hash: "?#iefix?v=510" });
+var ___CSS_LOADER_URL_REPLACEMENT_19___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_16___, { hash: "?#iefix?v=303" });
 var ___CSS_LOADER_URL_REPLACEMENT_20___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_17___);
 var ___CSS_LOADER_URL_REPLACEMENT_21___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_18___);
 var ___CSS_LOADER_URL_REPLACEMENT_22___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_19___);
-var ___CSS_LOADER_URL_REPLACEMENT_23___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_20___, { hash: "#gent-icons-v5?v=510" });
+var ___CSS_LOADER_URL_REPLACEMENT_23___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_20___, { hash: "#gent-icons-v5?v=303" });
 var ___CSS_LOADER_URL_REPLACEMENT_24___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_21___);
 var ___CSS_LOADER_URL_REPLACEMENT_25___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_22___);
 var ___CSS_LOADER_URL_REPLACEMENT_26___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_23___);
@@ -13368,13 +13368,6 @@ module.exports = {};
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "fonts/fira-sans-v16-latin-ext_latin-regular.woff";
-
-/***/ }),
-
-/***/ "41f1":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "fonts/gent-icons-v5.ttf";
 
 /***/ }),
 
@@ -21794,6 +21787,13 @@ module.exports = __webpack_require__.p + "img/gent-icons-v5.svg";
 
 /***/ }),
 
+/***/ "999c":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "fonts/gent-icons-v5.woff";
+
+/***/ }),
+
 /***/ "9bf2":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -23536,13 +23536,6 @@ module.exports = __webpack_require__.p + "img/link-light--cyan.svg";
 
 /***/ }),
 
-/***/ "ba91":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "fonts/gent-icons-v5.woff2";
-
-/***/ }),
-
 /***/ "bb62":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -23786,13 +23779,6 @@ var component = Object(componentNormalizer["a" /* default */])(
 )
 
 /* harmony default export */ var Teaser = __webpack_exports__["a"] = (component.exports);
-
-/***/ }),
-
-/***/ "be27":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "fonts/gent-icons-v5.woff";
 
 /***/ }),
 
@@ -30911,6 +30897,13 @@ module.exports = function (it, TAG, STATIC) {
 
 /***/ }),
 
+/***/ "d782":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "fonts/gent-icons-v5.woff2";
+
+/***/ }),
+
 /***/ "d784":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31773,6 +31766,13 @@ module.exports = !fails(function () {
 
 })));
 
+
+/***/ }),
+
+/***/ "e218":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "fonts/gent-icons-v5.eot";
 
 /***/ }),
 

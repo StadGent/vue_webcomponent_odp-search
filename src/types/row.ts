@@ -21,6 +21,7 @@ export interface Row {
   postcode?: string;
   gemeente?: string;
   coordinates?: string;
+  icoon?: string;
   website?: string;
   image_url?: string;
   openingsuren?: string;

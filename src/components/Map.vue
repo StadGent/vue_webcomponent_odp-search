@@ -240,7 +240,9 @@ export default Vue.extend({
   },
   watch: {
     items: function (): void {
-      this.setFeatures()
+      if (this.olMap) {
+        this.setFeatures()
+      }
     },
     show: function (show): void {
       // Map container must be visible before initialization

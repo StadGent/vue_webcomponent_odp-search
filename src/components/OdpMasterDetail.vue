@@ -192,8 +192,14 @@ export default Vue.extend({
       }
 
       const { records }: Dataset = await response.json()
-      records.length === 0 ? this.noResult = true : this.noResult = false
-      this.allItems = records.map(({ fields }) => fields)
+      this.noResult = records.length === 0
+
+      // Ensure recordid is included.
+      this.allItems = records.map(({ fields, recordid }) => ({
+        ...fields,
+        recordid
+      }))
+
       this.hasMap = !!this.allItems[0]?.coordinates
     },
     async fetch (hash: boolean): Promise<void> {

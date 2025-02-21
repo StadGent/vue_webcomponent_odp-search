@@ -26,4 +26,7 @@ export interface Row {
   image_url?: string;
   openingsuren?: string;
   images?: boolean;
+  totale_capaciteit?: string;
+  gereserveerde_plaatsen?: string;
+  datum_reservatie?: string;
 }

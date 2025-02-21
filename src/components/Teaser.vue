@@ -66,7 +66,8 @@
           </div>
         </div>
         <p v-if="teaser.teaser_text" v-html="teaser.teaser_text"></p>
-        <a :href="readMore" @click="$emit('selected', $event)" class="read-more standalone-link">
+        <!-- Conditionally show the "Lees meer" link -->
+        <a v-if="showReadMore" :href="readMore" @click="$emit('selected', $event)" class="read-more standalone-link">
           Lees meer <span class="visually-hidden">over {{ teaser.titel }}</span>
         </a>
       </div>
@@ -90,7 +91,8 @@
         </div>
       </div>
     </article>
-    <a :href="readMore"
+    <a v-if="showReadMore"
+       :href="readMore"
        @click="$emit('selected', $event)"
        class="teaser-overlay-link"
        tabindex="-1"
@@ -168,7 +170,16 @@ export default Vue.extend({
       return openingHours
     },
     readMore (): string {
-      return this.teaser.lees_meer || '#' + this.teaser.recordid
+      return this.teaser?.lees_meer || (this.teaser?.recordid ? `#${this.teaser.recordid}` : '#')
+    },
+    /**
+     * Determines if the "Lees meer" link should be shown.
+     */
+    showReadMore (): boolean {
+      return !!(
+        this.teaser.lees_meer || // Always show if external read more link exists
+        (this.teaser.recordid && (this.teaser.beschrijving || this.teaser.image_url)) // Show only if recordid exists & has description or image
+      )
     }
   }
 })

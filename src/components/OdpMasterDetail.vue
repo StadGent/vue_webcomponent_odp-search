@@ -194,10 +194,11 @@ export default Vue.extend({
       const { records }: Dataset = await response.json()
       this.noResult = records.length === 0
 
-      // Ensure recordid is included.
       this.allItems = records.map(({ fields, recordid }) => ({
         ...fields,
-        recordid
+        recordid, // Ensure recordid is included.
+        beschrijving: fields.beschrijving || '', // Ensure beschrijving is present.
+        imageUrl: fields.image_url || '' // Ensure image_url is present.
       }))
 
       this.hasMap = !!this.allItems[0]?.coordinates
@@ -225,7 +226,11 @@ export default Vue.extend({
       records.length === 0 ? this.noResult = true : this.noResult = false
 
       this.total = Math.ceil(nhits / 12)
-      this.items = records.map(({ fields }) => fields)
+      this.items = records.map(({ fields }) => ({
+        ...fields,
+        beschrijving: fields.beschrijving || '', // Ensure beschrijving is present.
+        imageUrl: fields.image_url || '' // Ensure image_url is present.
+      }))
 
       for (let i = 0; i < records.length; i++) {
         this.items[i].recordid = records[i].recordid

@@ -36,7 +36,7 @@
 
         <p v-if="noResult" class="mb-20 mt-20"><strong>Deze zoekopdracht leverde geen resultaten op.</strong></p>
 
-        <odp-map v-if="hasMap" v-show="showMap" :show="showMap" class="odp-map" :items="allItems"></odp-map>
+        <odp-map v-if="hasMap" v-show="showMap && allItems.length > 0" :show="showMap && allItems.length > 0" class="odp-map" :items="allItems"></odp-map>
 
         <ul v-if="items.length && !random" v-show="!showMap" :style="horizontal ? 'margin-left: 0' : null"
             class="is-ordered"
@@ -201,7 +201,13 @@ export default Vue.extend({
         imageUrl: fields.image_url || '' // Ensure image_url is present.
       }))
 
-      this.hasMap = !!this.allItems[0]?.coordinates
+      // Only ever set hasMap to true, never back to false.
+      // Once the dataset is known to have coordinates, keep the map
+      // component mounted so the OpenLayers instance isn't destroyed
+      // when a filter temporarily yields zero results.
+      if (!this.hasMap) {
+        this.hasMap = !!this.allItems[0]?.coordinates
+      }
     },
     async fetch (hash: boolean): Promise<void> {
       this.loading = true
@@ -236,7 +242,13 @@ export default Vue.extend({
         this.items[i].recordid = records[i].recordid
       }
 
-      this.hasMap = !!this.items[0]?.coordinates
+      // Only ever set hasMap to true, never back to false.
+      // Once the dataset is known to have coordinates, keep the map
+      // component mounted so the OpenLayers instance isn't destroyed
+      // when a filter temporarily yields zero results.
+      if (!this.hasMap) {
+        this.hasMap = !!this.items[0]?.coordinates
+      }
       this.images = false
 
       for (let i = 0; i < this.items.length; i++) {

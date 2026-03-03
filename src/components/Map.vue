@@ -249,9 +249,23 @@ export default Vue.extend({
       this.$nextTick(() => {
         if (show && !this.olMap) {
           this.initMap()
+        } else if (show && this.olMap) {
+          // Recalculate the viewport after the container becomes visible
+          // again — OpenLayers can't measure a hidden element correctly.
+          this.olMap.updateSize()
         }
       })
     }
+  },
+  mounted () {
+    // When the component is (re)created with show already true,
+    // the show watcher won't fire (no value change), so we need
+    // to initialise the map here as well.
+    this.$nextTick(() => {
+      if (this.show && !this.olMap) {
+        this.initMap()
+      }
+    })
   }
 })
 </script>

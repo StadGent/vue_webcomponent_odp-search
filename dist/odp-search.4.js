@@ -7,12 +7,12 @@
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"1ec34416-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Map.vue?vue&type=template&id=b0a1d2fc&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"70dc5462-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/Map.vue?vue&type=template&id=51fdc790&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('div',{ref:"map",staticClass:"map-container"},[_c('div',{staticClass:"content-container"},[_c('div',{staticClass:"geolocate"},[_c('div',{staticClass:"tools"},[_c('button',{attrs:{"type":"button","aria-label":"Zoom in","title":"Zoom in"},on:{"click":_vm.zoomIn}},[_c('i',{staticClass:"icon-plus",attrs:{"aria-hidden":"true"}})]),_c('button',{attrs:{"type":"button","aria-label":"Zoom uit","title":"Zoom uit"},on:{"click":_vm.zoomOut}},[_c('i',{staticClass:"icon-minus",attrs:{"aria-hidden":"true"}})]),_c('button',{attrs:{"type":"button","aria-label":"Ga naar huidige locatie","title":"Ga naar huidige locatie"},on:{"click":_vm.goToCurrentLocation}},[_c('i',{staticClass:"icon-marker",attrs:{"aria-hidden":"true"}})])])])])])])}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/components/Map.vue?vue&type=template&id=b0a1d2fc&
+// CONCATENATED MODULE: ./src/components/Map.vue?vue&type=template&id=51fdc790&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/web.dom-collections.iterator.js
 var web_dom_collections_iterator = __webpack_require__("ddb0");
@@ -303,10 +303,26 @@ const iconMap = {
       this.$nextTick(() => {
         if (show && !this.olMap) {
           this.initMap();
+        } else if (show && this.olMap) {
+          // Recalculate the viewport after the container becomes visible
+          // again — OpenLayers can't measure a hidden element correctly.
+          this.olMap.updateSize();
         }
       });
     }
+  },
+
+  mounted() {
+    // When the component is (re)created with show already true,
+    // the show watcher won't fire (no value change), so we need
+    // to initialise the map here as well.
+    this.$nextTick(() => {
+      if (this.show && !this.olMap) {
+        this.initMap();
+      }
+    });
   }
+
 }));
 // CONCATENATED MODULE: ./src/components/Map.vue?vue&type=script&lang=ts&
  /* harmony default export */ var components_Mapvue_type_script_lang_ts_ = (Mapvue_type_script_lang_ts_); 

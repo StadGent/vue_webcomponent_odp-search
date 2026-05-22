@@ -136,17 +136,37 @@ export default Vue.extend({
       offset: 0,
       loading: true,
       noResult: true,
-      q: null,
+      q: null as string | null,
       myFormFields: [] as FormField[],
       selectedRecord: null as (Row | null),
       trigger: null as (HTMLElement | null),
       showMap: false,
-      hasMap: false
+      hasMap: false,
+      currentSort: null as string | null
     }
   },
   watch: {
-    formFields (v: FormField[]) {
-      this.myFormFields = v
+    formFields: {
+      immediate: true,
+      deep: true,
+      handler (v: FormField[]) {
+        this.myFormFields = v.map(f => ({
+          ...f,
+          value: f.value ?? undefined
+        }))
+
+        this.$nextTick(() => {
+          // URL must be applied AFTER fields exist - fields are added in drupal
+          this.applyQueryParams()
+
+          this.offset = 0
+          this.fetch(true).then(async () => {
+            if (this.hasMap) {
+              await this.fetchAll()
+            }
+          })
+        })
+      }
     }
   },
   computed: {
@@ -155,32 +175,135 @@ export default Vue.extend({
     }
   },
   methods: {
-    // eslint-disable-next-line  @typescript-eslint/no-explicit-any
-    randomList: function (rand: any) {
-      return rand.slice().sort(function () { return 0.5 - Math.random() })
+    randomList (rand: unknown[]) {
+      return rand.slice().sort(() => 0.5 - Math.random())
     },
-    splitOptions: function (options: [Option | string]): Option[] {
-      return options.map((o: Option | string) => typeof o === 'string' ? { name: o, value: o } : o)
+
+    splitOptions (options: Array<Option | string>): Option[] {
+      if (!options) { return [] }
+      return options.map((o: Option | string) =>
+        typeof o === 'string' ? { name: o, value: o } : o
+      )
+    },
+    applyQueryParams (): void {
+      const params = new URLSearchParams(window.location.search)
+
+      const rawQ = params.get('q')
+      const page = params.get('page')
+      const sort = params.get('sort')
+
+      // sort (LOCAL STATE)
+      if (sort) {
+        this.currentSort = sort
+      }
+
+      // paging
+      if (page) {
+        const p = parseInt(page, 10)
+        if (!isNaN(p) && p > 0) {
+          this.offset = (p - 1) * 12
+        }
+      } else {
+        this.offset = 0
+      }
+
+      if (!rawQ) return
+
+      const regex = /([\w-]+):'([^']+)'/g
+      const filters: Array<{ column: string; value: string }> = []
+
+      let match: RegExpExecArray | null
+
+      while ((match = regex.exec(rawQ)) !== null) {
+        filters.push({
+          column: match[1],
+          value: match[2]
+        })
+      }
+
+      // apply to form
+      this.myFormFields.forEach(field => {
+        const found = filters.find(f => f.column === field.column)
+
+        if (found) {
+          field.value = this.normalizeValue(found.value, field.options)
+          this.$set(this.myFormFields, this.myFormFields.indexOf(field), field)
+        }
+      })
+
+      // free text
+      let freeSearch = rawQ.replace(regex, '')
+
+      freeSearch = freeSearch
+        .replace(/\sand\s/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim()
+
+      this.q = freeSearch || null
+    },
+    buildQueryParams (): URLSearchParams {
+      const params = new URLSearchParams()
+
+      const page = Math.floor(this.offset / 12) + 1
+      params.set('page', String(page))
+
+      const parts: string[] = []
+
+      if (this.q) parts.push(this.q)
+
+      this.myFormFields
+        .filter(f => !!f.value)
+        .forEach(f => {
+          parts.push(`${f.column}:'${f.value}'`)
+        })
+
+      if (parts.length) {
+        params.set('q', parts.join(' and '))
+      }
+
+      if (this.currentSort) {
+        params.set('sort', this.currentSort)
+      }
+
+      return params
+    },
+    updateUrl (): void {
+      const params = this.buildQueryParams()
+
+      window.history.replaceState(
+        {},
+        '',
+        `${window.location.pathname}?${params.toString()}${window.location.hash}`
+      )
     },
     createUrl (paged: boolean): string {
       const fields = this.myFormFields.filter(f => !!f.value)
-      let url
 
-      if (paged) {
-        url = `${this.source}${this.dataset}&rows=12&start=${this.offset}${this.sort ? '&sort=' + this.sort : ''}&q=`
-      } else {
-        url = `${this.source}${this.dataset}&rows=1000${this.sort ? '&sort=' + this.sort : ''}&q=`
+      const base =
+        `${this.source}${this.dataset}` +
+        `&rows=${paged ? 12 : 1000}` +
+        `&start=${this.offset}` +
+        `${this.currentSort ? '&sort=' + this.currentSort : ''}` +
+        '&q='
+
+      let url = base
+
+      if (this.q) {
+        url += this.q + (fields.length ? ' and ' : '')
       }
 
-      if (this.query && this.q) {
-        url += `${this.q}${fields?.length ? ' and ' : ''}`
-      }
-      url += fields.map((f: FormField) => `${f.column}:'${f.value}'`).join(' and ')
+      url += fields
+        .map(f => `${f.column}:'${f.value}'`)
+        .join(' and ')
 
       return url
     },
+    normalizeValue (value: string, options: Array<Option | string>) {
+      const list = this.splitOptions(options)
+      const match = list.find(o => String(o.value) === String(value))
+      return match ? match.value : value
+    },
     async fetchAll (): Promise<void> {
-      this.allItems = []
       const url = this.createUrl(false)
       const response = await fetch(url)
       if (!response.ok) {
@@ -212,11 +335,10 @@ export default Vue.extend({
     async fetch (hash: boolean): Promise<void> {
       this.loading = true
       this.items = []
-      let url = ''
 
-      hash ? url = this.createUrl(false) : url = this.createUrl(true)
-
+      const url = this.createUrl(hash)
       const response = await fetch(url)
+
       if (!response.ok) {
         this.noResult = true
         this.loading = false
@@ -224,13 +346,9 @@ export default Vue.extend({
         return
       }
 
-      const {
-        nhits,
-        records
-      }: Dataset = await response.json()
+      const { nhits, records }: Dataset = await response.json()
 
-      records.length === 0 ? this.noResult = true : this.noResult = false
-
+      this.noResult = records.length === 0
       this.total = Math.ceil(nhits / 12)
       this.items = records.map(({ fields }) => ({
         ...fields,
@@ -281,37 +399,34 @@ export default Vue.extend({
       }
     },
     async search (): Promise<void> {
+      this.offset = 0
       await this.firstFetch()
       const grid = this.$refs.grid as HTMLElement
       if (grid) {
         grid.focus()
       }
+      this.updateUrl()
     },
-    emitFilter (): void {
-      const formValue: { [key: string]: unknown } = {
-        q: this.q
+    async navigate (page: number): Promise<void> {
+      this.offset = (page - 1) * 12
+      await this.fetch(true)
+      const grid = this.$refs.grid as HTMLElement
+      if (grid) {
+        grid.focus()
       }
-      this.myFormFields.forEach((f: FormField) => {
-        formValue[f.column] = f.value
-      })
-      this.$emit('filter', formValue)
+      this.updateUrl()
     },
     setTrigger ({ currentTarget }: Event): void {
       this.trigger = currentTarget as HTMLElement
     },
     async back (): Promise<void> {
       location.hash = ''
-      await this.fetch(false)
+      await this.fetch(true)
     },
     onHashChange (): void {
       const hash = window.location.hash.replace('#', '')
       if (!hash) {
         this.selectedRecord = null
-        setTimeout(() => {
-          if (this.trigger !== null) {
-            this.trigger.focus()
-          }
-        })
         return
       }
 
@@ -321,18 +436,26 @@ export default Vue.extend({
         this.$emit('detail', JSON.parse(JSON.stringify(row)))
       }
     },
-    async navigate (page: number): Promise<void> {
-      this.offset = (page - 1) * 12
-      await this.fetch(false)
-      const grid = this.$refs.grid as HTMLElement
-      if (grid) {
-        grid.focus()
+    emitFilter (): void {
+      const formValue: Record<string, unknown> = {
+        q: this.q
       }
+      this.myFormFields.forEach((f: FormField) => {
+        formValue[f.column] = f.value
+      })
+      this.$emit('filter', formValue)
     }
   },
+
   async mounted (): Promise<void> {
     this.myFormFields = this.formFields
-    await this.firstFetch()
+
+    await this.$nextTick()
+
+    this.applyQueryParams()
+
+    await this.$nextTick()
+
     window.addEventListener('hashchange', this.onHashChange)
     this.onHashChange()
 

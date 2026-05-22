@@ -221,7 +221,8 @@ export default Vue.extend({
         })
       }
 
-      // apply to form
+      // Apply the query params to the form fields.
+      // This allows users to visually see that the form field are prefilled.
       this.myFormFields.forEach(field => {
         const found = filters.find(f => f.column === field.column)
 
@@ -231,7 +232,7 @@ export default Vue.extend({
         }
       })
 
-      // free text
+      // Prefill the free search textbox when available in the query params.
       let freeSearch = rawQ.replace(regex, '')
 
       freeSearch = freeSearch

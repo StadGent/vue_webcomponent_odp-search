@@ -733,6 +733,13 @@ exports.f = DESCRIPTORS ? nativeGetOwnPropertyDescriptor : function getOwnProper
 
 /***/ }),
 
+/***/ "06df":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "fonts/gent-icons-v5.eot";
+
+/***/ }),
+
 /***/ "0721":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1992,6 +1999,13 @@ module.exports = isArguments;
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "img/spinner--teal.svg";
+
+/***/ }),
+
+/***/ "1056":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "fonts/gent-icons-v5.woff2";
 
 /***/ }),
 
@@ -13706,13 +13720,6 @@ module.exports = baseTimes;
 
 /***/ }),
 
-/***/ "34af":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "fonts/gent-icons-v5.ttf";
-
-/***/ }),
-
 /***/ "35a1":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -13994,11 +14001,11 @@ var ___CSS_LOADER_URL_IMPORT_11___ = __webpack_require__("6503");
 var ___CSS_LOADER_URL_IMPORT_12___ = __webpack_require__("891f");
 var ___CSS_LOADER_URL_IMPORT_13___ = __webpack_require__("148c");
 var ___CSS_LOADER_URL_IMPORT_14___ = __webpack_require__("c6cb");
-var ___CSS_LOADER_URL_IMPORT_15___ = __webpack_require__("7359");
+var ___CSS_LOADER_URL_IMPORT_15___ = __webpack_require__("06df");
 var ___CSS_LOADER_URL_IMPORT_16___ = __webpack_require__("3ae2");
-var ___CSS_LOADER_URL_IMPORT_17___ = __webpack_require__("4f2b");
-var ___CSS_LOADER_URL_IMPORT_18___ = __webpack_require__("7d8c");
-var ___CSS_LOADER_URL_IMPORT_19___ = __webpack_require__("34af");
+var ___CSS_LOADER_URL_IMPORT_17___ = __webpack_require__("1056");
+var ___CSS_LOADER_URL_IMPORT_18___ = __webpack_require__("cc48");
+var ___CSS_LOADER_URL_IMPORT_19___ = __webpack_require__("3fbe");
 var ___CSS_LOADER_URL_IMPORT_20___ = __webpack_require__("9642");
 var ___CSS_LOADER_URL_IMPORT_21___ = __webpack_require__("6bba");
 var ___CSS_LOADER_URL_IMPORT_22___ = __webpack_require__("cb8c");
@@ -14057,11 +14064,11 @@ var ___CSS_LOADER_URL_REPLACEMENT_15___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS
 var ___CSS_LOADER_URL_REPLACEMENT_16___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_13___);
 var ___CSS_LOADER_URL_REPLACEMENT_17___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_14___, { hash: "#FiraSans" });
 var ___CSS_LOADER_URL_REPLACEMENT_18___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_15___);
-var ___CSS_LOADER_URL_REPLACEMENT_19___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_16___, { hash: "?#iefix?v=50" });
+var ___CSS_LOADER_URL_REPLACEMENT_19___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_16___, { hash: "?#iefix?v=589" });
 var ___CSS_LOADER_URL_REPLACEMENT_20___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_17___);
 var ___CSS_LOADER_URL_REPLACEMENT_21___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_18___);
 var ___CSS_LOADER_URL_REPLACEMENT_22___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_19___);
-var ___CSS_LOADER_URL_REPLACEMENT_23___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_20___, { hash: "#gent-icons-v5?v=50" });
+var ___CSS_LOADER_URL_REPLACEMENT_23___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_20___, { hash: "#gent-icons-v5?v=589" });
 var ___CSS_LOADER_URL_REPLACEMENT_24___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_21___);
 var ___CSS_LOADER_URL_REPLACEMENT_25___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_22___);
 var ___CSS_LOADER_URL_REPLACEMENT_26___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_23___);
@@ -15370,6 +15377,13 @@ module.exports = {};
 
 /***/ }),
 
+/***/ "3fbe":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "fonts/gent-icons-v5.ttf";
+
+/***/ }),
+
 /***/ "4136":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -16633,13 +16647,6 @@ module.exports = function from(arrayLike /* , mapfn = undefined, thisArg = undef
   return result;
 };
 
-
-/***/ }),
-
-/***/ "4f2b":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "fonts/gent-icons-v5.woff2";
 
 /***/ }),
 
@@ -17907,7 +17914,7 @@ var addStylesShadow = __webpack_require__("35d6");
 // EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
 var componentNormalizer = __webpack_require__("2877");
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"2e5e20ea-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/OdpMasterDetail.vue?vue&type=template&id=bb7c0dfc&shadow
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"2e5e20ea-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/components/OdpMasterDetail.vue?vue&type=template&id=03d7055e&shadow
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:"root",staticClass:"odp-master-detail",class:_vm.theme},[_c('div',{directives:[{name:"show",rawName:"v-show",value:(!_vm.selectedRecord),expression:"!selectedRecord"}]},[_c('form',{staticClass:"mb-20",on:{"submit":function($event){$event.preventDefault();return _vm.search($event)}}},[_c('div',{staticClass:"flex mb-10"},[(_vm.query)?_c('div',[_c('label',{attrs:{"for":"query"}},[_vm._v(_vm._s(_vm.query))]),_c('input',{directives:[{name:"model",rawName:"v-model",value:(_vm.q),expression:"q"}],attrs:{"type":"text","id":"query"},domProps:{"value":(_vm.q)},on:{"input":function($event){if($event.target.composing){ return; }_vm.q=$event.target.value}}})]):_vm._e(),_vm._l((_vm.myFormFields),function(f,index){return _c('div',{key:f.column + '-' + index},[_c('label',{attrs:{"for":f.column}},[_vm._v(_vm._s(f.label))]),(!f.type || f.type === 'select')?_c('select',{directives:[{name:"model",rawName:"v-model",value:(f.value),expression:"f.value"}],attrs:{"id":f.column},on:{"change":function($event){var $$selectedVal = Array.prototype.filter.call($event.target.options,function(o){return o.selected}).map(function(o){var val = "_value" in o ? o._value : o.value;return val}); _vm.$set(f, "value", $event.target.multiple ? $$selectedVal : $$selectedVal[0])}}},[_c('option',{domProps:{"value":null}},[_vm._v("Geen keuze")]),_vm._l((_vm.splitOptions(f.options)),function(ref,i){
 var name = ref.name;
 var value = ref.value;
@@ -17915,7 +17922,7 @@ return _c('option',{key:f.column + '-' + index + '-' + value + '-' + i,domProps:
 var staticRenderFns = [function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"spinner"},[_c('div',[_vm._v("…loading")])])}]
 
 
-// CONCATENATED MODULE: ./src/components/OdpMasterDetail.vue?vue&type=template&id=bb7c0dfc&shadow
+// CONCATENATED MODULE: ./src/components/OdpMasterDetail.vue?vue&type=template&id=03d7055e&shadow
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.string.replace.js
 var es_string_replace = __webpack_require__("5319");
@@ -18092,8 +18099,6 @@ var Detail_component = Object(componentNormalizer["a" /* default */])(
 
 
 
-/* eslint-disable */
-
 
 
 
@@ -18171,32 +18176,28 @@ var Detail_component = Object(componentNormalizer["a" /* default */])(
           return { ...f,
             value: (_f$value = f.value) !== null && _f$value !== void 0 ? _f$value : undefined
           };
-        });
-        this.$nextTick(() => {
-          // URL must be applied AFTER fields exist - fields are added in drupal
-          const hash = window.location.hash.replace('#', '');
-          console.log('hash', hash);
+        }); // URL must be applied AFTER fields exist - fields are added in drupal
 
-          if (hash) {
-            this.fetch(true).then(async () => {
-              const row = this.items.find(i => i.recordid === hash);
-              console.log('row', row);
+        const hash = window.location.hash.replace('#', '');
 
-              if (row) {
-                this.selectedRecord = row;
-                this.$emit('detail', JSON.parse(JSON.stringify(row)));
-              }
-            });
-          } else {
-            this.applyQueryParams();
-            this.offset = 0;
-            this.fetch(true).then(async () => {
-              if (this.hasMap) {
-                await this.fetchAll();
-              }
-            });
-          }
-        });
+        if (hash) {
+          this.fetch(true).then(async () => {
+            const row = this.items.find(i => i.recordid === hash);
+
+            if (row) {
+              this.selectedRecord = row;
+              this.$emit('detail', JSON.parse(JSON.stringify(row)));
+            }
+          });
+        } else {
+          this.applyQueryParams();
+          this.offset = 0;
+          this.fetch(true).then(async () => {
+            if (this.hasMap) {
+              await this.fetchAll();
+            }
+          });
+        }
       }
 
     }
@@ -18468,6 +18469,7 @@ var Detail_component = Object(componentNormalizer["a" /* default */])(
 
     async back() {
       location.hash = '';
+      this.applyQueryParams();
       await this.fetch(true);
     },
 
@@ -21277,13 +21279,6 @@ module.exports = __webpack_require__.p + "fonts/fira-sans-v16-latin-ext_latin-60
 
 /***/ }),
 
-/***/ "7359":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "fonts/gent-icons-v5.eot";
-
-/***/ }),
-
 /***/ "7418":
 /***/ (function(module, exports) {
 
@@ -23005,13 +23000,6 @@ module.exports = Object.create || function create(O, Properties) {
   return Properties === undefined ? result : defineProperties(result, Properties);
 };
 
-
-/***/ }),
-
-/***/ "7d8c":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "fonts/gent-icons-v5.woff";
 
 /***/ }),
 
@@ -57917,6 +57905,13 @@ module.exports = function (it) {
   return EXISTS ? document.createElement(it) : {};
 };
 
+
+/***/ }),
+
+/***/ "cc48":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "fonts/gent-icons-v5.woff";
 
 /***/ }),
 

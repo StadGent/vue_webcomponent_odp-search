@@ -155,27 +155,25 @@ export default Vue.extend({
           value: f.value ?? undefined
         }))
 
-        this.$nextTick(() => {
-          // URL must be applied AFTER fields exist - fields are added in drupal
-          const hash = window.location.hash.replace('#', '')
-          if (hash) {
-            this.fetch(true).then(async () => {
-              const row = this.items.find(i => i.recordid === hash)
-              if (row) {
-                this.selectedRecord = row
-                this.$emit('detail', JSON.parse(JSON.stringify(row)))
-              }
-            })
-          } else {
-            this.applyQueryParams()
-            this.offset = 0
-            this.fetch(true).then(async () => {
-              if (this.hasMap) {
-                await this.fetchAll()
-              }
-            })
-          }
-        })
+        // URL must be applied AFTER fields exist - fields are added in drupal
+        const hash = window.location.hash.replace('#', '')
+        if (hash) {
+          this.fetch(true).then(async () => {
+            const row = this.items.find(i => i.recordid === hash)
+            if (row) {
+              this.selectedRecord = row
+              this.$emit('detail', JSON.parse(JSON.stringify(row)))
+            }
+          })
+        } else {
+          this.applyQueryParams()
+          this.offset = 0
+          this.fetch(true).then(async () => {
+            if (this.hasMap) {
+              await this.fetchAll()
+            }
+          })
+        }
       }
     }
   },
@@ -433,6 +431,7 @@ export default Vue.extend({
     },
     async back (): Promise<void> {
       location.hash = ''
+      this.applyQueryParams()
       await this.fetch(true)
     },
     onHashChange (): void {

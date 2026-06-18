@@ -72,8 +72,7 @@
         </div>
       </div>
     </div>
-
-    <detail v-if="selectedRecord" @back="back()" :row="selectedRecord"></detail>
+    <detail v-if="selectedRecord" :key="selectedRecord.recordid" @back="back()" :row="selectedRecord"></detail>
   </div>
 </template>
 
@@ -81,6 +80,7 @@
 import Vue, { PropType } from 'vue'
 import Pagination from '@/components/Pagination.vue'
 import Teaser from '@/components/Teaser.vue'
+import Detail from '@/components/Detail.vue'
 import { Dataset } from '@/types/dataset'
 import { FormField, Option } from '@/types/formField'
 import { Row } from '@/types/row'
@@ -88,7 +88,7 @@ import { Row } from '@/types/row'
 export default Vue.extend({
   name: 'OdpMasterDetail',
   components: {
-    Detail: () => import('@/components/Detail.vue'),
+    Detail,
     OdpMap: () => import('@/components/Map.vue'),
     Teaser,
     Pagination
@@ -155,17 +155,25 @@ export default Vue.extend({
           value: f.value ?? undefined
         }))
 
-        this.$nextTick(() => {
-          // URL must be applied AFTER fields exist - fields are added in drupal
+        // URL must be applied AFTER fields exist - fields are added in drupal
+        const hash = window.location.hash.replace('#', '')
+        if (hash) {
+          this.fetch(true).then(async () => {
+            const row = this.items.find(i => i.recordid === hash)
+            if (row) {
+              this.selectedRecord = row
+              this.$emit('detail', JSON.parse(JSON.stringify(row)))
+            }
+          })
+        } else {
           this.applyQueryParams()
-
           this.offset = 0
           this.fetch(true).then(async () => {
             if (this.hasMap) {
               await this.fetchAll()
             }
           })
-        })
+        }
       }
     }
   },
@@ -280,14 +288,13 @@ export default Vue.extend({
     createUrl (paged: boolean): string {
       const fields = this.myFormFields.filter(f => !!f.value)
 
-      const base =
-        `${this.source}${this.dataset}` +
-        `&rows=${paged ? 12 : 1000}` +
-        `&start=${this.offset}` +
-        `${this.currentSort ? '&sort=' + this.currentSort : ''}` +
-        '&q='
+      let url
 
-      let url = base
+      if (paged) {
+        url = `${this.source}${this.dataset}&rows=12&start=${this.offset}${this.sort ? '&sort=' + this.sort : ''}&q=`
+      } else {
+        url = `${this.source}${this.dataset}&rows=1000${this.sort ? '&sort=' + this.sort : ''}&q=`
+      }
 
       if (this.q) {
         url += this.q + (fields.length ? ' and ' : '')
@@ -305,6 +312,7 @@ export default Vue.extend({
       return match ? match.value : value
     },
     async fetchAll (): Promise<void> {
+      this.allItems = []
       const url = this.createUrl(false)
       const response = await fetch(url)
       if (!response.ok) {
@@ -336,8 +344,9 @@ export default Vue.extend({
     async fetch (hash: boolean): Promise<void> {
       this.loading = true
       this.items = []
+      let url = ''
 
-      const url = this.createUrl(hash)
+      hash ? url = this.createUrl(false) : url = this.createUrl(true)
       const response = await fetch(url)
 
       if (!response.ok) {
@@ -422,12 +431,18 @@ export default Vue.extend({
     },
     async back (): Promise<void> {
       location.hash = ''
+      this.applyQueryParams()
       await this.fetch(true)
     },
     onHashChange (): void {
       const hash = window.location.hash.replace('#', '')
       if (!hash) {
         this.selectedRecord = null
+        setTimeout(() => {
+          if (this.trigger !== null) {
+            this.trigger.focus()
+          }
+        })
         return
       }
 
@@ -451,11 +466,18 @@ export default Vue.extend({
   async mounted (): Promise<void> {
     this.myFormFields = this.formFields
 
-    await this.$nextTick()
-
-    this.applyQueryParams()
-
-    await this.$nextTick()
+    const hash = window.location.hash.replace('#', '')
+    if (hash) {
+      const row = this.items.find(i => i.recordid === hash)
+      if (row) {
+        this.selectedRecord = row
+        this.$emit('detail', JSON.parse(JSON.stringify(row)))
+      }
+    } else {
+      await this.$nextTick()
+      this.applyQueryParams()
+      await this.$nextTick()
+    }
 
     window.addEventListener('hashchange', this.onHashChange)
     this.onHashChange()

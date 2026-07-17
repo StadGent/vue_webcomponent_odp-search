@@ -158,7 +158,7 @@ export default Vue.extend({
         // URL must be applied AFTER fields exist - fields are added in drupal
         const hash = window.location.hash.replace('#', '')
         if (hash) {
-          this.fetch(true).then(async () => {
+          this.fetch(false).then(async () => {
             const row = this.items.find(i => i.recordid === hash)
             if (row) {
               this.selectedRecord = row
@@ -341,12 +341,11 @@ export default Vue.extend({
         this.hasMap = !!this.allItems[0]?.coordinates
       }
     },
-    async fetch (hash: boolean): Promise<void> {
+    async fetch (paged: boolean): Promise<void> {
       this.loading = true
       this.items = []
-      let url = ''
 
-      hash ? url = this.createUrl(false) : url = this.createUrl(true)
+      const url = this.createUrl(paged)
       const response = await fetch(url)
 
       if (!response.ok) {
@@ -399,11 +398,9 @@ export default Vue.extend({
       this.offset = 0
       this.emitFilter()
       const hash = window.location.hash.replace('#', '')
-      let hashBool = false
+      const paged = !hash
 
-      hash ? hashBool = true : hashBool = false
-
-      await this.fetch(hashBool)
+      await this.fetch(paged)
       if (this.hasMap) {
         await this.fetchAll()
       }
